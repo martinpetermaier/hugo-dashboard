@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-11T10:21:45Z",
+  "lastUpdated": "2026-02-11T10:39:29Z",
   "agents": [
     {
       "id": "hugo",
@@ -168,68 +168,43 @@
       "timeline": [
         {
           "date": "2026-02-11",
-          "text": "Slack Account Fix",
-          "icon": "💬"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "Notion Wissensstand aktualisiert",
-          "icon": "📝"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "Slack files:read/write Scopes",
-          "icon": "💬"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "BauGPT Produktlinien (von Andi, msg 774)",
-          "icon": "📦"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "Notion komplett entfernt (Andi msg 777)",
-          "icon": "📝"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "Neues lokales System",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "Andi fragte: \"Wie arbeitest DU am besten?\" (msg 769)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "Projekt-Status-Kategorien (Andi msg 812)",
-          "icon": "🏗️"
-        },
-        {
-          "date": "2026-02-11",
-          "text": "Dashboard gebaut (msg 784 + 801 + 807)",
+          "text": "Dashboard",
           "icon": "📊"
         },
         {
           "date": "2026-02-11",
-          "text": "Dashboard Final Architecture (dynamic, msg 852)",
-          "icon": "📊"
+          "text": "Notion Removed",
+          "icon": "📝"
         },
         {
           "date": "2026-02-11",
-          "text": "GitHub Pages Setup",
+          "text": "Calendar Integration",
+          "icon": "📅"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Pending Next Steps",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "GitHub",
           "icon": "🐙"
         },
         {
           "date": "2026-02-11",
-          "text": "Kalender-Integration",
+          "text": "Team from Calendar",
           "icon": "📅"
         },
         {
           "date": "2026-02-11",
-          "text": "Team-Info (aus Kalender)",
-          "icon": "📅"
+          "text": "Slack",
+          "icon": "💬"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Slack Config Discovery",
+          "icon": "💬"
         },
         {
           "date": "2026-02-10",
@@ -239,6 +214,31 @@
         {
           "date": "2026-02-10",
           "text": "Andi-Directive (WICHTIG)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Marketing-Offensive (eigenständig gebaut)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Notion",
+          "icon": "📝"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Slack",
+          "icon": "💬"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Nächste Schritte",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Gehaltsreport v7 (Final)",
           "icon": "📌"
         }
       ],
@@ -325,7 +325,7 @@
             "children": [
               {
                 "name": "data.json",
-                "size": "66.3KB"
+                "size": "66.5KB"
               },
               {
                 "name": "generate_data.py",
@@ -337,7 +337,7 @@
               },
               {
                 "name": "index.html",
-                "size": "13.5KB"
+                "size": "28.8KB"
               },
               {
                 "name": "screenshot.png",
@@ -984,7 +984,7 @@
               },
               {
                 "name": "2026-02-11.md",
-                "size": "5.1KB"
+                "size": "2.3KB"
               }
             ]
           },
@@ -1026,7 +1026,7 @@
           },
           {
             "name": "slack_listener.log",
-            "size": "12.3KB"
+            "size": "13.3KB"
           },
           {
             "name": "slack_listener.py",
@@ -2082,6 +2082,11 @@
       "knowledge": [],
       "timeline": [
         {
+          "date": "2026-02-11 10:46",
+          "text": "Head of Data Science Session Part 2 (10:46-11:15 GMT+1)",
+          "icon": "📌"
+        },
+        {
           "date": "2026-02-11 00:12",
           "text": "Head of Data Science Session (00:12-01:00 PST)",
           "icon": "📌"
@@ -2113,8 +2118,18 @@
         },
         {
           "date": "2026-02-11",
+          "text": "Cron Jobs Active",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11",
           "text": "Notion Tasks Status",
           "icon": "📝"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Pending",
+          "icon": "📌"
         },
         {
           "date": "2026-02-10 12:50",
@@ -2140,21 +2155,6 @@
           "date": "2026-02-10",
           "text": "Notion Task Management",
           "icon": "📝"
-        },
-        {
-          "date": "2026-02-10",
-          "text": "Knowledge Graph — Phase 2.1 ✅",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-10",
-          "text": "Knowledge Graph — Phase 3 ✅ (first batch)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-10",
-          "text": "Neo4j Migration to Aura ✅",
-          "icon": "📌"
         }
       ],
       "files": {
@@ -2203,19 +2203,23 @@
             "children": [
               {
                 "name": "cv_llm_results.jsonl",
-                "size": "439.8KB"
+                "size": "548.6KB"
               },
               {
                 "name": "cv_progress.md",
-                "size": "1.3KB"
+                "size": "889B"
               },
               {
                 "name": "cv_texts.jsonl",
-                "size": "8.7MB"
+                "size": "9.7MB"
               },
               {
                 "name": "kg_sync_state.json",
                 "size": "54B"
+              },
+              {
+                "name": "neo4j_ingested_wids.txt",
+                "size": "53.2KB"
               },
               {
                 "name": "raw_results.json",
@@ -2244,7 +2248,7 @@
               },
               {
                 "name": "2026-02-11.md",
-                "size": "3.8KB"
+                "size": "5.0KB"
               }
             ]
           },
@@ -2323,6 +2327,14 @@
                 "size": "3.1KB"
               },
               {
+                "name": "ingest_llm_to_neo4j.py",
+                "size": "4.9KB"
+              },
+              {
+                "name": "ingest_llm_to_neo4j_batch.py",
+                "size": "5.1KB"
+              },
+              {
                 "name": "kg_apply_normalization.py",
                 "size": "5.5KB"
               },
@@ -2345,6 +2357,10 @@
               {
                 "name": "kg_incremental_sync.py.bak",
                 "size": "26.0KB"
+              },
+              {
+                "name": "kg_ingest_llm_results.py",
+                "size": "4.3KB"
               },
               {
                 "name": "kg_ingest_structured.py",
@@ -2382,7 +2398,7 @@
           },
           {
             "name": "AGENTS.md",
-            "size": "528B"
+            "size": "1.6KB"
           },
           {
             "name": "HEARTBEAT.md",
