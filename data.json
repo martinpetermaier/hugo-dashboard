@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-11T10:13:44Z",
+  "lastUpdated": "2026-02-11T10:21:45Z",
   "agents": [
     {
       "id": "hugo",
@@ -10,41 +10,101 @@
       "status": "active",
       "projects": [
         {
-          "icon": "📄",
-          "title": "Aktive Projekte",
+          "icon": "📊",
+          "title": "Gehaltsreport 2026",
           "status": "ongoing",
-          "pct": 0,
-          "next": "** Deploy Landing Page + Backend-Anbindung",
-          "files": 0,
+          "pct": 85,
+          "next": "Deploy Landing Page + Backend-Anbindung",
+          "files": 98,
           "date": "",
-          "detail": "### 📊 Gehaltsreport 2026\n- **Status:** 🔵 Ongoing (v7 FINAL, warten auf Deploy + Launch-Ergebnisse)\n- **Next:** Deploy Landing Page + Backend-Anbindung\n- **Files:** gehaltsreport/\n\n### 💼 LinkedIn Growth\n- **Status:** 🟡 Strategie fertig, Posts KW8 ausstehend\n- **Next:** LinkedIn Posts KW8 veröffentlic"
+          "detail": "**Status:** 🔵 Ongoing (v7 FINAL, warten auf Deploy + Launch-Ergebnisse) **Next:** Deploy Landing Page + Backend-Anbindung **Files:** gehaltsreport/"
         },
         {
-          "icon": "📄",
-          "title": "Wiederkehrende Aufgaben",
-          "status": "backlog",
+          "icon": "💼",
+          "title": "LinkedIn Growth",
+          "status": "active",
+          "pct": 50,
+          "next": "LinkedIn Posts KW8 veröffentlichen",
+          "files": 31,
+          "date": "",
+          "detail": "**Status:** 🟡 Strategie fertig, Posts KW8 ausstehend **Next:** LinkedIn Posts KW8 veröffentlichen **Files:** linkedin/"
+        },
+        {
+          "icon": "📈",
+          "title": "Marketing-Offensive",
+          "status": "active",
+          "pct": 50,
+          "next": "6 weitere SEO-Blogposts, Social-Ads-Konzept",
+          "files": 6,
+          "date": "",
+          "detail": "**Status:** 🟡 In Progress **Next:** 6 weitere SEO-Blogposts, Social-Ads-Konzept **Files:** marketing/"
+        },
+        {
+          "icon": "🎬",
+          "title": "BauGPT Videos",
+          "status": "active",
+          "pct": 50,
+          "next": "Videos finalisieren + auf Social posten",
+          "files": 15,
+          "date": "",
+          "detail": "**Status:** 🟡 Scaffolded + erste Renders **Next:** Videos finalisieren + auf Social posten **Files:** baugpt-videos/"
+        },
+        {
+          "icon": "🧮",
+          "title": "Gehaltsrechner",
+          "status": "ongoing",
+          "pct": 85,
+          "next": "Deploy auf baugpt.com",
+          "files": 2,
+          "date": "",
+          "detail": "**Status:** 🔵 Ongoing (gebaut, noch nicht deployed) **Next:** Deploy auf baugpt.com **Files:** gehaltsrechner/"
+        },
+        {
+          "icon": "🌐",
+          "title": "baugpt.com Website-Audit",
+          "status": "blocked",
           "pct": 0,
-          "next": "",
+          "next": "Retry wenn Browser-Zugang da",
           "files": 0,
           "date": "2026-02-11",
-          "detail": "| Aufgabe | Frequenz | Letzter Run |\n|---------|----------|-------------|\n| Slack Mentions checken | Alle 5 Min (Heartbeat) | 2026-02-11 |\n| LinkedIn Posts planen | Wöchentlich | 2026-02-10 |\n| KNOWLEDGE.md aktualisieren | Bei neuen Infos | 2026-02-11 |\n| iCloud Dashboard sync | Bei Dateiänderungen "
-        },
-        {
-          "icon": "📄",
-          "title": "Abgeschlossen",
-          "status": "backlog",
-          "pct": 0,
-          "next": "",
-          "files": 0,
-          "date": "2026-02-10",
-          "detail": "- ✅ Gehaltsreport v7 FINAL (2026-02-10)\n- ✅ Landing Page (2026-02-10)\n- ✅ Gehaltsrechner (2026-02-10)\n- ✅ 14 Berufsgruppen-Grafiken (2026-02-10)\n- ✅ 3 LinkedIn Visuals (2026-02-10)\n- ✅ Wettbewerber-Analyse (2026-02-10)\n- ✅ E-Mail Nurture Sequenz (2026-02-10)\n- ✅ SEO-Blog Strategie (2026-02-10)\n- ✅ 2"
+          "detail": "**Status:** 🔴 Blocked (Vercel security) **Next:** Retry wenn Browser-Zugang da ## Wiederkehrende Aufgaben | Aufgabe | Frequenz | Letzter Run | |---------|----------|-------------| | Slack Mentions che"
         }
       ],
       "tasks": [
         {
-          "icon": "⚡",
-          "name": "2. Check Andi's calendar for today and tomorrow: `gog cal list",
-          "freq": "-client hugo --days 2`. If there are upcoming meetings/events in the next 2 hours, send Andi a reminder on Telegram. If nothing upcoming, do nothing."
+          "icon": "💬",
+          "name": "Slack Mentions checken",
+          "freq": "Alle 5 Min (Heartbeat)"
+        },
+        {
+          "icon": "💼",
+          "name": "LinkedIn Posts planen",
+          "freq": "Wöchentlich"
+        },
+        {
+          "icon": "📚",
+          "name": "KNOWLEDGE.md aktualisieren",
+          "freq": "Bei neuen Infos"
+        },
+        {
+          "icon": "📁",
+          "name": "iCloud Dashboard sync",
+          "freq": "Bei Dateiänderungen"
+        },
+        {
+          "icon": "🔍",
+          "name": "Wettbewerber-Check",
+          "freq": "Monatlich"
+        },
+        {
+          "icon": "📈",
+          "name": "SEO Keyword Monitoring",
+          "freq": "Monatlich"
+        },
+        {
+          "icon": "🧠",
+          "name": "Memory cleanup",
+          "freq": "Wöchentlich"
         }
       ],
       "knowledge": [
@@ -53,7 +113,7 @@
           "status": "learned"
         },
         {
-          "name": "MatchingAlgorithmus & Tech",
+          "name": "Matching-Algorithmus & Tech",
           "status": "learned"
         },
         {
@@ -73,7 +133,7 @@
           "status": "learned"
         },
         {
-          "name": "MarketingStrategie & Kanäle",
+          "name": "Marketing-Strategie & Kanäle",
           "status": "learned"
         },
         {
@@ -85,7 +145,7 @@
           "status": "partial"
         },
         {
-          "name": "TeamStruktur & Standorte",
+          "name": "Team-Struktur & Standorte",
           "status": "partial"
         },
         {
@@ -107,149 +167,84 @@
       ],
       "timeline": [
         {
-          "date": "2026-02-11 00:00",
-          "text": "Hugo postet manchmal als Alfred in Slack weil Sub-Agents ohne `accountId` den Default-Token (Alfred) nutzen",
+          "date": "2026-02-11",
+          "text": "Slack Account Fix",
+          "icon": "💬"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Notion Wissensstand aktualisiert",
+          "icon": "📝"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Slack files:read/write Scopes",
+          "icon": "💬"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "BauGPT Produktlinien (von Andi, msg 774)",
+          "icon": "📦"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Notion komplett entfernt (Andi msg 777)",
+          "icon": "📝"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Neues lokales System",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "FIX:** Bei Slack-Nachrichten IMMER `accountId: \"hugo\"` mitgeben",
+          "date": "2026-02-11",
+          "text": "Andi fragte: \"Wie arbeitest DU am besten?\" (msg 769)",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Hugo HAT einen eigenen Slack Bot (Screenshot von Andi bestätigt, msg 766)",
+          "date": "2026-02-11",
+          "text": "Projekt-Status-Kategorien (Andi msg 812)",
+          "icon": "🏗️"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Dashboard gebaut (msg 784 + 801 + 807)",
+          "icon": "📊"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Dashboard Final Architecture (dynamic, msg 852)",
+          "icon": "📊"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "GitHub Pages Setup",
+          "icon": "🐙"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Kalender-Integration",
+          "icon": "📅"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Team-Info (aus Kalender)",
+          "icon": "📅"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Gehaltsreport v7 (FINAL - Andi approved ✅)",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Slack config: Default binding geht zu `main` (Alfred), Hugo hat keinen eigenen Binding-Eintrag aber eigenen Bot-Token",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "4 Einträge auf ✅ Gelernt gesetzt + Content hinzugefügt:",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Gehaltsstrukturen Baubranche (🟡→✅)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Wettbewerber & Marktposition (🔴→✅)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Marketing-Strategie & Kanäle (🔴→✅)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Zielgruppen & Personas (🟡→✅)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Noch offen 🔴: Pricing & Business Model, Kundenbeispiele & Case Studies",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Andi hat `files:read` und `files:write` Slack Scopes für Alfred + Rainman freigeschaltet",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Nachricht im #botchannel gepostet (via Sub-Agent, aber als Alfred — siehe Fix oben)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Alles Wissen aus Notion Wissensstand-DB extrahiert → KNOWLEDGE.md",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "MEMORY.md bereinigt (keine Notion-IDs mehr)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "TOOLS.md bereinigt",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Andi: \"Ich brauche Notion nicht unbedingt\"",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "KNOWLEDGE.md** = BauGPT-Firmenwissen (Produkte, Zielgruppen, KPIs, etc.)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "PROJECTS.md** = Aktive Projekte + Wiederkehrende Aufgaben + Abgeschlossenes",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "dashboard/index.html** = Visuelles Workspace-Dashboard (PMF-Quality, Glassmorphism)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Dashboard auch in iCloud: 00-Dashboard/index.html",
+          "date": "2026-02-10",
+          "text": "Andi-Directive (WICHTIG)",
           "icon": "📌"
         }
       ],
       "files": {
         "name": "workspace-hugo",
         "children": [
-          {
-            "name": "AGENTS.md",
-            "size": "461B"
-          },
-          {
-            "name": "HEARTBEAT.md",
-            "size": "417B"
-          },
-          {
-            "name": "IDENTITY.md",
-            "size": "249B"
-          },
-          {
-            "name": "KNOWLEDGE.md",
-            "size": "4.5KB"
-          },
-          {
-            "name": "MEMORY.md",
-            "size": "2.4KB"
-          },
-          {
-            "name": "PROJECTS.md",
-            "size": "1.9KB"
-          },
-          {
-            "name": "RATE_LIMITS.md",
-            "size": "1.3KB"
-          },
-          {
-            "name": "SOUL.md",
-            "size": "1.6KB"
-          },
-          {
-            "name": "TOOLS.md",
-            "size": "364B"
-          },
-          {
-            "name": "USER.md",
-            "size": "310B"
-          },
           {
             "name": "baugpt-videos",
             "children": [
@@ -275,18 +270,6 @@
                 ]
               },
               {
-                "name": "package-lock.json",
-                "size": "193.7KB"
-              },
-              {
-                "name": "package.json",
-                "size": "486B"
-              },
-              {
-                "name": "remotion.config.ts",
-                "size": "181B"
-              },
-              {
                 "name": "src",
                 "children": [
                   {
@@ -302,18 +285,30 @@
                     "size": "10.3KB"
                   },
                   {
-                    "name": "Root.tsx",
-                    "size": "621B"
-                  },
-                  {
                     "name": "index.css",
                     "size": "226B"
                   },
                   {
                     "name": "index.ts",
                     "size": "108B"
+                  },
+                  {
+                    "name": "Root.tsx",
+                    "size": "621B"
                   }
                 ]
+              },
+              {
+                "name": "package-lock.json",
+                "size": "193.7KB"
+              },
+              {
+                "name": "package.json",
+                "size": "486B"
+              },
+              {
+                "name": "remotion.config.ts",
+                "size": "181B"
               },
               {
                 "name": "tailwind.config.js",
@@ -330,11 +325,15 @@
             "children": [
               {
                 "name": "data.json",
-                "size": "82.8KB"
+                "size": "66.3KB"
+              },
+              {
+                "name": "generate_data.py",
+                "size": "14.2KB"
               },
               {
                 "name": "generate_data.sh",
-                "size": "8.3KB"
+                "size": "95B"
               },
               {
                 "name": "index.html",
@@ -363,6 +362,10 @@
               {
                 "name": "screenshot_v2.png",
                 "size": "106.2KB"
+              },
+              {
+                "name": "server.py",
+                "size": "1.9KB"
               }
             ]
           },
@@ -370,54 +373,18 @@
             "name": "gehaltsrechner",
             "children": [
               {
-                "name": "README.md",
-                "size": "770B"
-              },
-              {
                 "name": "index.html",
                 "size": "13.5KB"
+              },
+              {
+                "name": "README.md",
+                "size": "770B"
               }
             ]
           },
           {
             "name": "gehaltsreport",
             "children": [
-              {
-                "name": "BauGPT_Gehaltsreport_2026_DRAFT.pdf",
-                "size": "595.2KB"
-              },
-              {
-                "name": "BauGPT_Gehaltsreport_2026_v3.pdf",
-                "size": "1.5MB"
-              },
-              {
-                "name": "BauGPT_Gehaltsreport_2026_v4.pdf",
-                "size": "1.6MB"
-              },
-              {
-                "name": "BauGPT_Gehaltsreport_2026_v5.pdf",
-                "size": "1.8MB"
-              },
-              {
-                "name": "BauGPT_Gehaltsreport_2026_v6.pdf",
-                "size": "1.5MB"
-              },
-              {
-                "name": "BauGPT_Gehaltsreport_2026_v7.pdf",
-                "size": "1.6MB"
-              },
-              {
-                "name": "BauGPT_Gehaltsreport_2026_v7_latex.pdf",
-                "size": "350.5KB"
-              },
-              {
-                "name": "BauGPT_Gehaltsreport_2026_v8_typst.pdf",
-                "size": "745.2KB"
-              },
-              {
-                "name": "Crafthunt_Gehaltsreport_2025.pdf",
-                "size": "582.1KB"
-              },
               {
                 "name": "assets",
                 "children": [
@@ -486,43 +453,10 @@
                     "size": "133.1KB"
                   },
                   {
-                    "name": "b64",
-                    "children": [
-                      {
-                        "name": "BauGPT_logo_dark_sm.b64",
-                        "size": "19.7KB"
-                      },
-                      {
-                        "name": "BauGPT_logo_light_sm.b64",
-                        "size": "17.3KB"
-                      },
-                      {
-                        "name": "Bauly_head_sm.b64",
-                        "size": "108.5KB"
-                      },
-                      {
-                        "name": "Bauly_showing_up_sm.b64",
-                        "size": "293.7KB"
-                      },
-                      {
-                        "name": "Bauly_thumbs_up_sm.b64",
-                        "size": "291.3KB"
-                      }
-                    ]
-                  },
-                  {
                     "name": "titlepage_referenz.jpg",
                     "size": "85.0KB"
                   }
                 ]
-              },
-              {
-                "name": "build_report.sh",
-                "size": "55.3KB"
-              },
-              {
-                "name": "build_v4.sh",
-                "size": "571B"
               },
               {
                 "name": "charts",
@@ -600,6 +534,50 @@
                     "size": "4.8KB"
                   }
                 ]
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_DRAFT.pdf",
+                "size": "595.2KB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v3.pdf",
+                "size": "1.5MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v4.pdf",
+                "size": "1.6MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v5.pdf",
+                "size": "1.8MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v6.pdf",
+                "size": "1.5MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v7.pdf",
+                "size": "1.6MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v7_latex.pdf",
+                "size": "350.5KB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v8_typst.pdf",
+                "size": "745.2KB"
+              },
+              {
+                "name": "build_report.sh",
+                "size": "55.3KB"
+              },
+              {
+                "name": "build_v4.sh",
+                "size": "571B"
+              },
+              {
+                "name": "Crafthunt_Gehaltsreport_2025.pdf",
+                "size": "582.1KB"
               },
               {
                 "name": "design_analyse.md",
@@ -808,82 +786,8 @@
               {
                 "name": "trends_und_tarife.md",
                 "size": "7.1KB"
-              },
-              {
-                "name": "vorlagen",
-                "children": [
-                  {
-                    "name": "BauGPT Brand Guidelines 2025-09-04.pdf",
-                    "size": "3.3MB"
-                  },
-                  {
-                    "name": "ContentModules",
-                    "children": [
-                      {
-                        "name": "After layout.pdf",
-                        "size": "1.9MB"
-                      },
-                      {
-                        "name": "Callout box for definitions or insights.pdf",
-                        "size": "3.5MB"
-                      },
-                      {
-                        "name": "Checklist module.pdf",
-                        "size": "2.2MB"
-                      },
-                      {
-                        "name": "Clean layouts for charts (bar, line, donut).pdf",
-                        "size": "1.4MB"
-                      },
-                      {
-                        "name": "Comparison layout (A vs. B).pdf",
-                        "size": "788.8KB"
-                      },
-                      {
-                        "name": "Example section (e.g., “real-world application”).pdf",
-                        "size": "1.8MB"
-                      },
-                      {
-                        "name": "Framework module.pdf",
-                        "size": "2.4MB"
-                      },
-                      {
-                        "name": "Funnel illustrations  (important for recruiting content).pdf",
-                        "size": "1.5MB"
-                      },
-                      {
-                        "name": "Highlighted stats or numbers.pdf",
-                        "size": "6.0MB"
-                      },
-                      {
-                        "name": "Process diagrams (3–7 steps).pdf",
-                        "size": "2.1MB"
-                      },
-                      {
-                        "name": "Step-by-step guide module.pdf",
-                        "size": "1.9MB"
-                      },
-                      {
-                        "name": "Text-heavy chapter  (important for our “AI prompts” guides).pdf",
-                        "size": "3.0MB"
-                      },
-                      {
-                        "name": "Two-column + image.pdf",
-                        "size": "1.7MB"
-                      }
-                    ]
-                  }
-                ]
               }
             ]
-          },
-          {
-            "name": "gehaltsreport-recherche.md",
-            "size": "15.8KB"
-          },
-          {
-            "name": "hugo-profile.png",
-            "size": "1.3MB"
           },
           {
             "name": "linkedin",
@@ -967,22 +871,6 @@
                 ]
               },
               {
-                "name": "post_drafts.md",
-                "size": "5.1KB"
-              },
-              {
-                "name": "post_visuals.md",
-                "size": "2.0KB"
-              },
-              {
-                "name": "posting_kalender.md",
-                "size": "3.7KB"
-              },
-              {
-                "name": "strategie.md",
-                "size": "6.4KB"
-              },
-              {
                 "name": "visuals",
                 "children": [
                   {
@@ -1026,6 +914,22 @@
                     "size": "102.9KB"
                   }
                 ]
+              },
+              {
+                "name": "post_drafts.md",
+                "size": "5.1KB"
+              },
+              {
+                "name": "post_visuals.md",
+                "size": "2.0KB"
+              },
+              {
+                "name": "posting_kalender.md",
+                "size": "3.7KB"
+              },
+              {
+                "name": "strategie.md",
+                "size": "6.4KB"
               }
             ]
           },
@@ -1080,9 +984,45 @@
               },
               {
                 "name": "2026-02-11.md",
-                "size": "4.5KB"
+                "size": "5.1KB"
               }
             ]
+          },
+          {
+            "name": "AGENTS.md",
+            "size": "461B"
+          },
+          {
+            "name": "gehaltsreport-recherche.md",
+            "size": "15.8KB"
+          },
+          {
+            "name": "HEARTBEAT.md",
+            "size": "417B"
+          },
+          {
+            "name": "hugo-profile.png",
+            "size": "1.3MB"
+          },
+          {
+            "name": "IDENTITY.md",
+            "size": "249B"
+          },
+          {
+            "name": "KNOWLEDGE.md",
+            "size": "4.5KB"
+          },
+          {
+            "name": "MEMORY.md",
+            "size": "2.4KB"
+          },
+          {
+            "name": "PROJECTS.md",
+            "size": "1.9KB"
+          },
+          {
+            "name": "RATE_LIMITS.md",
+            "size": "1.3KB"
           },
           {
             "name": "slack_listener.log",
@@ -1093,13 +1033,16 @@
             "size": "4.1KB"
           },
           {
-            "name": "test-results",
-            "children": [
-              {
-                "name": ".last-run.json",
-                "size": "45B"
-              }
-            ]
+            "name": "SOUL.md",
+            "size": "1.6KB"
+          },
+          {
+            "name": "TOOLS.md",
+            "size": "364B"
+          },
+          {
+            "name": "USER.md",
+            "size": "310B"
           }
         ]
       }
@@ -1114,183 +1057,112 @@
       "projects": [],
       "tasks": [
         {
-          "icon": "⚡",
-          "name": "- Check Slack #botchannel (C0ADW49K0TF) for new messages from Hugo via curl (Bot Token: xoxb",
-          "freq": "22470628465-10459565959799-1P7dMjQJ8WvMPex2asWUOcNc). If Hugo tagged @Alfred (U0ADHGMU7PH), reply via curl chat.postMessage. Last check state in scripts/botchannel-state.json."
+          "icon": "💬",
+          "name": "Slack Checks",
+          "freq": "Alle 5 Min"
+        },
+        {
+          "icon": "📝",
+          "name": "Notion Checks",
+          "freq": "Alle 5 Min"
+        },
+        {
+          "icon": "📅",
+          "name": "Google Workspace Checks",
+          "freq": "Täglich"
+        },
+        {
+          "icon": "🔄",
+          "name": "Daily Sync",
+          "freq": "Täglich"
         },
         {
           "icon": "⚡",
-          "name": "- **#crafthunt",
-          "freq": "chat-requests wird NICHT mehr über Heartbeat gecheckt** → läuft über eigenen Cron-Job (alle 15 Min, 08:30–19:00)."
-        },
-        {
-          "icon": "⚡",
-          "name": "- Check Feedback Board (DB: 3038597f",
-          "freq": "300c-8123-95a1-c8e2d411d27f) + Wissensstand DB (3038597f-300c-817b-b455-f39acfff4099) for new comments from Martin. Reply to comments in Notion. Last check state in scripts/notion-comments-state.json."
-        },
-        {
-          "icon": "⚡",
-          "name": "- Wird über separaten Cron",
-          "freq": "Job gesteuert, NICHT über Heartbeat."
-        },
-        {
-          "icon": "⚡",
-          "name": "- Sync HEARTBEAT.md with Notion \"Laufende & Wiederkehrende Aufgaben\" DB (3038597f",
-          "freq": "300c-8174-9019-de2c1bdba9b8). Check for new tasks Martin added. Update this file if needed. Last sync in scripts/heartbeat-sync-state.json."
-        },
-        {
-          "icon": "⚡",
-          "name": "- Chat",
-          "freq": "Analyse Report: Deep analysis of #crafthunt-chat-requests (last 7 days). Create Notion report under \"Chat-Analysen\" page (3038597f-300c-812c-a2cc-c1352845ba9e)."
+          "name": "Weekly",
+          "freq": "Wöchentlich"
         }
       ],
       "knowledge": [],
       "timeline": [
         {
-          "date": "2026-02-11 00:00",
-          "text": "Script `scripts/enrich-customers-slack.py` erstellt und ausgeführt",
+          "date": "2026-02-11",
+          "text": "Customer Knowledge Base Enrichment",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "661 Slack-Nachrichten aus #crafthunt-chat-requests analysiert",
+          "date": "2026-02-11",
+          "text": "Wöchentlicher KB Refresh Cron",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "25/33 Firmen zu Customer-Files zugeordnet und angereichert",
+          "date": "2026-02-11",
+          "text": "Telli Prompt — Final Version",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Insights pro Firma: Nachrichtenvolumen, Absagen, Einladungen, Gehaltsthemen, Standort-Issues",
+          "date": "2026-02-11",
+          "text": "Telli Testanruf 2 — Ergebnisse",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "`_index.md` mit globalen Patterns aktualisiert",
+          "date": "2026-02-11",
+          "text": "Telli API — Regionale Suche",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Key Stats: 911 msgs total, 506 Absagen (56% der Firmen-Msgs), 24 Einladungen",
+          "date": "2026-02-11",
+          "text": "Notion Tagesreport",
+          "icon": "📝"
+        },
+        {
+          "date": "2026-02-11",
+          "text": "Nightly Update Cron",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Aktivste Firmen: Enpal, Klyma, INTILION, Lucian Thum (viele Absagen wg Standort)",
+          "date": "2026-02-10",
+          "text": "Telli API — LIVE",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "State: `scripts/slack-enrichment-state.json`",
+          "date": "2026-02-10",
+          "text": "Telli Test Call Feedback",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Cron ID: `c96f72a6-f147-42ef-b58e-01359ed654a3`",
+          "date": "2026-02-10",
+          "text": "Telli System Prompt",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 06:00",
-          "text": "Schedule: Montag 06:00 Europe/Berlin",
+          "date": "2026-02-10",
+          "text": "Customer Knowledge Base",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Führt `build-customers-v2.py` + `enrich-customers-slack.py` aus",
+          "date": "2026-02-10",
+          "text": "Slack Activity",
+          "icon": "💬"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Sonstiges",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Isolated session mit announce delivery",
+          "date": "2026-02-09",
+          "text": "Erster Tag 🐸",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Kompletter bereinigter Prompt an Martin geliefert (copy-paste ready)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Aussprache: \"Bau Dschi Pie Tie\" als eigene Regel (nicht in Klammern)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Geschlecht auf männlich (Sebastian), \"KI-Assistent\" statt \"Assistentin\"",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "\"Vorqualifizierung\" überall ersetzt",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Martin hat Dashboard angepasst: Begrüßung raus, männliche Stimme, Namen geändert",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Tools werden jetzt getriggert ✅",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Bug: Agent schickt Firmenname bei allgemeiner Suche mit (name: Implenia Deutschland)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Latenz bei Tool-Calls → Kandidat muss \"Hallo?\" sagen",
-          "icon": "📌"
+          "date": "2026-02-09",
+          "text": "Slack Setup",
+          "icon": "💬"
         }
       ],
       "files": {
         "name": "workspace",
         "children": [
-          {
-            "name": ".clawhub",
-            "children": [
-              {
-                "name": "lock.json",
-                "size": "1.5KB"
-              }
-            ]
-          },
-          {
-            "name": "AGENTS.md",
-            "size": "8.5KB"
-          },
-          {
-            "name": "BOOTSTRAP.md",
-            "size": "1.4KB"
-          },
-          {
-            "name": "HEARTBEAT.md",
-            "size": "1.3KB"
-          },
-          {
-            "name": "IDENTITY.md",
-            "size": "441B"
-          },
-          {
-            "name": "MEMORY.md",
-            "size": "3.8KB"
-          },
-          {
-            "name": "SOUL.md",
-            "size": "1.6KB"
-          },
-          {
-            "name": "TOOLS.md",
-            "size": "1.3KB"
-          },
-          {
-            "name": "USER.md",
-            "size": "325B"
-          },
           {
             "name": "customers",
             "children": [
@@ -1806,10 +1678,6 @@
             ]
           },
           {
-            "name": "notion_kb.py",
-            "size": "11.7KB"
-          },
-          {
             "name": "references",
             "children": [
               {
@@ -1821,10 +1689,6 @@
           {
             "name": "scripts",
             "children": [
-              {
-                "name": "README.md",
-                "size": "1.1KB"
-              },
               {
                 "name": "botchannel-state.json",
                 "size": "71B"
@@ -1886,6 +1750,10 @@
                 "size": "1.2KB"
               },
               {
+                "name": "README.md",
+                "size": "1.1KB"
+              },
+              {
                 "name": "slack-enrichment-state.json",
                 "size": "467B"
               },
@@ -1906,21 +1774,12 @@
                 "name": "agent-browser-clawdbot",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "154B"
-                      }
-                    ]
+                    "name": "_meta.json",
+                    "size": "141B"
                   },
                   {
                     "name": "SKILL.md",
                     "size": "5.4KB"
-                  },
-                  {
-                    "name": "_meta.json",
-                    "size": "141B"
                   }
                 ]
               },
@@ -1928,13 +1787,8 @@
                 "name": "browser-automation",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "150B"
-                      }
-                    ]
+                    "name": "_meta.json",
+                    "size": "137B"
                   },
                   {
                     "name": "EXAMPLES.md",
@@ -1945,16 +1799,12 @@
                     "size": "13.1KB"
                   },
                   {
-                    "name": "SKILL.md",
-                    "size": "2.4KB"
-                  },
-                  {
-                    "name": "_meta.json",
-                    "size": "137B"
-                  },
-                  {
                     "name": "setup.json",
                     "size": "1.3KB"
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "2.4KB"
                   }
                 ]
               },
@@ -1964,52 +1814,6 @@
                   {
                     "name": "SKILL.md",
                     "size": "3.1KB"
-                  },
-                  {
-                    "name": "references",
-                    "children": [
-                      {
-                        "name": "db-schema.md",
-                        "size": "5.1KB"
-                      },
-                      {
-                        "name": "matching-config.md",
-                        "size": "2.3KB"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "scripts",
-                    "children": [
-                      {
-                        "name": "candidate-lookup.sh",
-                        "size": "1.9KB"
-                      },
-                      {
-                        "name": "candidate-match.sh",
-                        "size": "2.1KB"
-                      },
-                      {
-                        "name": "db-query.sh",
-                        "size": "182B"
-                      },
-                      {
-                        "name": "db.env",
-                        "size": "245B"
-                      },
-                      {
-                        "name": "job-search.sh",
-                        "size": "1.7KB"
-                      },
-                      {
-                        "name": "pipeline-status.sh",
-                        "size": "1.2KB"
-                      },
-                      {
-                        "name": "sync-state.json",
-                        "size": "76B"
-                      }
-                    ]
                   }
                 ]
               },
@@ -2017,34 +1821,12 @@
                 "name": "openclaw-auto-updater",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "153B"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "SKILL.md",
-                    "size": "2.3KB"
-                  },
-                  {
                     "name": "_meta.json",
                     "size": "140B"
                   },
                   {
-                    "name": "references",
-                    "children": [
-                      {
-                        "name": "agent-guide.md",
-                        "size": "3.1KB"
-                      },
-                      {
-                        "name": "summary-examples.md",
-                        "size": "1.9KB"
-                      }
-                    ]
+                    "name": "SKILL.md",
+                    "size": "2.3KB"
                   }
                 ]
               },
@@ -2052,13 +1834,8 @@
                 "name": "reddapi",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "139B"
-                      }
-                    ]
+                    "name": "_meta.json",
+                    "size": "126B"
                   },
                   {
                     "name": "SKILL.md",
@@ -2067,10 +1844,6 @@
                   {
                     "name": "SUPPORTING.md",
                     "size": "390B"
-                  },
-                  {
-                    "name": "_meta.json",
-                    "size": "126B"
                   }
                 ]
               },
@@ -2078,13 +1851,8 @@
                 "name": "reddit-cli",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "142B"
-                      }
-                    ]
+                    "name": "_meta.json",
+                    "size": "129B"
                   },
                   {
                     "name": "README.md",
@@ -2093,19 +1861,6 @@
                   {
                     "name": "SKILL.md",
                     "size": "1.4KB"
-                  },
-                  {
-                    "name": "_meta.json",
-                    "size": "129B"
-                  },
-                  {
-                    "name": "scripts",
-                    "children": [
-                      {
-                        "name": "reddit-cli.js",
-                        "size": "6.7KB"
-                      }
-                    ]
                   }
                 ]
               },
@@ -2113,34 +1868,12 @@
                 "name": "remotion-server",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "147B"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "SKILL.md",
-                    "size": "1.9KB"
-                  },
-                  {
                     "name": "_meta.json",
                     "size": "134B"
                   },
                   {
-                    "name": "scripts",
-                    "children": [
-                      {
-                        "name": "create.sh",
-                        "size": "8.5KB"
-                      },
-                      {
-                        "name": "setup.sh",
-                        "size": "2.8KB"
-                      }
-                    ]
+                    "name": "SKILL.md",
+                    "size": "1.9KB"
                   }
                 ]
               },
@@ -2148,21 +1881,12 @@
                 "name": "remotion-video",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "146B"
-                      }
-                    ]
+                    "name": "_meta.json",
+                    "size": "133B"
                   },
                   {
                     "name": "SKILL.md",
                     "size": "3.2KB"
-                  },
-                  {
-                    "name": "_meta.json",
-                    "size": "133B"
                   }
                 ]
               },
@@ -2170,21 +1894,12 @@
                 "name": "skill-creator-2",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "147B"
-                      }
-                    ]
+                    "name": "_meta.json",
+                    "size": "134B"
                   },
                   {
                     "name": "SKILL.md",
                     "size": "17.4KB"
-                  },
-                  {
-                    "name": "_meta.json",
-                    "size": "134B"
                   }
                 ]
               },
@@ -2192,38 +1907,12 @@
                 "name": "smart-auto-updater",
                 "children": [
                   {
-                    "name": ".clawhub",
-                    "children": [
-                      {
-                        "name": "origin.json",
-                        "size": "150B"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "SKILL.md",
-                    "size": "5.1KB"
-                  },
-                  {
                     "name": "_meta.json",
                     "size": "137B"
                   },
                   {
-                    "name": "references",
-                    "children": [
-                      {
-                        "name": "integration.md",
-                        "size": "3.8KB"
-                      },
-                      {
-                        "name": "report-templates.md",
-                        "size": "5.5KB"
-                      },
-                      {
-                        "name": "risk-assessment.md",
-                        "size": "3.3KB"
-                      }
-                    ]
+                    "name": "SKILL.md",
+                    "size": "5.1KB"
                   }
                 ]
               },
@@ -2233,19 +1922,6 @@
                   {
                     "name": "SKILL.md",
                     "size": "5.0KB"
-                  },
-                  {
-                    "name": "scripts",
-                    "children": [
-                      {
-                        "name": "telli-call.sh",
-                        "size": "2.1KB"
-                      },
-                      {
-                        "name": "telli-status.sh",
-                        "size": "551B"
-                      }
-                    ]
                   }
                 ]
               }
@@ -2255,19 +1931,11 @@
             "name": "telli-api",
             "children": [
               {
-                "name": ".gitignore",
-                "size": "42B"
-              },
-              {
-                "name": "README.md",
-                "size": "1.8KB"
-              },
-              {
                 "name": "api",
                 "children": [
                   {
                     "name": "candidate-status.js",
-                    "size": "4.8KB"
+                    "size": "4.7KB"
                   },
                   {
                     "name": "company.js",
@@ -2294,6 +1962,10 @@
               {
                 "name": "package.json",
                 "size": "194B"
+              },
+              {
+                "name": "README.md",
+                "size": "1.8KB"
               },
               {
                 "name": "test-local.js",
@@ -2342,6 +2014,42 @@
                 "size": "8.3KB"
               }
             ]
+          },
+          {
+            "name": "AGENTS.md",
+            "size": "8.5KB"
+          },
+          {
+            "name": "BOOTSTRAP.md",
+            "size": "1.4KB"
+          },
+          {
+            "name": "HEARTBEAT.md",
+            "size": "1.3KB"
+          },
+          {
+            "name": "IDENTITY.md",
+            "size": "441B"
+          },
+          {
+            "name": "MEMORY.md",
+            "size": "3.8KB"
+          },
+          {
+            "name": "notion_kb.py",
+            "size": "11.7KB"
+          },
+          {
+            "name": "SOUL.md",
+            "size": "1.6KB"
+          },
+          {
+            "name": "TOOLS.md",
+            "size": "1.3KB"
+          },
+          {
+            "name": "USER.md",
+            "size": "325B"
           }
         ]
       }
@@ -2356,121 +2064,96 @@
       "projects": [],
       "tasks": [
         {
-          "icon": "⚡",
-          "name": "- Query Notion \"👨🏻‍🔧 Rainman",
-          "freq": "Tasks & Projects\" (DB: 3038597f-300c-81ae-8c3a-ff7e5822a502)"
+          "icon": "📄",
+          "name": "CV Extraction Progress Check",
+          "freq": "Heartbeat"
         },
         {
-          "icon": "⚡",
-          "name": "- Check for tasks with Status \"In Progress\" or \"Backlog\"",
-          "freq": "pick up the next one if idle"
+          "icon": "✅",
+          "name": "Task Progress",
+          "freq": "Heartbeat"
         },
         {
-          "icon": "⚡",
-          "name": "- Check Slack messages (account: rainman)",
-          "freq": "read and respond to any unread DMs or channel mentions"
+          "icon": "📥",
+          "name": "Inbox",
+          "freq": "Heartbeat"
         }
       ],
       "knowledge": [],
       "timeline": [
         {
-          "date": "2026-02-11 12:50",
-          "text": "Jonas provided upgraded Aura instance at ~12:50 PST on 2026-02-10",
+          "date": "2026-02-11 00:12",
+          "text": "Head of Data Science Session (00:12-01:00 PST)",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "New:** neo4j+s://fc7e3e66.databases.neo4j.io, instance: baugpt-jobs-recruiting",
+          "date": "2026-02-11",
+          "text": "Neo4j Aura Upgrade ✅",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Old (deprecated):** neo4j+s://7ffcbb68.databases.neo4j.io",
+          "date": "2026-02-11",
+          "text": "Full Sync Completed ✅",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Data preserved during upgrade, no migration needed",
+          "date": "2026-02-11",
+          "text": "Fuzzy Match Analysis ✅",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Updated ~/.config/neo4j-aura.env + MEMORY.md",
+          "date": "2026-02-11",
+          "text": "Normalization Applied ✅",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Jonas updated Vercel env vars manually (I'm not logged into Vercel CLI)",
+          "date": "2026-02-11",
+          "text": "Gap Assessment (Jonas asked to assess remaining improvements)",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "All entity types synced to new Aura instance",
+          "date": "2026-02-11",
+          "text": "Notion Tasks Status",
+          "icon": "📝"
+        },
+        {
+          "date": "2026-02-10 12:50",
+          "text": "Neo4j Aura Upgrade ✅ (2026-02-10 ~12:50 PST)",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Final counts: 170,842 nodes, 611,659 relationships**",
+          "date": "2026-02-10",
+          "text": "Session Notes",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Trades: 102K worker-trade + 2K company-trade",
+          "date": "2026-02-10",
+          "text": "Git Backup",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Timeline: 128K WORKED_AT (+ 4.5K deleted stale)",
+          "date": "2026-02-10",
+          "text": "Slack",
+          "icon": "💬"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Notion Task Management",
+          "icon": "📝"
+        },
+        {
+          "date": "2026-02-10",
+          "text": "Knowledge Graph — Phase 2.1 ✅",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Certificates: 76K HAS_CERTIFICATE",
+          "date": "2026-02-10",
+          "text": "Knowledge Graph — Phase 3 ✅ (first batch)",
           "icon": "📌"
         },
         {
-          "date": "2026-02-11 00:00",
-          "text": "Candidates: 21K CANDIDATE_FOR",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Benefits: 4.5K OFFERS_BENEFIT, 36 Benefit nodes",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "️ `preferred_benefits` still blocked (retool user permission)",
-          "icon": "⚠"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Sub-agent analyzed all entity types",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Found ~80 duplicate groups total",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Cities: 6,174 unique, ~15 DE/EN variant groups (München/Munich, Köln/Cologne, Düsseldorf/Dusseldorf)",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Skills: 1,460 unique, ~60 confirmed duplicate groups",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Certs: mostly clean, `masters-certificate-certificate` vs `master-certificate` suspicious",
-          "icon": "📌"
-        },
-        {
-          "date": "2026-02-11 00:00",
-          "text": "Specializations: 2 confirmed merges",
+          "date": "2026-02-10",
+          "text": "Neo4j Migration to Aura ✅",
           "icon": "📌"
         }
       ],
@@ -2478,155 +2161,11 @@
         "name": "workspace-rainman",
         "children": [
           {
-            "name": ".backup-info",
-            "size": "103B"
-          },
-          {
-            "name": ".gitignore",
-            "size": "45B"
-          },
-          {
-            "name": ".venv",
-            "children": [
-              {
-                "name": ".gitignore",
-                "size": "69B"
-              },
-              {
-                "name": "bin",
-                "children": [
-                  {
-                    "name": "Activate.ps1",
-                    "size": "8.8KB"
-                  },
-                  {
-                    "name": "activate",
-                    "size": "2.2KB"
-                  },
-                  {
-                    "name": "activate.csh",
-                    "size": "938B"
-                  },
-                  {
-                    "name": "activate.fish",
-                    "size": "2.2KB"
-                  },
-                  {
-                    "name": "pip",
-                    "size": "215B"
-                  },
-                  {
-                    "name": "pip3",
-                    "size": "215B"
-                  },
-                  {
-                    "name": "pip3.14",
-                    "size": "215B"
-                  },
-                  {
-                    "name": "python",
-                    "size": "51.4KB"
-                  },
-                  {
-                    "name": "python3",
-                    "size": "51.4KB"
-                  },
-                  {
-                    "name": "python3.14",
-                    "size": "51.4KB"
-                  },
-                  {
-                    "name": "𝜋thon",
-                    "size": "51.4KB"
-                  }
-                ]
-              },
-              {
-                "name": "pyvenv.cfg",
-                "size": "318B"
-              }
-            ]
-          },
-          {
-            "name": "AGENTS.md",
-            "size": "528B"
-          },
-          {
-            "name": "HEARTBEAT.md",
-            "size": "549B"
-          },
-          {
-            "name": "IDENTITY.md",
-            "size": "262B"
-          },
-          {
-            "name": "MEMORY.md",
-            "size": "3.5KB"
-          },
-          {
-            "name": "RATE_LIMITS.md",
-            "size": "1.3KB"
-          },
-          {
-            "name": "SOUL.md",
-            "size": "1.6KB"
-          },
-          {
-            "name": "TOOLS.md",
-            "size": "495B"
-          },
-          {
-            "name": "USER.md",
-            "size": "257B"
-          },
-          {
             "name": "apps",
             "children": [
               {
                 "name": "kg-query",
                 "children": [
-                  {
-                    "name": ".env.local",
-                    "size": "183B"
-                  },
-                  {
-                    "name": ".gitignore",
-                    "size": "37B"
-                  },
-                  {
-                    "name": "README.md",
-                    "size": "886B"
-                  },
-                  {
-                    "name": "app",
-                    "children": [
-                      {
-                        "name": "globals.css",
-                        "size": "23B"
-                      },
-                      {
-                        "name": "layout.tsx",
-                        "size": "437B"
-                      },
-                      {
-                        "name": "page.tsx",
-                        "size": "6.8KB"
-                      }
-                    ]
-                  },
-                  {
-                    "name": "lib",
-                    "children": [
-                      {
-                        "name": "gemini.ts",
-                        "size": "6.2KB"
-                      },
-                      {
-                        "name": "neo4j.ts",
-                        "size": "1.7KB"
-                      }
-                    ]
-                  },
                   {
                     "name": "next-env.d.ts",
                     "size": "262B"
@@ -2648,6 +2187,10 @@
                     "size": "93B"
                   },
                   {
+                    "name": "README.md",
+                    "size": "886B"
+                  },
+                  {
                     "name": "tsconfig.json",
                     "size": "666B"
                   }
@@ -2660,7 +2203,7 @@
             "children": [
               {
                 "name": "cv_llm_results.jsonl",
-                "size": "342.7KB"
+                "size": "439.8KB"
               },
               {
                 "name": "cv_progress.md",
@@ -2704,22 +2247,6 @@
                 "size": "3.8KB"
               }
             ]
-          },
-          {
-            "name": "package-lock.json",
-            "size": "4.9KB"
-          },
-          {
-            "name": "package.json",
-            "size": "57B"
-          },
-          {
-            "name": "query.mjs",
-            "size": "5.3KB"
-          },
-          {
-            "name": "query2.mjs",
-            "size": "2.8KB"
           },
           {
             "name": "reference",
@@ -2852,6 +2379,54 @@
                 "size": "6.3KB"
               }
             ]
+          },
+          {
+            "name": "AGENTS.md",
+            "size": "528B"
+          },
+          {
+            "name": "HEARTBEAT.md",
+            "size": "1.2KB"
+          },
+          {
+            "name": "IDENTITY.md",
+            "size": "262B"
+          },
+          {
+            "name": "MEMORY.md",
+            "size": "3.5KB"
+          },
+          {
+            "name": "package-lock.json",
+            "size": "4.9KB"
+          },
+          {
+            "name": "package.json",
+            "size": "57B"
+          },
+          {
+            "name": "query.mjs",
+            "size": "5.3KB"
+          },
+          {
+            "name": "query2.mjs",
+            "size": "2.8KB"
+          },
+          {
+            "name": "RATE_LIMITS.md",
+            "size": "1.3KB"
+          },
+          {
+            "name": "SOUL.md",
+            "size": "1.6KB"
+          },
+          {
+            "name": "TOOLS.md",
+            "size": "495B"
+          },
+          {
+            "name": "USER.md",
+            "size": "257B"
           }
         ]
       }
