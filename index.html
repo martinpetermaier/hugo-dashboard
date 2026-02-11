@@ -3,333 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BauGPT — Multi-Agent Workspace</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Agent Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E8E8;--text:#1a1a1a;--text2:#6b7280;--header:#111827;--radius:14px;--shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);--accent:#F5A623;--accent-light:#FFF8EC;--accent-bg:rgba(245,166,35,.1)}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh}
-.header{background:var(--header);color:#fff;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.header-left{display:flex;align-items:center;gap:16px}
-.logo{font-weight:800;font-size:18px;letter-spacing:-.5px}
-.logo span{color:var(--accent)}
-.agent-switcher{position:relative}
-.agent-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;padding:8px 16px;border-radius:10px;font:600 14px/1 'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s}
-.agent-btn:hover{background:rgba(255,255,255,.18)}
-.agent-btn .emoji{font-size:20px}
-.agent-btn svg{width:12px;height:12px;opacity:.6;transition:transform .2s}
-.agent-btn.open svg{transform:rotate(180deg)}
-.dropdown{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.12);overflow:hidden;opacity:0;transform:translateY(-4px);pointer-events:none;transition:all .15s;min-width:200px;z-index:200}
-.dropdown.open{opacity:1;transform:translateY(0);pointer-events:all}
-.dropdown-item{padding:12px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;color:var(--text);font-weight:500;font-size:14px;transition:background .15s}
-.dropdown-item:hover{background:#f3f4f6}
-.dropdown-item.active{background:var(--accent-bg)}
-.dropdown-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.header-right{display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,.6)}
-.header-right time{color:rgba(255,255,255,.9);font-weight:500}
-.main{max-width:1280px;margin:0 auto;padding:24px}
-.content-wrapper{opacity:1;transition:opacity .25s}
-.content-wrapper.fading{opacity:0}
-/* Tabs */
-.tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
-.tab{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--text2);transition:all .2s}
-.tab:hover{border-color:#ccc}
-.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.section-title{font-size:18px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.section-title .count{font-size:13px;font-weight:500;color:var(--text2);background:#f3f4f6;padding:2px 10px;border-radius:12px}
-/* Project Cards */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;margin-bottom:36px}
-.project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
-.project-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:#d0d0d0}
-.project-card.expanded{grid-column:1/-1}
-.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
-.card-icon{font-size:22px;margin-right:10px;flex-shrink:0}
-.card-title{font-weight:600;font-size:15px;flex:1}
-.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
-.badge-done{background:#dcfce7;color:#15803d}
-.badge-ongoing{background:#dbeafe;color:#1d4ed8}
-.badge-active{background:var(--accent-bg);color:var(--accent)}
-.badge-backlog{background:#f3f4f6;color:#6b7280}
-.badge-blocked{background:#fef2f2;color:#dc2626}
-.progress-wrap{height:6px;background:#f3f4f6;border-radius:3px;margin:10px 0;overflow:hidden}
-.progress-bar{height:100%;border-radius:3px;background:var(--accent);transition:width .4s}
-.card-meta{display:flex;gap:14px;font-size:12px;color:var(--text2);flex-wrap:wrap}
-.card-meta span{display:flex;align-items:center;gap:4px}
-.card-next{font-size:13px;color:var(--text2);margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
-.card-next b{color:var(--text);font-weight:600}
-.card-details{max-height:0;overflow:hidden;transition:max-height .3s;font-size:13px;color:var(--text2);margin-top:0}
-.project-card.expanded .card-details{max-height:200px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+:root{--accent:#F5A623;--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E8E8;--header:#111827;--text:#374151;--muted:#9CA3AF;--radius:14px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+/* Header */
+.header{background:var(--header);color:#fff;padding:16px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.header h1{font-size:20px;font-weight:700;flex:1}
+.agent-select{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);padding:8px 12px;border-radius:8px;font-family:inherit;font-size:14px;cursor:pointer}
+.agent-select option{color:#111;background:#fff}
+.agent-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600}
+.agent-status{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block}
+
+/* Layout */
+.container{max-width:1200px;margin:0 auto;padding:24px}
+.section{margin-bottom:32px}
+.section-title{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+
+/* Filter Tabs */
+.filter-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.filter-tab{padding:6px 14px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:var(--card);transition:.2s}
+.filter-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Cards */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:.2s}
+.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.06);transform:translateY(-1px)}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.card-icon{font-size:20px}
+.card-title{font-weight:600;font-size:14px;flex:1}
+.status-badge{padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;text-transform:uppercase}
+.status-done{background:#dcfce7;color:#166534}
+.status-ongoing{background:#fef3c7;color:#92400e}
+.status-active{background:#dbeafe;color:#1e40af}
+.status-backlog{background:#f3f4f6;color:#6b7280}
+.status-blocked{background:#fee2e2;color:#991b1b}
+.progress-bar{height:6px;background:#f3f4f6;border-radius:3px;margin:10px 0;overflow:hidden}
+.progress-fill{height:100%;background:var(--accent);border-radius:3px;transition:width .4s}
+.card-meta{display:flex;gap:14px;font-size:12px;color:var(--muted);margin-top:8px}
+.card-detail{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:13px;line-height:1.6;color:var(--muted)}
+.card.expanded .card-detail{display:block}
+
 /* Pills */
-.pills-section{margin-bottom:36px}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--card);border:1px solid var(--border);border-radius:20px;font-size:13px;font-weight:500}
-.pill .freq{color:var(--text2);font-weight:400;font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--card);border:1px solid var(--border);border-radius:20px;font-size:13px}
+.pill-freq{color:var(--muted);font-size:11px}
+
 /* Knowledge Grid */
-.kb-section{margin-bottom:36px}
-.kb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
-.kb-item{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:13px;font-weight:500}
+.kb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.kb-item{display:flex;align-items:center;gap:10px;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);font-size:13px}
 .kb-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.kb-dot.green{background:#22c55e}
-.kb-dot.yellow{background:#eab308}
-.kb-dot.red{background:#ef4444}
+.kb-learned{background:#22c55e}
+.kb-partial{background:#eab308}
+.kb-missing{background:#ef4444}
+
 /* Timeline */
-.timeline-section{margin-bottom:36px}
-.timeline{position:relative;padding-left:20px}
-.timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--border)}
-.tl-item{position:relative;padding:0 0 16px 16px;font-size:13px}
-.tl-item::before{content:'';position:absolute;left:-18px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
-.tl-date{font-weight:600;color:var(--text);font-size:12px}
-.tl-text{color:var(--text2);margin-top:2px}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);font-size:13px}
+.tl-icon{font-size:18px;flex-shrink:0}
+.tl-date{color:var(--muted);font-size:11px;min-width:110px;flex-shrink:0}
+.tl-text{flex:1}
+
 /* File Explorer */
-.files-section{margin-bottom:36px}
-.search-box{width:100%;padding:10px 14px 10px 38px;border:1px solid var(--border);border-radius:10px;font:14px 'Inter',sans-serif;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E") no-repeat 12px center;margin-bottom:12px;outline:none;transition:border-color .2s}
-.search-box:focus{border-color:var(--accent)}
-.file-tree{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.file-folder{cursor:pointer}
-.file-folder-header{padding:10px 14px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px;border-bottom:1px solid var(--border);transition:background .15s;user-select:none}
-.file-folder-header:hover{background:#f9f9f7}
-.file-folder-header svg{width:14px;height:14px;transition:transform .2s;color:var(--text2)}
-.file-folder.open>. file-folder-header svg{transform:rotate(90deg)}
-.file-folder-children{display:none;padding-left:16px}
-.file-folder.open>.file-folder-children{display:block}
-.file-item{padding:8px 14px;display:flex;align-items:center;justify-content:space-between;font-size:13px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background .15s}
-.file-item:hover{background:#f9fafb}
-.file-item:last-child{border-bottom:none}
-.file-name{display:flex;align-items:center;gap:6px}
-.file-size{color:var(--text2);font-size:11px}
-.file-badge{font-size:10px;padding:2px 6px;border-radius:4px;font-weight:600;background:#f3f4f6;color:var(--text2)}
+.file-search{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius);font-family:inherit;font-size:13px;margin-bottom:12px;background:var(--card)}
+.file-tree{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:8px;font-size:13px;font-family:'SF Mono','Menlo',monospace}
+.ft-folder,.ft-file{padding:4px 8px;cursor:pointer;border-radius:6px;display:flex;align-items:center;gap:6px}
+.ft-folder:hover,.ft-file:hover{background:#f3f4f6}
+.ft-children{padding-left:20px;display:none}
+.ft-folder.open>.ft-children{display:block}
+.ft-size{color:var(--muted);margin-left:auto;font-size:11px}
+.ft-arrow{transition:transform .2s;display:inline-block;font-size:10px}
+.ft-folder.open>.ft-arrow{transform:rotate(90deg)}
+
 /* Slide Panel */
-.slide-panel{position:fixed;right:0;top:0;width:480px;max-width:90vw;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.1);z-index:300;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
-.slide-panel.open{transform:translateX(0)}
-.panel-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.panel-header h3{font-size:15px;font-weight:600}
-.panel-close{width:32px;height:32px;border:none;background:#f3f4f6;border-radius:8px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
-.panel-body{padding:20px;flex:1;overflow-y:auto;font-size:14px;color:var(--text2);line-height:1.8}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:250;opacity:0;pointer-events:none;transition:opacity .3s}
-.overlay.open{opacity:1;pointer-events:all}
-@media(max-width:768px){
-.main{padding:16px}
-.projects-grid{grid-template-columns:1fr}
-.header{padding:0 16px}
-.kb-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+.slide-panel{position:fixed;top:0;right:-400px;width:400px;max-width:90vw;height:100vh;background:var(--card);box-shadow:-4px 0 20px rgba(0,0,0,.1);z-index:200;transition:right .3s;padding:24px;overflow-y:auto}
+.slide-panel.open{right:0}
+.slide-close{position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted)}
+.slide-title{font-weight:600;font-size:16px;margin-bottom:16px;padding-right:40px}
+.slide-body{color:var(--muted);font-size:14px}
+
+/* Footer */
+.footer{text-align:center;padding:24px;font-size:12px;color:var(--muted)}
+
+/* Loading */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;color:var(--muted)}
+.spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Responsive */
+@media(max-width:640px){
+  .card-grid{grid-template-columns:1fr}
+  .header{padding:12px 16px}
+  .container{padding:16px}
+  .header h1{font-size:16px}
 }
 </style>
 </head>
 <body>
-<header class="header">
-<div class="header-left">
-<div class="logo">Bau<span>GPT</span></div>
-<div class="agent-switcher">
-<button class="agent-btn" id="agentBtn" onclick="toggleDropdown()">
-<span class="emoji" id="agentEmoji">🚀</span>
-<span id="agentName">Hugo</span>
-<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5l3 3 3-3"/></svg>
-</button>
-<div class="dropdown" id="dropdown">
-<div class="dropdown-item" data-agent="hugo" onclick="switchAgent('hugo')"><span class="dot" style="background:#F5A623"></span>🚀 Hugo</div>
-<div class="dropdown-item" data-agent="alfred" onclick="switchAgent('alfred')"><span class="dot" style="background:#00b894"></span>🐸 Alfred</div>
-<div class="dropdown-item" data-agent="rainman" onclick="switchAgent('rainman')"><span class="dot" style="background:#3b82f6"></span>📊 Rainman</div>
+<div class="header">
+  <select class="agent-select" id="agentSelect"></select>
+  <h1 id="headerTitle">Agent Dashboard</h1>
+  <span class="agent-badge" id="agentBadge"></span>
 </div>
+<div class="container" id="app">
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <div>Dashboard wird geladen...</div>
+  </div>
 </div>
-</div>
-<div class="header-right">Workspace Dashboard · <time id="clock"></time></div>
-</header>
-
-<main class="main">
-<div class="content-wrapper" id="content"></div>
-</main>
-
-<div class="overlay" id="overlay" onclick="closePanel()"></div>
-<div class="slide-panel" id="panel">
-<div class="panel-header"><h3 id="panelTitle">Datei</h3><button class="panel-close" onclick="closePanel()">✕</button></div>
-<div class="panel-body" id="panelBody"></div>
+<div class="footer" id="footer"></div>
+<div class="slide-panel" id="slidePanel">
+  <button class="slide-close" onclick="document.getElementById('slidePanel').classList.remove('open')">&times;</button>
+  <div class="slide-title" id="slideTitle"></div>
+  <div class="slide-body" id="slideBody">Dateiinhalt wird geladen...</div>
 </div>
 
 <script>
-const AGENTS={
-hugo:{name:'Hugo',emoji:'🚀',accent:'#F5A623',accentLight:'#FFF8EC',accentBg:'rgba(245,166,35,.1)',
-projects:[
-{icon:'📊',title:'Gehaltsreport 2026',status:'ongoing',progress:95,next:'Deploy + Launch-Ergebnisse',files:'80+',updated:'2026-02-10'},
-{icon:'🧮',title:'Gehaltsrechner',status:'ongoing',progress:90,next:'Deploy auf baugpt.com',files:'2',updated:'2026-02-10'},
-{icon:'💼',title:'LinkedIn Growth',status:'active',progress:60,next:'Posts KW8 veröffentlichen',files:'25+',updated:'2026-02-10'},
-{icon:'📈',title:'Marketing-Offensive',status:'active',progress:45,next:'6 SEO-Blogposts + Social-Ads',files:'10+',updated:'2026-02-10'},
-{icon:'🎬',title:'BauGPT Videos',status:'active',progress:40,next:'Videos finalisieren',files:'14+',updated:'2026-02-11'},
-{icon:'🌐',title:'Website-Audit',status:'blocked',progress:5,next:'Browser-Zugang nötig',files:'0',updated:'—'}
-],
-tasks:[{t:'Slack Mentions',f:'5min'},{t:'LinkedIn Posts',f:'wöchentlich'},{t:'Knowledge updaten',f:'bei Bedarf'},{t:'Dashboard sync',f:'bei Änderungen'},{t:'Wettbewerber-Check',f:'monatlich'},{t:'SEO Monitoring',f:'monatlich'},{t:'Memory Cleanup',f:'wöchentlich'}],
-knowledge:{green:['Produktlinien','Matching & Tech','Zielgruppen','Gehaltsstrukturen','KPIs','Wettbewerber','Brand Design','Marketing-Strategie'],yellow:['Rebranding','Team-Struktur','Produkt & Features','Prozesse'],red:['Pricing','Kundenbeispiele']},
-timeline:[
-{date:'2026-02-11 10:40',text:'Produktlinien von Andi erhalten'},
-{date:'2026-02-11 10:37',text:'Notion → Lokal Migration'},
-{date:'2026-02-11 10:34',text:'Slack: Alfred & Rainman informiert'},
-{date:'2026-02-10',text:'Remotion Videos gerendert'},
-{date:'2026-02-10',text:'14 Berufsgruppen-Grafiken'},
-{date:'2026-02-10',text:'Marketing-Offensive aufgebaut'},
-{date:'2026-02-10',text:'Gehaltsreport v7 FINAL'}
-],
-files:[
-{name:'Root Files',type:'folder',children:[
-{name:'AGENTS.md',size:'461B'},{name:'HEARTBEAT.md',size:'417B'},{name:'IDENTITY.md',size:'249B'},{name:'KNOWLEDGE.md',size:'4.6KB'},{name:'MEMORY.md',size:'2.5KB'},{name:'PROJECTS.md',size:'1.7KB'},{name:'SOUL.md',size:'1.6KB'},{name:'TOOLS.md',size:'364B'},{name:'USER.md',size:'310B'},{name:'hugo-profile.png',size:'1.3MB',badge:'IMG'}
-]},
-{name:'memory/',type:'folder',children:[{name:'2026-02-11.md',size:'~2KB'},{name:'2026-02-10.md',size:'~3KB'},{name:'2026-02-09.md',size:'~1KB'},{name:'2026-02-08.md',size:'~1KB'}]},
-{name:'gehaltsreport/',type:'folder',children:[{name:'assets/',size:'~40 files',badge:'DIR'},{name:'charts/',size:'~20 files',badge:'DIR'},{name:'vorlagen/',size:'~10 files',badge:'DIR'},{name:'report-v7-final.md',size:'~15KB'},{name:'README.md',size:'~2KB'}]},
-{name:'gehaltsrechner/',type:'folder',children:[{name:'calculator.ts',size:'~8KB'},{name:'README.md',size:'~1KB'}]},
-{name:'linkedin/',type:'folder',children:[{name:'visuals/',size:'~15 files',badge:'DIR'},{name:'berufsgruppen/',size:'~10 files',badge:'DIR'},{name:'posts-kw8.md',size:'~3KB'}]},
-{name:'marketing/',type:'folder',children:[{name:'blog/',size:'~4 files',badge:'DIR'},{name:'strategy.md',size:'~2KB'},{name:'seo-plan.md',size:'~1KB'}]},
-{name:'baugpt-videos/',type:'folder',children:[{name:'src/',size:'~8 files',badge:'DIR'},{name:'out/',size:'~6 files',badge:'DIR'}]}
-]},
-alfred:{name:'Alfred',emoji:'🐸',accent:'#00b894',accentLight:'#EDFFF9',accentBg:'rgba(0,184,148,.1)',
-projects:[
-{icon:'👥',title:'Telli AI-Calls',status:'active',progress:70,next:'API-Endpoints erweitern',files:'8',updated:'2026-02-11'},
-{icon:'📋',title:'Customer Database',status:'ongoing',progress:85,next:'Daten aktuell halten',files:'100+',updated:'2026-02-11'},
-{icon:'🔍',title:'Candidate Matching',status:'active',progress:50,next:'Matching-Algorithmus optimieren',files:'10',updated:'2026-02-10'},
-{icon:'🌐',title:'Browser Automation',status:'backlog',progress:10,next:'Setup & Testing',files:'0',updated:'—'}
-],
-tasks:[{t:'Slack Mentions',f:'5min'},{t:'Customer DB sync',f:'täglich'},{t:'Telli Monitoring',f:'stündlich'},{t:'Candidate Pipeline',f:'täglich'}],
-knowledge:{green:['Kundenportfolio (122)','Telli System','Recruiting-Prozess'],yellow:['Matching-Algorithmus','Marktdaten'],red:['Competitor Sales Data']},
-timeline:[
-{date:'2026-02-11',text:'Memory updated'},
-{date:'2026-02-10',text:'Customer scripts optimiert'},
-{date:'2026-02-10',text:'Telli API endpoints'},
-{date:'2026-02-09',text:'122 Kunden-Profile aufgebaut'}
-],
-files:[
-{name:'Root Files',type:'folder',children:[
-{name:'AGENTS.md',size:'8.8KB'},{name:'HEARTBEAT.md',size:'1.4KB'},{name:'IDENTITY.md',size:'441B'},{name:'MEMORY.md',size:'3.9KB'},{name:'SOUL.md',size:'1.7KB'},{name:'TOOLS.md',size:'1.3KB'},{name:'USER.md',size:'325B'},{name:'BOOTSTRAP.md',size:'1.5KB'},{name:'notion_kb.py',size:'12KB'}
-]},
-{name:'customers/',type:'folder',children:[{name:'~100 .md files',size:'',badge:'DIR'}]},
-{name:'telli-api/',type:'folder',children:[{name:'endpoints.py',size:'~4KB'},{name:'config.yaml',size:'~1KB'},{name:'tests/',size:'3 files',badge:'DIR'}]},
-{name:'telli-knowledge-base/',type:'folder',children:[{name:'prompts.md',size:'~2KB'},{name:'flows.md',size:'~3KB'},{name:'scripts.md',size:'~1KB'},{name:'README.md',size:'~1KB'}]},
-{name:'memory/',type:'folder',children:[{name:'2026-02-11.md',size:'~2KB'},{name:'2026-02-10.md',size:'~2KB'},{name:'2026-02-09.md',size:'~1KB'}]},
-{name:'scripts/',type:'folder',children:[{name:'sync.py',size:'~3KB'},{name:'export.py',size:'~2KB'},{name:'utils.py',size:'~1KB'},{name:'notion_sync.py',size:'~4KB'},{name:'validate.py',size:'~2KB'}]},
-{name:'skills/',type:'folder',children:[{name:'recruiting/',size:'~3 files',badge:'DIR'},{name:'sales/',size:'~3 files',badge:'DIR'},{name:'automation/',size:'~2 files',badge:'DIR'}]}
-]},
-rainman:{name:'Rainman',emoji:'📊',accent:'#3b82f6',accentLight:'#EFF6FF',accentBg:'rgba(59,130,246,.1)',
-projects:[
-{icon:'🧠',title:'Knowledge Graph',status:'active',progress:65,next:'Phase 3 CV-Extraktion',files:'20+',updated:'2026-02-11'},
-{icon:'📊',title:'Gehaltsreport Verification',status:'done',progress:100,next:'Crafthunt-Daten verifiziert',files:'—',updated:'2026-02-10'},
-{icon:'📈',title:'Supply/Demand Analysis',status:'ongoing',progress:80,next:'Regionale Gaps vertiefen',files:'5',updated:'2026-02-10'},
-{icon:'🔍',title:'Company Intelligence',status:'active',progress:40,next:'Wettbewerber-Daten erweitern',files:'3',updated:'2026-02-10'}
-],
-tasks:[{t:'DB Schema Monitoring',f:'täglich'},{t:'KG Sync',f:'täglich'},{t:'Data Quality Checks',f:'wöchentlich'},{t:'Report Generation',f:'bei Bedarf'}],
-knowledge:{green:['DB Schema','Crafthunt Daten (52.9k W, 106.9k F)','Gehaltsstrukturen'],yellow:['Knowledge Graph','CV-Analyse'],red:['External Market Data']},
-timeline:[
-{date:'2026-02-11',text:'Memory updated'},
-{date:'2026-02-10',text:'KG Scripts Phase 2+3'},
-{date:'2026-02-10',text:'Supply/Demand Gaps analysiert'},
-{date:'2026-02-10',text:'Gehaltsreport-Daten verifiziert'}
-],
-files:[
-{name:'Root Files',type:'folder',children:[
-{name:'AGENTS.md',size:'528B'},{name:'HEARTBEAT.md',size:'549B'},{name:'IDENTITY.md',size:'262B'},{name:'MEMORY.md',size:'3.6KB'},{name:'SOUL.md',size:'1.7KB'},{name:'TOOLS.md',size:'495B'},{name:'USER.md',size:'257B'}
-]},
-{name:'data/',type:'folder',children:[{name:'workers.jsonl',size:'~50MB',badge:'JSONL'},{name:'firms.jsonl',size:'~80MB',badge:'JSONL'},{name:'salaries.jsonl',size:'~20MB',badge:'JSONL'},{name:'regions.json',size:'~2MB'},{name:'trades.json',size:'~500KB'},{name:'schema.sql',size:'~15KB'}]},
-{name:'reference/',type:'folder',children:[{name:'crafthunt-schema.md',size:'~4KB'},{name:'salary-bands.csv',size:'~2KB'},{name:'regions.md',size:'~1KB'},{name:'trades-taxonomy.md',size:'~3KB'},{name:'README.md',size:'~1KB'}]},
-{name:'reports/',type:'folder',children:[{name:'gehalt-verification.md',size:'~5KB'},{name:'supply-demand-gaps.md',size:'~4KB'},{name:'company-intel.md',size:'~2KB'},{name:'kg-status.md',size:'~3KB'}]},
-{name:'scripts/',type:'folder',children:[{name:'extract_workers.py',size:'~3KB'},{name:'extract_firms.py',size:'~3KB'},{name:'kg_build.py',size:'~5KB'},{name:'kg_query.py',size:'~2KB'},{name:'salary_analysis.py',size:'~4KB'},{name:'supply_demand.py',size:'~3KB'},{name:'validate.py',size:'~2KB'},{name:'export_report.py',size:'~2KB'},{name:'cv_extract.py',size:'~4KB'},{name:'geo_mapping.py',size:'~2KB'},{name:'utils.py',size:'~1KB'},{name:'config.py',size:'~1KB'}]},
-{name:'memory/',type:'folder',children:[{name:'2026-02-11.md',size:'~2KB'},{name:'2026-02-10.md',size:'~3KB'}]},
-{name:'apps/kg-query/',type:'folder',children:[{name:'package.json',size:'~1KB'},{name:'next.config.js',size:'~500B'},{name:'src/',size:'~10 files',badge:'DIR'}]}
-]}
-};
+let DATA=null, currentAgent=null;
 
-let current='hugo',activeFilter='all',expanded=null;
+async function init(){
+  try{
+    const r=await fetch('./data.json');
+    if(!r.ok)throw new Error();
+    DATA=await r.json();
+  }catch(e){
+    document.getElementById('loading').innerHTML='<div>Dashboard wird geladen... Bitte data.json bereitstellen</div>';
+    return;
+  }
+  buildSelect();
+  const hash=location.hash.replace('#','');
+  const agent=DATA.agents.find(a=>a.id===hash)||DATA.agents[0];
+  if(agent)selectAgent(agent.id);
+}
 
-function toggleDropdown(){const d=document.getElementById('dropdown'),b=document.getElementById('agentBtn');d.classList.toggle('open');b.classList.toggle('open')}
-document.addEventListener('click',e=>{if(!e.target.closest('.agent-switcher')){document.getElementById('dropdown').classList.remove('open');document.getElementById('agentBtn').classList.remove('open')}});
+function buildSelect(){
+  const sel=document.getElementById('agentSelect');
+  sel.innerHTML=DATA.agents.map(a=>`<option value="${a.id}">${a.emoji} ${a.name}</option>`).join('');
+  sel.onchange=()=>{selectAgent(sel.value);location.hash=sel.value};
+}
 
-function switchAgent(id){
-if(id===current&&document.getElementById('content').innerHTML)return;
-document.getElementById('dropdown').classList.remove('open');
-document.getElementById('agentBtn').classList.remove('open');
-current=id;activeFilter='all';expanded=null;
-const a=AGENTS[id];
-location.hash=id;
-document.documentElement.style.setProperty('--accent',a.accent);
-document.documentElement.style.setProperty('--accent-light',a.accentLight);
-document.documentElement.style.setProperty('--accent-bg',a.accentBg);
-document.getElementById('agentEmoji').textContent=a.emoji;
-document.getElementById('agentName').textContent=a.name;
-document.querySelectorAll('.dropdown-item').forEach(el=>el.classList.toggle('active',el.dataset.agent===id));
-const w=document.getElementById('content');
-w.classList.add('fading');
-setTimeout(()=>{render();w.classList.remove('fading')},250);
+function selectAgent(id){
+  currentAgent=DATA.agents.find(a=>a.id===id);
+  if(!currentAgent)return;
+  document.getElementById('agentSelect').value=id;
+  document.documentElement.style.setProperty('--accent',currentAgent.color);
+  document.getElementById('headerTitle').textContent=currentAgent.emoji+' '+currentAgent.name+' Dashboard';
+  document.getElementById('agentBadge').innerHTML=`<span class="agent-status"></span>${currentAgent.role}`;
+  location.hash=id;
+  render();
 }
 
 function render(){
-const a=AGENTS[current];
-const filtered=activeFilter==='all'?a.projects:a.projects.filter(p=>p.status===activeFilter);
-const statusCls=s=>({done:'badge-done',ongoing:'badge-ongoing',active:'badge-active',backlog:'badge-backlog',blocked:'badge-blocked'}[s]||'badge-backlog');
-const filters=['all','backlog','active','ongoing','done','blocked'];
-const filterLabels={all:'Alle',backlog:'Backlog',active:'In Progress',ongoing:'Ongoing',done:'Done',blocked:'Blocked'};
-
-let h=`<div class="section-title">Projekt-Board <span class="count">${filtered.length}</span></div>
-<div class="tabs">${filters.map(f=>`<div class="tab${activeFilter===f?' active':''}" onclick="activeFilter='${f}';render()">${filterLabels[f]}</div>`).join('')}</div>
-<div class="projects-grid">${filtered.map((p,i)=>`
-<div class="project-card${expanded===i?' expanded':''}" onclick="expanded=expanded===${i}?null:${i};render()">
-<div class="card-header"><span class="card-icon">${p.icon}</span><span class="card-title">${p.title}</span><span class="badge ${statusCls(p.status)}">${p.status}</span></div>
-<div class="progress-wrap"><div class="progress-bar" style="width:${p.progress}%"></div></div>
-<div class="card-meta"><span>📁 ${p.files} files</span><span>📅 ${p.updated}</span><span>${p.progress}%</span></div>
-<div class="card-next"><b>Next:</b> ${p.next}</div>
-<div class="card-details">Klicke für weitere Details zu diesem Projekt. Alle relevanten Dateien, Notizen und Verlauf werden hier angezeigt sobald die Datenquelle verbunden ist.</div>
-</div>`).join('')}</div>`;
-
-h+=`<div class="pills-section"><div class="section-title">Wiederkehrende Aufgaben</div><div class="pills">${a.tasks.map(t=>`<div class="pill">${t.t} <span class="freq">${t.f}</span></div>`).join('')}</div></div>`;
-
-h+=`<div class="kb-section"><div class="section-title">Knowledge Base</div><div class="kb-grid">
-${a.knowledge.green.map(k=>`<div class="kb-item"><span class="kb-dot green"></span>${k}</div>`).join('')}
-${a.knowledge.yellow.map(k=>`<div class="kb-item"><span class="kb-dot yellow"></span>${k}</div>`).join('')}
-${a.knowledge.red.map(k=>`<div class="kb-item"><span class="kb-dot red"></span>${k}</div>`).join('')}
-</div></div>`;
-
-h+=`<div class="timeline-section"><div class="section-title">Activity Timeline</div><div class="timeline">${a.timeline.map(t=>`<div class="tl-item"><div class="tl-date">${t.date}</div><div class="tl-text">${t.text}</div></div>`).join('')}</div></div>`;
-
-h+=`<div class="files-section"><div class="section-title">File Explorer</div>
-<input class="search-box" placeholder="Dateien durchsuchen..." oninput="filterFiles(this.value)">
-<div class="file-tree" id="fileTree">${renderFiles(a.files)}</div></div>`;
-
-document.getElementById('content').innerHTML=h;
+  const a=currentAgent;
+  const app=document.getElementById('app');
+  app.innerHTML=`
+    <div class="section">
+      <div class="section-title">📋 Projekt-Board</div>
+      <div class="filter-tabs" id="filterTabs"></div>
+      <div class="card-grid" id="projectGrid"></div>
+    </div>
+    <div class="section">
+      <div class="section-title">🔄 Wiederkehrende Aufgaben</div>
+      <div class="pills" id="taskPills"></div>
+    </div>
+    <div class="section">
+      <div class="section-title">🧠 Knowledge Base</div>
+      <div class="kb-grid" id="kbGrid"></div>
+    </div>
+    <div class="section">
+      <div class="section-title">📅 Activity Timeline</div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+    <div class="section">
+      <div class="section-title">📁 File Explorer</div>
+      <input class="file-search" id="fileSearch" placeholder="Dateien suchen...">
+      <div class="file-tree" id="fileTree"></div>
+    </div>`;
+  renderFilters();
+  renderProjects('all');
+  renderTasks();
+  renderKB();
+  renderTimeline();
+  renderFiles();
+  document.getElementById('footer').textContent='Zuletzt aktualisiert: '+new Date(DATA.lastUpdated).toLocaleString('de-DE');
 }
 
-function renderFiles(files,depth=0){
-return files.map((f,i)=>{
-if(f.type==='folder'){
-return`<div class="file-folder" data-name="${f.name.toLowerCase()}">
-<div class="file-folder-header" onclick="this.parentElement.classList.toggle('open');event.stopPropagation()">
-<svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 4l4 4-4 4"/></svg>📁 ${f.name}${f.children?` (${f.children.length})`:''}
-</div><div class="file-folder-children">${f.children?renderFiles(f.children,depth+1):''}</div></div>`;
-}
-const ext=f.name.split('.').pop().toLowerCase();
-const isText=['md','txt','py','ts','js','yaml','json','csv','sql','tsx','jsx','css','html'].includes(ext);
-const badge=f.badge?`<span class="file-badge">${f.badge}</span>`:'';
-return`<div class="file-item" data-name="${f.name.toLowerCase()}" onclick="${isText?`openPanel('${f.name}')`:'void(0)'}">
-<span class="file-name">📄 ${f.name} ${badge}</span><span class="file-size">${f.size}</span></div>`;
-}).join('');
+function renderFilters(){
+  const tabs=['all','backlog','active','ongoing','done','blocked'];
+  const labels={all:'Alle',backlog:'Backlog',active:'In Progress',ongoing:'Ongoing',done:'Done',blocked:'Blocked'};
+  document.getElementById('filterTabs').innerHTML=tabs.map(t=>
+    `<div class="filter-tab${t==='all'?' active':''}" data-f="${t}">${labels[t]}</div>`
+  ).join('');
+  document.getElementById('filterTabs').onclick=e=>{
+    const t=e.target.closest('.filter-tab');if(!t)return;
+    document.querySelectorAll('.filter-tab').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    renderProjects(t.dataset.f);
+  };
 }
 
-function filterFiles(q){
-q=q.toLowerCase();
-document.querySelectorAll('#fileTree .file-item, #fileTree .file-folder').forEach(el=>{
-const name=el.dataset.name||'';
-el.style.display=!q||name.includes(q)?'':'none';
-if(q&&el.classList.contains('file-folder')&&name.includes(q))el.classList.add('open');
-});
+function renderProjects(filter){
+  const projects=(currentAgent.projects||[]).filter(p=>filter==='all'||p.status===filter);
+  document.getElementById('projectGrid').innerHTML=projects.length?projects.map(p=>`
+    <div class="card" onclick="this.classList.toggle('expanded')">
+      <div class="card-header">
+        <span class="card-icon">${p.icon||'📄'}</span>
+        <span class="card-title">${p.title}</span>
+        <span class="status-badge status-${p.status}">${p.status}</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${p.pct||0}%"></div></div>
+      <div class="card-meta">
+        <span>📎 ${p.files||0} Files</span>
+        <span>⏭ ${p.next||'—'}</span>
+        <span>📅 ${p.date||''}</span>
+      </div>
+      <div class="card-detail">${p.detail||'Keine Details verfügbar.'}</div>
+    </div>`).join(''):'<div style="color:var(--muted);font-size:13px">Keine Projekte in diesem Filter.</div>';
 }
 
-function openPanel(name){
-document.getElementById('panelTitle').textContent=name;
-document.getElementById('panelBody').innerHTML=`<p style="color:var(--text2)">📄 <strong>${name}</strong></p><br><p>Dateiinhalt wird geladen...</p><br><div style="background:#f9fafb;border-radius:8px;padding:16px;border:1px dashed #e5e7eb;text-align:center;color:#9ca3af">Verbinde mit dem Workspace-Dateisystem für Live-Inhalte</div>`;
-document.getElementById('panel').classList.add('open');
-document.getElementById('overlay').classList.add('open');
+function renderTasks(){
+  document.getElementById('taskPills').innerHTML=(currentAgent.tasks||[]).map(t=>
+    `<div class="pill">${t.icon||'⚡'} ${t.name} <span class="pill-freq">${t.freq||''}</span></div>`
+  ).join('')||'<span style="color:var(--muted);font-size:13px">Keine Aufgaben definiert.</span>';
 }
-function closePanel(){document.getElementById('panel').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
 
-function updateClock(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleDateString('de-DE',{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' · '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
-setInterval(updateClock,10000);updateClock();
+function renderKB(){
+  const sm={learned:'kb-learned',partial:'kb-partial',missing:'kb-missing'};
+  document.getElementById('kbGrid').innerHTML=(currentAgent.knowledge||[]).map(k=>
+    `<div class="kb-item"><span class="kb-dot ${sm[k.status]||'kb-missing'}"></span>${k.name}</div>`
+  ).join('')||'<span style="color:var(--muted);font-size:13px">Keine Knowledge-Einträge.</span>';
+}
 
-// Init from hash
-const hash=location.hash.replace('#','');
-switchAgent(['hugo','alfred','rainman'].includes(hash)?hash:'hugo');
-window.addEventListener('hashchange',()=>{const h=location.hash.replace('#','');if(['hugo','alfred','rainman'].includes(h))switchAgent(h)});
+function renderTimeline(){
+  document.getElementById('timeline').innerHTML=(currentAgent.timeline||[]).map(t=>
+    `<div class="tl-item"><span class="tl-icon">${t.icon||'📌'}</span><span class="tl-date">${t.date}</span><span class="tl-text">${t.text}</span></div>`
+  ).join('')||'<span style="color:var(--muted);font-size:13px">Keine Aktivitäten.</span>';
+}
+
+function renderFiles(){
+  const tree=currentAgent.files;
+  if(!tree){document.getElementById('fileTree').innerHTML='<span style="color:var(--muted)">Kein Dateibaum verfügbar.</span>';return}
+  document.getElementById('fileTree').innerHTML=renderNode(tree);
+  document.getElementById('fileSearch').oninput=e=>{
+    const q=e.target.value.toLowerCase();
+    document.querySelectorAll('.ft-file,.ft-folder').forEach(el=>{
+      const name=el.dataset.name||'';
+      if(q){el.style.display=name.toLowerCase().includes(q)?'':'none';if(name.toLowerCase().includes(q)&&el.closest('.ft-children')){let p=el.closest('.ft-children');while(p){p.style.display='block';if(p.parentElement)p.parentElement.classList.add('open');p=p.parentElement?p.parentElement.closest('.ft-children'):null}}}
+      else{el.style.display='';document.querySelectorAll('.ft-children').forEach(c=>c.style.display='none');document.querySelectorAll('.ft-folder').forEach(f=>f.classList.remove('open'))}
+    });
+  };
+}
+
+function renderNode(node){
+  if(node.children){
+    return`<div class="ft-folder" data-name="${node.name}" onclick="event.stopPropagation();this.classList.toggle('open')"><span class="ft-arrow">▶</span> 📁 ${node.name}<div class="ft-children">${node.children.map(c=>renderNode(c)).join('')}</div></div>`;
+  }
+  return`<div class="ft-file" data-name="${node.name}" onclick="event.stopPropagation();openFile('${node.name}')">📄 ${node.name}<span class="ft-size">${node.size||''}</span></div>`;
+}
+
+function openFile(name){
+  document.getElementById('slideTitle').textContent=name;
+  document.getElementById('slideBody').textContent='Dateiinhalt wird geladen...';
+  document.getElementById('slidePanel').classList.add('open');
+}
+
+window.onhashchange=()=>{const h=location.hash.replace('#','');if(DATA&&DATA.agents.find(a=>a.id===h))selectAgent(h)};
+document.addEventListener('click',e=>{const p=document.getElementById('slidePanel');if(p.classList.contains('open')&&!p.contains(e.target)&&!e.target.classList.contains('ft-file'))p.classList.remove('open')});
+init();
 </script>
 </body>
 </html>

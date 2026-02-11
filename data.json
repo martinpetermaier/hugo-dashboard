@@ -1,0 +1,2860 @@
+{
+  "lastUpdated": "2026-02-11T10:13:44Z",
+  "agents": [
+    {
+      "id": "hugo",
+      "name": "Hugo",
+      "emoji": "🚀",
+      "role": "Marketing Agent",
+      "color": "#F5A623",
+      "status": "active",
+      "projects": [
+        {
+          "icon": "📄",
+          "title": "Aktive Projekte",
+          "status": "ongoing",
+          "pct": 0,
+          "next": "** Deploy Landing Page + Backend-Anbindung",
+          "files": 0,
+          "date": "",
+          "detail": "### 📊 Gehaltsreport 2026\n- **Status:** 🔵 Ongoing (v7 FINAL, warten auf Deploy + Launch-Ergebnisse)\n- **Next:** Deploy Landing Page + Backend-Anbindung\n- **Files:** gehaltsreport/\n\n### 💼 LinkedIn Growth\n- **Status:** 🟡 Strategie fertig, Posts KW8 ausstehend\n- **Next:** LinkedIn Posts KW8 veröffentlic"
+        },
+        {
+          "icon": "📄",
+          "title": "Wiederkehrende Aufgaben",
+          "status": "backlog",
+          "pct": 0,
+          "next": "",
+          "files": 0,
+          "date": "2026-02-11",
+          "detail": "| Aufgabe | Frequenz | Letzter Run |\n|---------|----------|-------------|\n| Slack Mentions checken | Alle 5 Min (Heartbeat) | 2026-02-11 |\n| LinkedIn Posts planen | Wöchentlich | 2026-02-10 |\n| KNOWLEDGE.md aktualisieren | Bei neuen Infos | 2026-02-11 |\n| iCloud Dashboard sync | Bei Dateiänderungen "
+        },
+        {
+          "icon": "📄",
+          "title": "Abgeschlossen",
+          "status": "backlog",
+          "pct": 0,
+          "next": "",
+          "files": 0,
+          "date": "2026-02-10",
+          "detail": "- ✅ Gehaltsreport v7 FINAL (2026-02-10)\n- ✅ Landing Page (2026-02-10)\n- ✅ Gehaltsrechner (2026-02-10)\n- ✅ 14 Berufsgruppen-Grafiken (2026-02-10)\n- ✅ 3 LinkedIn Visuals (2026-02-10)\n- ✅ Wettbewerber-Analyse (2026-02-10)\n- ✅ E-Mail Nurture Sequenz (2026-02-10)\n- ✅ SEO-Blog Strategie (2026-02-10)\n- ✅ 2"
+        }
+      ],
+      "tasks": [
+        {
+          "icon": "⚡",
+          "name": "2. Check Andi's calendar for today and tomorrow: `gog cal list",
+          "freq": "-client hugo --days 2`. If there are upcoming meetings/events in the next 2 hours, send Andi a reminder on Telegram. If nothing upcoming, do nothing."
+        }
+      ],
+      "knowledge": [
+        {
+          "name": "BauGPT Produktlinien",
+          "status": "learned"
+        },
+        {
+          "name": "MatchingAlgorithmus & Tech",
+          "status": "learned"
+        },
+        {
+          "name": "Zielgruppen & Personas",
+          "status": "learned"
+        },
+        {
+          "name": "Gehaltsstrukturen Baubranche",
+          "status": "learned"
+        },
+        {
+          "name": "Aktuelle KPIs & Metriken",
+          "status": "learned"
+        },
+        {
+          "name": "Wettbewerber & Marktposition",
+          "status": "learned"
+        },
+        {
+          "name": "MarketingStrategie & Kanäle",
+          "status": "learned"
+        },
+        {
+          "name": "BauGPT Brand Design & Guidelines",
+          "status": "learned"
+        },
+        {
+          "name": "Rebranding Crafthunt → BauGPT",
+          "status": "partial"
+        },
+        {
+          "name": "TeamStruktur & Standorte",
+          "status": "partial"
+        },
+        {
+          "name": "BauGPT Produkt & Features",
+          "status": "partial"
+        },
+        {
+          "name": "Interne Prozesse & Workflows",
+          "status": "partial"
+        },
+        {
+          "name": "Pricing & Business Model",
+          "status": "missing"
+        },
+        {
+          "name": "Kundenbeispiele & Case Studies",
+          "status": "missing"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Hugo postet manchmal als Alfred in Slack weil Sub-Agents ohne `accountId` den Default-Token (Alfred) nutzen",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "FIX:** Bei Slack-Nachrichten IMMER `accountId: \"hugo\"` mitgeben",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Hugo HAT einen eigenen Slack Bot (Screenshot von Andi bestätigt, msg 766)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Slack config: Default binding geht zu `main` (Alfred), Hugo hat keinen eigenen Binding-Eintrag aber eigenen Bot-Token",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "4 Einträge auf ✅ Gelernt gesetzt + Content hinzugefügt:",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Gehaltsstrukturen Baubranche (🟡→✅)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Wettbewerber & Marktposition (🔴→✅)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Marketing-Strategie & Kanäle (🔴→✅)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Zielgruppen & Personas (🟡→✅)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Noch offen 🔴: Pricing & Business Model, Kundenbeispiele & Case Studies",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Andi hat `files:read` und `files:write` Slack Scopes für Alfred + Rainman freigeschaltet",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Nachricht im #botchannel gepostet (via Sub-Agent, aber als Alfred — siehe Fix oben)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Alles Wissen aus Notion Wissensstand-DB extrahiert → KNOWLEDGE.md",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "MEMORY.md bereinigt (keine Notion-IDs mehr)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "TOOLS.md bereinigt",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Andi: \"Ich brauche Notion nicht unbedingt\"",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "KNOWLEDGE.md** = BauGPT-Firmenwissen (Produkte, Zielgruppen, KPIs, etc.)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "PROJECTS.md** = Aktive Projekte + Wiederkehrende Aufgaben + Abgeschlossenes",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "dashboard/index.html** = Visuelles Workspace-Dashboard (PMF-Quality, Glassmorphism)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Dashboard auch in iCloud: 00-Dashboard/index.html",
+          "icon": "📌"
+        }
+      ],
+      "files": {
+        "name": "workspace-hugo",
+        "children": [
+          {
+            "name": "AGENTS.md",
+            "size": "461B"
+          },
+          {
+            "name": "HEARTBEAT.md",
+            "size": "417B"
+          },
+          {
+            "name": "IDENTITY.md",
+            "size": "249B"
+          },
+          {
+            "name": "KNOWLEDGE.md",
+            "size": "4.5KB"
+          },
+          {
+            "name": "MEMORY.md",
+            "size": "2.4KB"
+          },
+          {
+            "name": "PROJECTS.md",
+            "size": "1.9KB"
+          },
+          {
+            "name": "RATE_LIMITS.md",
+            "size": "1.3KB"
+          },
+          {
+            "name": "SOUL.md",
+            "size": "1.6KB"
+          },
+          {
+            "name": "TOOLS.md",
+            "size": "364B"
+          },
+          {
+            "name": "USER.md",
+            "size": "310B"
+          },
+          {
+            "name": "baugpt-videos",
+            "children": [
+              {
+                "name": "out",
+                "children": [
+                  {
+                    "name": "fachkraeftemangel.mp4",
+                    "size": "1.9MB"
+                  },
+                  {
+                    "name": "fachkraeftemangel_30s.mp4",
+                    "size": "2.8MB"
+                  },
+                  {
+                    "name": "gehaltsranking.mp4",
+                    "size": "1.3MB"
+                  },
+                  {
+                    "name": "gehaltsranking_30s.mp4",
+                    "size": "3.5MB"
+                  }
+                ]
+              },
+              {
+                "name": "package-lock.json",
+                "size": "193.7KB"
+              },
+              {
+                "name": "package.json",
+                "size": "486B"
+              },
+              {
+                "name": "remotion.config.ts",
+                "size": "181B"
+              },
+              {
+                "name": "src",
+                "children": [
+                  {
+                    "name": "Composition.tsx",
+                    "size": "420B"
+                  },
+                  {
+                    "name": "FachkraefteMangel.tsx",
+                    "size": "9.0KB"
+                  },
+                  {
+                    "name": "GehaltsRanking.tsx",
+                    "size": "10.3KB"
+                  },
+                  {
+                    "name": "Root.tsx",
+                    "size": "621B"
+                  },
+                  {
+                    "name": "index.css",
+                    "size": "226B"
+                  },
+                  {
+                    "name": "index.ts",
+                    "size": "108B"
+                  }
+                ]
+              },
+              {
+                "name": "tailwind.config.js",
+                "size": "98B"
+              },
+              {
+                "name": "tsconfig.json",
+                "size": "282B"
+              }
+            ]
+          },
+          {
+            "name": "dashboard",
+            "children": [
+              {
+                "name": "data.json",
+                "size": "82.8KB"
+              },
+              {
+                "name": "generate_data.sh",
+                "size": "8.3KB"
+              },
+              {
+                "name": "index.html",
+                "size": "13.5KB"
+              },
+              {
+                "name": "screenshot.png",
+                "size": "138.9KB"
+              },
+              {
+                "name": "screenshot_final.png",
+                "size": "123.3KB"
+              },
+              {
+                "name": "screenshot_open.png",
+                "size": "88.3KB"
+              },
+              {
+                "name": "screenshot_pmf.png",
+                "size": "322.4KB"
+              },
+              {
+                "name": "screenshot_pmf2.png",
+                "size": "418.5KB"
+              },
+              {
+                "name": "screenshot_v2.png",
+                "size": "106.2KB"
+              }
+            ]
+          },
+          {
+            "name": "gehaltsrechner",
+            "children": [
+              {
+                "name": "README.md",
+                "size": "770B"
+              },
+              {
+                "name": "index.html",
+                "size": "13.5KB"
+              }
+            ]
+          },
+          {
+            "name": "gehaltsreport",
+            "children": [
+              {
+                "name": "BauGPT_Gehaltsreport_2026_DRAFT.pdf",
+                "size": "595.2KB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v3.pdf",
+                "size": "1.5MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v4.pdf",
+                "size": "1.6MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v5.pdf",
+                "size": "1.8MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v6.pdf",
+                "size": "1.5MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v7.pdf",
+                "size": "1.6MB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v7_latex.pdf",
+                "size": "350.5KB"
+              },
+              {
+                "name": "BauGPT_Gehaltsreport_2026_v8_typst.pdf",
+                "size": "745.2KB"
+              },
+              {
+                "name": "Crafthunt_Gehaltsreport_2025.pdf",
+                "size": "582.1KB"
+              },
+              {
+                "name": "assets",
+                "children": [
+                  {
+                    "name": "BauGPT_Brand_Guidelines.pdf",
+                    "size": "3.3MB"
+                  },
+                  {
+                    "name": "BauGPT_favicon.png",
+                    "size": "5.4KB"
+                  },
+                  {
+                    "name": "BauGPT_logo_dark.png",
+                    "size": "102.8KB"
+                  },
+                  {
+                    "name": "BauGPT_logo_dark_sm.png",
+                    "size": "14.7KB"
+                  },
+                  {
+                    "name": "BauGPT_logo_light.png",
+                    "size": "99.8KB"
+                  },
+                  {
+                    "name": "BauGPT_logo_light_sm.png",
+                    "size": "13.0KB"
+                  },
+                  {
+                    "name": "Bauly_head.png",
+                    "size": "421.4KB"
+                  },
+                  {
+                    "name": "Bauly_head_sm.png",
+                    "size": "81.4KB"
+                  },
+                  {
+                    "name": "Bauly_showing_up.png",
+                    "size": "3.6MB"
+                  },
+                  {
+                    "name": "Bauly_showing_up_clean.png",
+                    "size": "96.7KB"
+                  },
+                  {
+                    "name": "Bauly_showing_up_dark.png",
+                    "size": "153.0KB"
+                  },
+                  {
+                    "name": "Bauly_showing_up_sm.png",
+                    "size": "141.2KB"
+                  },
+                  {
+                    "name": "Bauly_thumbs_up.png",
+                    "size": "3.6MB"
+                  },
+                  {
+                    "name": "Bauly_thumbs_up_clean.png",
+                    "size": "91.2KB"
+                  },
+                  {
+                    "name": "Bauly_thumbs_up_dark.png",
+                    "size": "146.4KB"
+                  },
+                  {
+                    "name": "Bauly_thumbs_up_sm.png",
+                    "size": "133.1KB"
+                  },
+                  {
+                    "name": "b64",
+                    "children": [
+                      {
+                        "name": "BauGPT_logo_dark_sm.b64",
+                        "size": "19.7KB"
+                      },
+                      {
+                        "name": "BauGPT_logo_light_sm.b64",
+                        "size": "17.3KB"
+                      },
+                      {
+                        "name": "Bauly_head_sm.b64",
+                        "size": "108.5KB"
+                      },
+                      {
+                        "name": "Bauly_showing_up_sm.b64",
+                        "size": "293.7KB"
+                      },
+                      {
+                        "name": "Bauly_thumbs_up_sm.b64",
+                        "size": "291.3KB"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "titlepage_referenz.jpg",
+                    "size": "85.0KB"
+                  }
+                ]
+              },
+              {
+                "name": "build_report.sh",
+                "size": "55.3KB"
+              },
+              {
+                "name": "build_v4.sh",
+                "size": "571B"
+              },
+              {
+                "name": "charts",
+                "children": [
+                  {
+                    "name": "berufsgruppe_01.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_02.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_03.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_04.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_05.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_06.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_07.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_08.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_09.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_10.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_11.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_12.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "berufsgruppe_13.svg",
+                    "size": "1.1KB"
+                  },
+                  {
+                    "name": "bundeslaender_ranking.svg",
+                    "size": "3.2KB"
+                  },
+                  {
+                    "name": "gehaltsranking.svg",
+                    "size": "4.2KB"
+                  },
+                  {
+                    "name": "gehaltsspannen.svg",
+                    "size": "5.9KB"
+                  },
+                  {
+                    "name": "ost_west_vergleich.svg",
+                    "size": "3.0KB"
+                  },
+                  {
+                    "name": "tarifentwicklung.svg",
+                    "size": "4.8KB"
+                  }
+                ]
+              },
+              {
+                "name": "design_analyse.md",
+                "size": "4.5KB"
+              },
+              {
+                "name": "gehaelter_berufsgruppen.md",
+                "size": "9.4KB"
+              },
+              {
+                "name": "gehaltsreport.aux",
+                "size": "3.2KB"
+              },
+              {
+                "name": "gehaltsreport.log",
+                "size": "57.1KB"
+              },
+              {
+                "name": "gehaltsreport.out",
+                "size": "0B"
+              },
+              {
+                "name": "gehaltsreport.pdf",
+                "size": "350.5KB"
+              },
+              {
+                "name": "gehaltsreport.tex",
+                "size": "60.5KB"
+              },
+              {
+                "name": "gehaltsreport.typ",
+                "size": "54.1KB"
+              },
+              {
+                "name": "generate_titlepages.js",
+                "size": "8.3KB"
+              },
+              {
+                "name": "generate_titlepages.py",
+                "size": "10.8KB"
+              },
+              {
+                "name": "generate_titlepages_v3.py",
+                "size": "9.3KB"
+              },
+              {
+                "name": "grafik_plan.md",
+                "size": "9.5KB"
+              },
+              {
+                "name": "landing_page.html",
+                "size": "11.2KB"
+              },
+              {
+                "name": "landing_page_readme.md",
+                "size": "872B"
+              },
+              {
+                "name": "neue_sektionen.md",
+                "size": "8.9KB"
+              },
+              {
+                "name": "preview_page_1.png",
+                "size": "112.2KB"
+              },
+              {
+                "name": "preview_page_2.png",
+                "size": "99.5KB"
+              },
+              {
+                "name": "preview_page_3.png",
+                "size": "119.7KB"
+              },
+              {
+                "name": "preview_page_4.png",
+                "size": "129.3KB"
+              },
+              {
+                "name": "preview_page_5.png",
+                "size": "118.5KB"
+              },
+              {
+                "name": "quellen_validierung.md",
+                "size": "6.3KB"
+              },
+              {
+                "name": "regionale_unterschiede.md",
+                "size": "8.6KB"
+              },
+              {
+                "name": "report.html",
+                "size": "32.5KB"
+              },
+              {
+                "name": "report_draft.md",
+                "size": "29.3KB"
+              },
+              {
+                "name": "report_v2.html",
+                "size": "38.4KB"
+              },
+              {
+                "name": "report_v3.html",
+                "size": "1.2MB"
+              },
+              {
+                "name": "report_v4.html",
+                "size": "60.9KB"
+              },
+              {
+                "name": "report_v5.html",
+                "size": "79.9KB"
+              },
+              {
+                "name": "report_v6.html",
+                "size": "83.8KB"
+              },
+              {
+                "name": "report_v6_backup.html",
+                "size": "80.4KB"
+              },
+              {
+                "name": "struktur.md",
+                "size": "2.4KB"
+              },
+              {
+                "name": "titlepage_allgemein.html",
+                "size": "315.6KB"
+              },
+              {
+                "name": "titlepage_allgemein.pdf",
+                "size": "426.9KB"
+              },
+              {
+                "name": "titlepage_b2b1.html",
+                "size": "313.3KB"
+              },
+              {
+                "name": "titlepage_b2b1.pdf",
+                "size": "425.2KB"
+              },
+              {
+                "name": "titlepage_b2b2.html",
+                "size": "130.5KB"
+              },
+              {
+                "name": "titlepage_b2b2.pdf",
+                "size": "278.0KB"
+              },
+              {
+                "name": "titlepage_b2c1.html",
+                "size": "315.7KB"
+              },
+              {
+                "name": "titlepage_b2c1.pdf",
+                "size": "439.2KB"
+              },
+              {
+                "name": "titlepage_b2c2.html",
+                "size": "313.3KB"
+              },
+              {
+                "name": "titlepage_b2c2.pdf",
+                "size": "435.5KB"
+              },
+              {
+                "name": "titlepage_v2_allgemein.html",
+                "size": "146.0KB"
+              },
+              {
+                "name": "titlepage_v2_allgemein.pdf",
+                "size": "297.6KB"
+              },
+              {
+                "name": "titlepage_v2_b2b1.html",
+                "size": "146.0KB"
+              },
+              {
+                "name": "titlepage_v2_b2b1.pdf",
+                "size": "298.1KB"
+              },
+              {
+                "name": "titlepage_v2_b2b2.html",
+                "size": "145.9KB"
+              },
+              {
+                "name": "titlepage_v2_b2b2.pdf",
+                "size": "295.7KB"
+              },
+              {
+                "name": "titlepage_v2_b2c1.html",
+                "size": "146.0KB"
+              },
+              {
+                "name": "titlepage_v2_b2c1.pdf",
+                "size": "297.1KB"
+              },
+              {
+                "name": "titlepage_v2_b2c2.html",
+                "size": "146.0KB"
+              },
+              {
+                "name": "titlepage_v2_b2c2.pdf",
+                "size": "296.5KB"
+              },
+              {
+                "name": "trends_und_tarife.md",
+                "size": "7.1KB"
+              },
+              {
+                "name": "vorlagen",
+                "children": [
+                  {
+                    "name": "BauGPT Brand Guidelines 2025-09-04.pdf",
+                    "size": "3.3MB"
+                  },
+                  {
+                    "name": "ContentModules",
+                    "children": [
+                      {
+                        "name": "After layout.pdf",
+                        "size": "1.9MB"
+                      },
+                      {
+                        "name": "Callout box for definitions or insights.pdf",
+                        "size": "3.5MB"
+                      },
+                      {
+                        "name": "Checklist module.pdf",
+                        "size": "2.2MB"
+                      },
+                      {
+                        "name": "Clean layouts for charts (bar, line, donut).pdf",
+                        "size": "1.4MB"
+                      },
+                      {
+                        "name": "Comparison layout (A vs. B).pdf",
+                        "size": "788.8KB"
+                      },
+                      {
+                        "name": "Example section (e.g., “real-world application”).pdf",
+                        "size": "1.8MB"
+                      },
+                      {
+                        "name": "Framework module.pdf",
+                        "size": "2.4MB"
+                      },
+                      {
+                        "name": "Funnel illustrations  (important for recruiting content).pdf",
+                        "size": "1.5MB"
+                      },
+                      {
+                        "name": "Highlighted stats or numbers.pdf",
+                        "size": "6.0MB"
+                      },
+                      {
+                        "name": "Process diagrams (3–7 steps).pdf",
+                        "size": "2.1MB"
+                      },
+                      {
+                        "name": "Step-by-step guide module.pdf",
+                        "size": "1.9MB"
+                      },
+                      {
+                        "name": "Text-heavy chapter  (important for our “AI prompts” guides).pdf",
+                        "size": "3.0MB"
+                      },
+                      {
+                        "name": "Two-column + image.pdf",
+                        "size": "1.7MB"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "gehaltsreport-recherche.md",
+            "size": "15.8KB"
+          },
+          {
+            "name": "hugo-profile.png",
+            "size": "1.3MB"
+          },
+          {
+            "name": "linkedin",
+            "children": [
+              {
+                "name": "berufsgruppen",
+                "children": [
+                  {
+                    "name": "00-ranking-uebersicht.png",
+                    "size": "148.0KB"
+                  },
+                  {
+                    "name": "01-bauleitung.png",
+                    "size": "94.3KB"
+                  },
+                  {
+                    "name": "02-maschinenfuehrer.png",
+                    "size": "97.2KB"
+                  },
+                  {
+                    "name": "03-elektriker.png",
+                    "size": "90.1KB"
+                  },
+                  {
+                    "name": "04-hlsk.png",
+                    "size": "89.3KB"
+                  },
+                  {
+                    "name": "05-mauern-betonbau.png",
+                    "size": "90.2KB"
+                  },
+                  {
+                    "name": "06-strassen-kanalbau.png",
+                    "size": "94.4KB"
+                  },
+                  {
+                    "name": "07-holzbau-dachdeckerei.png",
+                    "size": "93.3KB"
+                  },
+                  {
+                    "name": "08-allgemeine-bauarbeiten.png",
+                    "size": "95.9KB"
+                  },
+                  {
+                    "name": "09-metall-glasbau.png",
+                    "size": "84.8KB"
+                  },
+                  {
+                    "name": "10-trockenbau-innenausbau.png",
+                    "size": "96.5KB"
+                  },
+                  {
+                    "name": "11-maler-bodenleger.png",
+                    "size": "93.6KB"
+                  },
+                  {
+                    "name": "12-lager-logistik.png",
+                    "size": "92.6KB"
+                  },
+                  {
+                    "name": "13-galabau.png",
+                    "size": "89.9KB"
+                  },
+                  {
+                    "name": "render.mjs",
+                    "size": "1.6KB"
+                  },
+                  {
+                    "name": "template.html",
+                    "size": "8.5KB"
+                  }
+                ]
+              },
+              {
+                "name": "drafts",
+                "children": [
+                  {
+                    "name": "chatgpt-werbung.md",
+                    "size": "3.1KB"
+                  }
+                ]
+              },
+              {
+                "name": "post_drafts.md",
+                "size": "5.1KB"
+              },
+              {
+                "name": "post_visuals.md",
+                "size": "2.0KB"
+              },
+              {
+                "name": "posting_kalender.md",
+                "size": "3.7KB"
+              },
+              {
+                "name": "strategie.md",
+                "size": "6.4KB"
+              },
+              {
+                "name": "visuals",
+                "children": [
+                  {
+                    "name": "chatgpt_meme.html",
+                    "size": "3.2KB"
+                  },
+                  {
+                    "name": "chatgpt_meme.png",
+                    "size": "68.0KB"
+                  },
+                  {
+                    "name": "chatgpt_vs_baugpt.html",
+                    "size": "3.8KB"
+                  },
+                  {
+                    "name": "chatgpt_vs_baugpt.png",
+                    "size": "101.5KB"
+                  },
+                  {
+                    "name": "post1_ai_agents.html",
+                    "size": "3.1KB"
+                  },
+                  {
+                    "name": "post1_ai_agents.png",
+                    "size": "77.4KB"
+                  },
+                  {
+                    "name": "post2_fachkraeftemangel.html",
+                    "size": "2.8KB"
+                  },
+                  {
+                    "name": "post2_fachkraeftemangel.png",
+                    "size": "82.5KB"
+                  },
+                  {
+                    "name": "post5_kontroverse.html",
+                    "size": "2.9KB"
+                  },
+                  {
+                    "name": "post5_kontroverse.png",
+                    "size": "102.9KB"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "marketing",
+            "children": [
+              {
+                "name": "blog",
+                "children": [
+                  {
+                    "name": "bauleiter-gehalt-2026.md",
+                    "size": "6.9KB"
+                  },
+                  {
+                    "name": "maurer-gehalt-2026.md",
+                    "size": "4.8KB"
+                  }
+                ]
+              },
+              {
+                "name": "email_nurture_sequence.md",
+                "size": "4.7KB"
+              },
+              {
+                "name": "seo_blog_strategie.md",
+                "size": "4.2KB"
+              },
+              {
+                "name": "wettbewerber_analyse.md",
+                "size": "9.2KB"
+              },
+              {
+                "name": "wettbewerber_matrix.md",
+                "size": "4.2KB"
+              }
+            ]
+          },
+          {
+            "name": "memory",
+            "children": [
+              {
+                "name": "2026-02-09.md",
+                "size": "7.3KB"
+              },
+              {
+                "name": "2026-02-10-afternoon.md",
+                "size": "3.1KB"
+              },
+              {
+                "name": "2026-02-10.md",
+                "size": "3.5KB"
+              },
+              {
+                "name": "2026-02-11.md",
+                "size": "4.5KB"
+              }
+            ]
+          },
+          {
+            "name": "slack_listener.log",
+            "size": "12.3KB"
+          },
+          {
+            "name": "slack_listener.py",
+            "size": "4.1KB"
+          },
+          {
+            "name": "test-results",
+            "children": [
+              {
+                "name": ".last-run.json",
+                "size": "45B"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "alfred",
+      "name": "Alfred",
+      "emoji": "🐸",
+      "role": "HR & Recruiting Agent",
+      "color": "#00b894",
+      "status": "active",
+      "projects": [],
+      "tasks": [
+        {
+          "icon": "⚡",
+          "name": "- Check Slack #botchannel (C0ADW49K0TF) for new messages from Hugo via curl (Bot Token: xoxb",
+          "freq": "22470628465-10459565959799-1P7dMjQJ8WvMPex2asWUOcNc). If Hugo tagged @Alfred (U0ADHGMU7PH), reply via curl chat.postMessage. Last check state in scripts/botchannel-state.json."
+        },
+        {
+          "icon": "⚡",
+          "name": "- **#crafthunt",
+          "freq": "chat-requests wird NICHT mehr über Heartbeat gecheckt** → läuft über eigenen Cron-Job (alle 15 Min, 08:30–19:00)."
+        },
+        {
+          "icon": "⚡",
+          "name": "- Check Feedback Board (DB: 3038597f",
+          "freq": "300c-8123-95a1-c8e2d411d27f) + Wissensstand DB (3038597f-300c-817b-b455-f39acfff4099) for new comments from Martin. Reply to comments in Notion. Last check state in scripts/notion-comments-state.json."
+        },
+        {
+          "icon": "⚡",
+          "name": "- Wird über separaten Cron",
+          "freq": "Job gesteuert, NICHT über Heartbeat."
+        },
+        {
+          "icon": "⚡",
+          "name": "- Sync HEARTBEAT.md with Notion \"Laufende & Wiederkehrende Aufgaben\" DB (3038597f",
+          "freq": "300c-8174-9019-de2c1bdba9b8). Check for new tasks Martin added. Update this file if needed. Last sync in scripts/heartbeat-sync-state.json."
+        },
+        {
+          "icon": "⚡",
+          "name": "- Chat",
+          "freq": "Analyse Report: Deep analysis of #crafthunt-chat-requests (last 7 days). Create Notion report under \"Chat-Analysen\" page (3038597f-300c-812c-a2cc-c1352845ba9e)."
+        }
+      ],
+      "knowledge": [],
+      "timeline": [
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Script `scripts/enrich-customers-slack.py` erstellt und ausgeführt",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "661 Slack-Nachrichten aus #crafthunt-chat-requests analysiert",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "25/33 Firmen zu Customer-Files zugeordnet und angereichert",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Insights pro Firma: Nachrichtenvolumen, Absagen, Einladungen, Gehaltsthemen, Standort-Issues",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "`_index.md` mit globalen Patterns aktualisiert",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Key Stats: 911 msgs total, 506 Absagen (56% der Firmen-Msgs), 24 Einladungen",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Aktivste Firmen: Enpal, Klyma, INTILION, Lucian Thum (viele Absagen wg Standort)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "State: `scripts/slack-enrichment-state.json`",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Cron ID: `c96f72a6-f147-42ef-b58e-01359ed654a3`",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 06:00",
+          "text": "Schedule: Montag 06:00 Europe/Berlin",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Führt `build-customers-v2.py` + `enrich-customers-slack.py` aus",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Isolated session mit announce delivery",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Kompletter bereinigter Prompt an Martin geliefert (copy-paste ready)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Aussprache: \"Bau Dschi Pie Tie\" als eigene Regel (nicht in Klammern)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Geschlecht auf männlich (Sebastian), \"KI-Assistent\" statt \"Assistentin\"",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "\"Vorqualifizierung\" überall ersetzt",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Martin hat Dashboard angepasst: Begrüßung raus, männliche Stimme, Namen geändert",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Tools werden jetzt getriggert ✅",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Bug: Agent schickt Firmenname bei allgemeiner Suche mit (name: Implenia Deutschland)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Latenz bei Tool-Calls → Kandidat muss \"Hallo?\" sagen",
+          "icon": "📌"
+        }
+      ],
+      "files": {
+        "name": "workspace",
+        "children": [
+          {
+            "name": ".clawhub",
+            "children": [
+              {
+                "name": "lock.json",
+                "size": "1.5KB"
+              }
+            ]
+          },
+          {
+            "name": "AGENTS.md",
+            "size": "8.5KB"
+          },
+          {
+            "name": "BOOTSTRAP.md",
+            "size": "1.4KB"
+          },
+          {
+            "name": "HEARTBEAT.md",
+            "size": "1.3KB"
+          },
+          {
+            "name": "IDENTITY.md",
+            "size": "441B"
+          },
+          {
+            "name": "MEMORY.md",
+            "size": "3.8KB"
+          },
+          {
+            "name": "SOUL.md",
+            "size": "1.6KB"
+          },
+          {
+            "name": "TOOLS.md",
+            "size": "1.3KB"
+          },
+          {
+            "name": "USER.md",
+            "size": "325B"
+          },
+          {
+            "name": "customers",
+            "children": [
+              {
+                "name": "_index.md",
+                "size": "16.0KB"
+              },
+              {
+                "name": "aira.md",
+                "size": "762B"
+              },
+              {
+                "name": "algeco-gmbh.md",
+                "size": "1.2KB"
+              },
+              {
+                "name": "bauer-gruppe.md",
+                "size": "809B"
+              },
+              {
+                "name": "bayerische-zugspitzbahn-bergbahn-ag.md",
+                "size": "708B"
+              },
+              {
+                "name": "beckmeier-gmbh.md",
+                "size": "984B"
+              },
+              {
+                "name": "bernhard-luebbers-gmbh.md",
+                "size": "802B"
+              },
+              {
+                "name": "bes-ingenieure-gmbh.md",
+                "size": "781B"
+              },
+              {
+                "name": "bortolazzi-strassenbau-gmbh.md",
+                "size": "811B"
+              },
+              {
+                "name": "btw-gmbh.md",
+                "size": "741B"
+              },
+              {
+                "name": "burkart-geruestbau-gmbh.md",
+                "size": "577B"
+              },
+              {
+                "name": "bwp-baumanagement-gmbh.md",
+                "size": "920B"
+              },
+              {
+                "name": "cadbauteam.md",
+                "size": "742B"
+              },
+              {
+                "name": "cleanair-systems-gmbh.md",
+                "size": "755B"
+              },
+              {
+                "name": "crafthunt-gmbh.md",
+                "size": "511B"
+              },
+              {
+                "name": "dachdeckermeister-willy-a-loew-ag.md",
+                "size": "790B"
+              },
+              {
+                "name": "e3-new-energy-gmbh.md",
+                "size": "840B"
+              },
+              {
+                "name": "eba-consult-gmbh.md",
+                "size": "792B"
+              },
+              {
+                "name": "ebutec-group.md",
+                "size": "660B"
+              },
+              {
+                "name": "efaflex-tor-und-sicherheitssysteme-gmbh-co-kg.md",
+                "size": "1012B"
+              },
+              {
+                "name": "eiffage-infra-laermschutz-gmbh.md",
+                "size": "1013B"
+              },
+              {
+                "name": "eiffage-infra-sued-gmbh.md",
+                "size": "765B"
+              },
+              {
+                "name": "elektro-schweiger-gmbh.md",
+                "size": "746B"
+              },
+              {
+                "name": "enpal-fulfillment-b-v.md",
+                "size": "945B"
+              },
+              {
+                "name": "enpal-heat.md",
+                "size": "1.0KB"
+              },
+              {
+                "name": "enviria.md",
+                "size": "501B"
+              },
+              {
+                "name": "envola-gmbh.md",
+                "size": "805B"
+              },
+              {
+                "name": "ets-technik-martin-luetz.md",
+                "size": "820B"
+              },
+              {
+                "name": "fritz-heidel-ohg.md",
+                "size": "801B"
+              },
+              {
+                "name": "fritz-meyer-gmbh-bauunternehmung-meyer-bau.md",
+                "size": "1010B"
+              },
+              {
+                "name": "fuellgrabe-teubner-elektrotechnik-gmbh.md",
+                "size": "796B"
+              },
+              {
+                "name": "g-n-gefahrenmelde-und-nachrichtentechnik-gmbh.md",
+                "size": "910B"
+              },
+              {
+                "name": "gartenhof-kuesters-gmbh.md",
+                "size": "850B"
+              },
+              {
+                "name": "geiger-gruppe.md",
+                "size": "1.4KB"
+              },
+              {
+                "name": "gemeinde-pullach-i-isartal.md",
+                "size": "701B"
+              },
+              {
+                "name": "german-water-and-energy-group-gwe-gmbh.md",
+                "size": "542B"
+              },
+              {
+                "name": "geruestbau-weigand-ag.md",
+                "size": "815B"
+              },
+              {
+                "name": "gleichstrom-gmbh.md",
+                "size": "956B"
+              },
+              {
+                "name": "goldbeck-gmbh.md",
+                "size": "736B"
+              },
+              {
+                "name": "grossenhainer-ausbau-gmbh.md",
+                "size": "788B"
+              },
+              {
+                "name": "heberger-gruppe.md",
+                "size": "840B"
+              },
+              {
+                "name": "heinrich-schmid-gmbh-co-kg.md",
+                "size": "916B"
+              },
+              {
+                "name": "heitkamp-unternehmensgruppe.md",
+                "size": "717B"
+              },
+              {
+                "name": "helios-ventilatoren-gmbh-co-kg.md",
+                "size": "970B"
+              },
+              {
+                "name": "hell-gmbh-co-kg.md",
+                "size": "990B"
+              },
+              {
+                "name": "hoelscher-wasserbau-gmbh.md",
+                "size": "778B"
+              },
+              {
+                "name": "hw-gruenderkapital-gmbh.md",
+                "size": "1.0KB"
+              },
+              {
+                "name": "implenia-deutschland.md",
+                "size": "1.2KB"
+              },
+              {
+                "name": "implenia-tesch-gmbh.md",
+                "size": "572B"
+              },
+              {
+                "name": "ingenieurbuero-funk.md",
+                "size": "773B"
+              },
+              {
+                "name": "ingenieurbuero-schlegel-reusswig-gmbh.md",
+                "size": "753B"
+              },
+              {
+                "name": "intec-gesellschaft-fuer-injektionstechnik-mbh-co-kg.md",
+                "size": "783B"
+              },
+              {
+                "name": "intilion-ag.md",
+                "size": "929B"
+              },
+              {
+                "name": "isotec-gmbh.md",
+                "size": "576B"
+              },
+              {
+                "name": "j-friedrich-storz-verkehrswegebau-gmbh-co-kg.md",
+                "size": "848B"
+              },
+              {
+                "name": "jaeger-ausbau-gmbh-co-kg-muenchen.md",
+                "size": "532B"
+              },
+              {
+                "name": "jaeger-ausbau-gmbh-co-kg-nord.md",
+                "size": "686B"
+              },
+              {
+                "name": "jaeger-ausbau-gruppe-standort-leipzig.md",
+                "size": "854B"
+              },
+              {
+                "name": "jaeger-haustechnik-gmbh-co-kg-leipzig.md",
+                "size": "575B"
+              },
+              {
+                "name": "jaeger-modulbau-gmbh-co-kg.md",
+                "size": "782B"
+              },
+              {
+                "name": "jaeger-tiefbau-abbruch-gmbh-suedpfalz.md",
+                "size": "912B"
+              },
+              {
+                "name": "jaehnig-gmbh-felssicherung-und-zaunbau.md",
+                "size": "804B"
+              },
+              {
+                "name": "klyma-gmbh.md",
+                "size": "997B"
+              },
+              {
+                "name": "kratzert-baumanagement-gmbh.md",
+                "size": "785B"
+              },
+              {
+                "name": "krug-holzsystembinder-gmbh.md",
+                "size": "765B"
+              },
+              {
+                "name": "kutter-gmbh-co-kg-bauunternehmung.md",
+                "size": "1.2KB"
+              },
+              {
+                "name": "lantzerath-group.md",
+                "size": "1005B"
+              },
+              {
+                "name": "lasga-gmbh.md",
+                "size": "813B"
+              },
+              {
+                "name": "leitner-gmbh-co-bauunternehmung-kg.md",
+                "size": "534B"
+              },
+              {
+                "name": "leitwerk-ag.md",
+                "size": "512B"
+              },
+              {
+                "name": "lucian-thum-gmbh-co-kg.md",
+                "size": "916B"
+              },
+              {
+                "name": "marti-gmbh-deutschland.md",
+                "size": "809B"
+              },
+              {
+                "name": "mast-grundbau-gmbh.md",
+                "size": "784B"
+              },
+              {
+                "name": "oskar-heuchert-gmbh-co-kg.md",
+                "size": "582B"
+              },
+              {
+                "name": "peinemann-sohn-gmbh-co-kg.md",
+                "size": "754B"
+              },
+              {
+                "name": "pfeiffer-baugesellschaft-mbh.md",
+                "size": "727B"
+              },
+              {
+                "name": "qlimate-gmbh.md",
+                "size": "759B"
+              },
+              {
+                "name": "reuter-bauunternehmen-gmbh.md",
+                "size": "796B"
+              },
+              {
+                "name": "riis-construction-gmbh.md",
+                "size": "781B"
+              },
+              {
+                "name": "rocholl-garten-landschafts-und-tiefbau-gmbh.md",
+                "size": "988B"
+              },
+              {
+                "name": "roedl-bau-gruppe.md",
+                "size": "762B"
+              },
+              {
+                "name": "scheu-engel-gmbh.md",
+                "size": "796B"
+              },
+              {
+                "name": "schuster-buchner-schmid-gmbh-co-kg.md",
+                "size": "916B"
+              },
+              {
+                "name": "seh-engineering-gmbh.md",
+                "size": "1.1KB"
+              },
+              {
+                "name": "solar-world-baden-gmbh.md",
+                "size": "784B"
+              },
+              {
+                "name": "ssw-real-estate-gmbh.md",
+                "size": "709B"
+              },
+              {
+                "name": "stadtgruen-ruhr-gmbh.md",
+                "size": "807B"
+              },
+              {
+                "name": "stahlbau-heil-gmbh-co-kg.md",
+                "size": "580B"
+              },
+              {
+                "name": "stolze-gmbh.md",
+                "size": "950B"
+              },
+              {
+                "name": "strabag-ag-direktion-baden-wuerttemberg-bereich-abdichtungst.md",
+                "size": "810B"
+              },
+              {
+                "name": "strabag-ag-direktion-niedersachsen-sachsen-anhalt.md",
+                "size": "804B"
+              },
+              {
+                "name": "strabag-ag-direktion-nordrhein-westfalen-bereich-bonn.md",
+                "size": "760B"
+              },
+              {
+                "name": "strabag-ag-direktion-nordrhein-westfalen-bereich-dueren.md",
+                "size": "472B"
+              },
+              {
+                "name": "strabag-ag-direktion-nordrhein-westfalen-bereich-rheinland.md",
+                "size": "733B"
+              },
+              {
+                "name": "strabag-ag-direktion-nordrhein-westfalen-bereich-ruhrgebiet.md",
+                "size": "786B"
+              },
+              {
+                "name": "strabag-ag-direktion-nordrhein-westfalen-bereich-westfalen.md",
+                "size": "804B"
+              },
+              {
+                "name": "strabag-ag-direktion-sachsen-thueringen-mitte.md",
+                "size": "714B"
+              },
+              {
+                "name": "strabag-ag-direktion-sachsen-thueringen-ostsachsen.md",
+                "size": "708B"
+              },
+              {
+                "name": "strabag-ag-direktion-sachsen-thueringen-westthueringen.md",
+                "size": "827B"
+              },
+              {
+                "name": "strabag-bereich-kieserling.md",
+                "size": "423B"
+              },
+              {
+                "name": "strabag-bereich-neubau-und-sanierung-standort-hamburg.md",
+                "size": "684B"
+              },
+              {
+                "name": "strabag-bereich-nordwest.md",
+                "size": "685B"
+              },
+              {
+                "name": "strabag-bereich-schleswig-holstein-west.md",
+                "size": "724B"
+              },
+              {
+                "name": "strabag-gmbh-direktion-baden-wuerttemberg-bereich-bretzfeld.md",
+                "size": "815B"
+              },
+              {
+                "name": "strabag-gmbh-direktion-baden-wuerttemberg-bereich-dettingen.md",
+                "size": "622B"
+              },
+              {
+                "name": "strabag-gmbh-direktion-baden-wuerttemberg-bereich-freudensta.md",
+                "size": "844B"
+              },
+              {
+                "name": "strabag-gmbh-direktion-baden-wuerttemberg-bereich-langenarge.md",
+                "size": "941B"
+              },
+              {
+                "name": "strabag-hamburg.md",
+                "size": "686B"
+              },
+              {
+                "name": "strabag-nordrhein-westfalen.md",
+                "size": "439B"
+              },
+              {
+                "name": "strabag-sonderbau-hamburg.md",
+                "size": "422B"
+              },
+              {
+                "name": "strabag-weser-ems.md",
+                "size": "671B"
+              },
+              {
+                "name": "swarco-v-s-m-gmbh.md",
+                "size": "527B"
+              },
+              {
+                "name": "t-i-g-rusztowania-sp-z-o-o.md",
+                "size": "779B"
+              },
+              {
+                "name": "telkmann-beratende-ingenieure-partgmbb.md",
+                "size": "444B"
+              },
+              {
+                "name": "tm-energie.md",
+                "size": "773B"
+              },
+              {
+                "name": "top-sport-sporthalleninnenausbau-gmbh.md",
+                "size": "983B"
+              },
+              {
+                "name": "vakon-baugesellschaft-mbh.md",
+                "size": "800B"
+              },
+              {
+                "name": "vitronet-holding-gmbh.md",
+                "size": "695B"
+              },
+              {
+                "name": "wahl-gmbh-co-kg.md",
+                "size": "1.0KB"
+              },
+              {
+                "name": "weisenburger-bau-gmbh.md",
+                "size": "860B"
+              },
+              {
+                "name": "willy-schnell-gmbh.md",
+                "size": "690B"
+              },
+              {
+                "name": "xaver-riebel-bauunternehmung-gmbh-co-kg.md",
+                "size": "705B"
+              },
+              {
+                "name": "zausinger-gmbh-co-kg.md",
+                "size": "849B"
+              }
+            ]
+          },
+          {
+            "name": "memory",
+            "children": [
+              {
+                "name": "2026-02-09.md",
+                "size": "5.1KB"
+              },
+              {
+                "name": "2026-02-10.md",
+                "size": "1.5KB"
+              },
+              {
+                "name": "2026-02-11.md",
+                "size": "2.2KB"
+              }
+            ]
+          },
+          {
+            "name": "notion_kb.py",
+            "size": "11.7KB"
+          },
+          {
+            "name": "references",
+            "children": [
+              {
+                "name": "rate-limits.md",
+                "size": "2.2KB"
+              }
+            ]
+          },
+          {
+            "name": "scripts",
+            "children": [
+              {
+                "name": "README.md",
+                "size": "1.1KB"
+              },
+              {
+                "name": "botchannel-state.json",
+                "size": "71B"
+              },
+              {
+                "name": "build-customers-v2.py",
+                "size": "8.3KB"
+              },
+              {
+                "name": "build-customers.py",
+                "size": "12.9KB"
+              },
+              {
+                "name": "candidate-lookup.sh",
+                "size": "1.9KB"
+              },
+              {
+                "name": "candidate-match.sh",
+                "size": "2.1KB"
+              },
+              {
+                "name": "chat-requests-state.json",
+                "size": "58B"
+              },
+              {
+                "name": "db-query.sh",
+                "size": "182B"
+              },
+              {
+                "name": "db.env",
+                "size": "245B"
+              },
+              {
+                "name": "enrich-customers-slack.py",
+                "size": "12.9KB"
+              },
+              {
+                "name": "google-client-secret.json",
+                "size": "403B"
+              },
+              {
+                "name": "heartbeat-sync-state.json",
+                "size": "17B"
+              },
+              {
+                "name": "job-search.sh",
+                "size": "1.7KB"
+              },
+              {
+                "name": "matching-config.md",
+                "size": "2.3KB"
+              },
+              {
+                "name": "notion-comments-state.json",
+                "size": "18B"
+              },
+              {
+                "name": "pipeline-status.sh",
+                "size": "1.2KB"
+              },
+              {
+                "name": "slack-enrichment-state.json",
+                "size": "467B"
+              },
+              {
+                "name": "slack-notion-sync.sh",
+                "size": "3.2KB"
+              },
+              {
+                "name": "sync-state.json",
+                "size": "76B"
+              }
+            ]
+          },
+          {
+            "name": "skills",
+            "children": [
+              {
+                "name": "agent-browser-clawdbot",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "154B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "5.4KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "141B"
+                  }
+                ]
+              },
+              {
+                "name": "browser-automation",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "150B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "EXAMPLES.md",
+                    "size": "7.1KB"
+                  },
+                  {
+                    "name": "REFERENCE.md",
+                    "size": "13.1KB"
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "2.4KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "137B"
+                  },
+                  {
+                    "name": "setup.json",
+                    "size": "1.3KB"
+                  }
+                ]
+              },
+              {
+                "name": "candidate-matching",
+                "children": [
+                  {
+                    "name": "SKILL.md",
+                    "size": "3.1KB"
+                  },
+                  {
+                    "name": "references",
+                    "children": [
+                      {
+                        "name": "db-schema.md",
+                        "size": "5.1KB"
+                      },
+                      {
+                        "name": "matching-config.md",
+                        "size": "2.3KB"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "scripts",
+                    "children": [
+                      {
+                        "name": "candidate-lookup.sh",
+                        "size": "1.9KB"
+                      },
+                      {
+                        "name": "candidate-match.sh",
+                        "size": "2.1KB"
+                      },
+                      {
+                        "name": "db-query.sh",
+                        "size": "182B"
+                      },
+                      {
+                        "name": "db.env",
+                        "size": "245B"
+                      },
+                      {
+                        "name": "job-search.sh",
+                        "size": "1.7KB"
+                      },
+                      {
+                        "name": "pipeline-status.sh",
+                        "size": "1.2KB"
+                      },
+                      {
+                        "name": "sync-state.json",
+                        "size": "76B"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "openclaw-auto-updater",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "153B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "2.3KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "140B"
+                  },
+                  {
+                    "name": "references",
+                    "children": [
+                      {
+                        "name": "agent-guide.md",
+                        "size": "3.1KB"
+                      },
+                      {
+                        "name": "summary-examples.md",
+                        "size": "1.9KB"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "reddapi",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "139B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "3.4KB"
+                  },
+                  {
+                    "name": "SUPPORTING.md",
+                    "size": "390B"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "126B"
+                  }
+                ]
+              },
+              {
+                "name": "reddit-cli",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "142B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "README.md",
+                    "size": "1.9KB"
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "1.4KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "129B"
+                  },
+                  {
+                    "name": "scripts",
+                    "children": [
+                      {
+                        "name": "reddit-cli.js",
+                        "size": "6.7KB"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "remotion-server",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "147B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "1.9KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "134B"
+                  },
+                  {
+                    "name": "scripts",
+                    "children": [
+                      {
+                        "name": "create.sh",
+                        "size": "8.5KB"
+                      },
+                      {
+                        "name": "setup.sh",
+                        "size": "2.8KB"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "remotion-video",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "146B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "3.2KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "133B"
+                  }
+                ]
+              },
+              {
+                "name": "skill-creator-2",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "147B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "17.4KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "134B"
+                  }
+                ]
+              },
+              {
+                "name": "smart-auto-updater",
+                "children": [
+                  {
+                    "name": ".clawhub",
+                    "children": [
+                      {
+                        "name": "origin.json",
+                        "size": "150B"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "SKILL.md",
+                    "size": "5.1KB"
+                  },
+                  {
+                    "name": "_meta.json",
+                    "size": "137B"
+                  },
+                  {
+                    "name": "references",
+                    "children": [
+                      {
+                        "name": "integration.md",
+                        "size": "3.8KB"
+                      },
+                      {
+                        "name": "report-templates.md",
+                        "size": "5.5KB"
+                      },
+                      {
+                        "name": "risk-assessment.md",
+                        "size": "3.3KB"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "telli",
+                "children": [
+                  {
+                    "name": "SKILL.md",
+                    "size": "5.0KB"
+                  },
+                  {
+                    "name": "scripts",
+                    "children": [
+                      {
+                        "name": "telli-call.sh",
+                        "size": "2.1KB"
+                      },
+                      {
+                        "name": "telli-status.sh",
+                        "size": "551B"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "telli-api",
+            "children": [
+              {
+                "name": ".gitignore",
+                "size": "42B"
+              },
+              {
+                "name": "README.md",
+                "size": "1.8KB"
+              },
+              {
+                "name": "api",
+                "children": [
+                  {
+                    "name": "candidate-status.js",
+                    "size": "4.8KB"
+                  },
+                  {
+                    "name": "company.js",
+                    "size": "4.9KB"
+                  },
+                  {
+                    "name": "jobs.js",
+                    "size": "14.6KB"
+                  },
+                  {
+                    "name": "trade.js",
+                    "size": "5.7KB"
+                  },
+                  {
+                    "name": "trades.js",
+                    "size": "1.6KB"
+                  }
+                ]
+              },
+              {
+                "name": "package-lock.json",
+                "size": "5.5KB"
+              },
+              {
+                "name": "package.json",
+                "size": "194B"
+              },
+              {
+                "name": "test-local.js",
+                "size": "1.6KB"
+              },
+              {
+                "name": "vercel.json",
+                "size": "89B"
+              }
+            ]
+          },
+          {
+            "name": "telli-knowledge-base",
+            "children": [
+              {
+                "name": "01-faq-kandidaten.md",
+                "size": "1.8KB"
+              },
+              {
+                "name": "02-gewerke-qualifikationen.md",
+                "size": "3.2KB"
+              },
+              {
+                "name": "03-prozess-kontakt.md",
+                "size": "2.0KB"
+              },
+              {
+                "name": "04-einwandbehandlung.md",
+                "size": "3.8KB"
+              }
+            ]
+          },
+          {
+            "name": "telli-prompts",
+            "children": [
+              {
+                "name": "follow-up-agent.md",
+                "size": "8.3KB"
+              },
+              {
+                "name": "follow-up-agent.pdf",
+                "size": "23.3KB"
+              },
+              {
+                "name": "follow-up-agent.txt",
+                "size": "8.3KB"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rainman",
+      "name": "Rainman",
+      "emoji": "📊",
+      "role": "Data Analyst",
+      "color": "#3b82f6",
+      "status": "active",
+      "projects": [],
+      "tasks": [
+        {
+          "icon": "⚡",
+          "name": "- Query Notion \"👨🏻‍🔧 Rainman",
+          "freq": "Tasks & Projects\" (DB: 3038597f-300c-81ae-8c3a-ff7e5822a502)"
+        },
+        {
+          "icon": "⚡",
+          "name": "- Check for tasks with Status \"In Progress\" or \"Backlog\"",
+          "freq": "pick up the next one if idle"
+        },
+        {
+          "icon": "⚡",
+          "name": "- Check Slack messages (account: rainman)",
+          "freq": "read and respond to any unread DMs or channel mentions"
+        }
+      ],
+      "knowledge": [],
+      "timeline": [
+        {
+          "date": "2026-02-11 12:50",
+          "text": "Jonas provided upgraded Aura instance at ~12:50 PST on 2026-02-10",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "New:** neo4j+s://fc7e3e66.databases.neo4j.io, instance: baugpt-jobs-recruiting",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Old (deprecated):** neo4j+s://7ffcbb68.databases.neo4j.io",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Data preserved during upgrade, no migration needed",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Updated ~/.config/neo4j-aura.env + MEMORY.md",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Jonas updated Vercel env vars manually (I'm not logged into Vercel CLI)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "All entity types synced to new Aura instance",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Final counts: 170,842 nodes, 611,659 relationships**",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Trades: 102K worker-trade + 2K company-trade",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Timeline: 128K WORKED_AT (+ 4.5K deleted stale)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Certificates: 76K HAS_CERTIFICATE",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Candidates: 21K CANDIDATE_FOR",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Benefits: 4.5K OFFERS_BENEFIT, 36 Benefit nodes",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "️ `preferred_benefits` still blocked (retool user permission)",
+          "icon": "⚠"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Sub-agent analyzed all entity types",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Found ~80 duplicate groups total",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Cities: 6,174 unique, ~15 DE/EN variant groups (München/Munich, Köln/Cologne, Düsseldorf/Dusseldorf)",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Skills: 1,460 unique, ~60 confirmed duplicate groups",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Certs: mostly clean, `masters-certificate-certificate` vs `master-certificate` suspicious",
+          "icon": "📌"
+        },
+        {
+          "date": "2026-02-11 00:00",
+          "text": "Specializations: 2 confirmed merges",
+          "icon": "📌"
+        }
+      ],
+      "files": {
+        "name": "workspace-rainman",
+        "children": [
+          {
+            "name": ".backup-info",
+            "size": "103B"
+          },
+          {
+            "name": ".gitignore",
+            "size": "45B"
+          },
+          {
+            "name": ".venv",
+            "children": [
+              {
+                "name": ".gitignore",
+                "size": "69B"
+              },
+              {
+                "name": "bin",
+                "children": [
+                  {
+                    "name": "Activate.ps1",
+                    "size": "8.8KB"
+                  },
+                  {
+                    "name": "activate",
+                    "size": "2.2KB"
+                  },
+                  {
+                    "name": "activate.csh",
+                    "size": "938B"
+                  },
+                  {
+                    "name": "activate.fish",
+                    "size": "2.2KB"
+                  },
+                  {
+                    "name": "pip",
+                    "size": "215B"
+                  },
+                  {
+                    "name": "pip3",
+                    "size": "215B"
+                  },
+                  {
+                    "name": "pip3.14",
+                    "size": "215B"
+                  },
+                  {
+                    "name": "python",
+                    "size": "51.4KB"
+                  },
+                  {
+                    "name": "python3",
+                    "size": "51.4KB"
+                  },
+                  {
+                    "name": "python3.14",
+                    "size": "51.4KB"
+                  },
+                  {
+                    "name": "𝜋thon",
+                    "size": "51.4KB"
+                  }
+                ]
+              },
+              {
+                "name": "pyvenv.cfg",
+                "size": "318B"
+              }
+            ]
+          },
+          {
+            "name": "AGENTS.md",
+            "size": "528B"
+          },
+          {
+            "name": "HEARTBEAT.md",
+            "size": "549B"
+          },
+          {
+            "name": "IDENTITY.md",
+            "size": "262B"
+          },
+          {
+            "name": "MEMORY.md",
+            "size": "3.5KB"
+          },
+          {
+            "name": "RATE_LIMITS.md",
+            "size": "1.3KB"
+          },
+          {
+            "name": "SOUL.md",
+            "size": "1.6KB"
+          },
+          {
+            "name": "TOOLS.md",
+            "size": "495B"
+          },
+          {
+            "name": "USER.md",
+            "size": "257B"
+          },
+          {
+            "name": "apps",
+            "children": [
+              {
+                "name": "kg-query",
+                "children": [
+                  {
+                    "name": ".env.local",
+                    "size": "183B"
+                  },
+                  {
+                    "name": ".gitignore",
+                    "size": "37B"
+                  },
+                  {
+                    "name": "README.md",
+                    "size": "886B"
+                  },
+                  {
+                    "name": "app",
+                    "children": [
+                      {
+                        "name": "globals.css",
+                        "size": "23B"
+                      },
+                      {
+                        "name": "layout.tsx",
+                        "size": "437B"
+                      },
+                      {
+                        "name": "page.tsx",
+                        "size": "6.8KB"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "lib",
+                    "children": [
+                      {
+                        "name": "gemini.ts",
+                        "size": "6.2KB"
+                      },
+                      {
+                        "name": "neo4j.ts",
+                        "size": "1.7KB"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "next-env.d.ts",
+                    "size": "262B"
+                  },
+                  {
+                    "name": "next.config.ts",
+                    "size": "102B"
+                  },
+                  {
+                    "name": "package-lock.json",
+                    "size": "47.3KB"
+                  },
+                  {
+                    "name": "package.json",
+                    "size": "575B"
+                  },
+                  {
+                    "name": "postcss.config.mjs",
+                    "size": "93B"
+                  },
+                  {
+                    "name": "tsconfig.json",
+                    "size": "666B"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "data",
+            "children": [
+              {
+                "name": "cv_llm_results.jsonl",
+                "size": "342.7KB"
+              },
+              {
+                "name": "cv_progress.md",
+                "size": "1.3KB"
+              },
+              {
+                "name": "cv_texts.jsonl",
+                "size": "8.7MB"
+              },
+              {
+                "name": "kg_sync_state.json",
+                "size": "54B"
+              },
+              {
+                "name": "raw_results.json",
+                "size": "61.3KB"
+              },
+              {
+                "name": "raw_results2.json",
+                "size": "124.3KB"
+              },
+              {
+                "name": "supply_demand_gaps.csv",
+                "size": "2.3KB"
+              },
+              {
+                "name": "trade_city_heatmap.csv",
+                "size": "1.1KB"
+              }
+            ]
+          },
+          {
+            "name": "memory",
+            "children": [
+              {
+                "name": "2026-02-10.md",
+                "size": "8.8KB"
+              },
+              {
+                "name": "2026-02-11.md",
+                "size": "3.8KB"
+              }
+            ]
+          },
+          {
+            "name": "package-lock.json",
+            "size": "4.9KB"
+          },
+          {
+            "name": "package.json",
+            "size": "57B"
+          },
+          {
+            "name": "query.mjs",
+            "size": "5.3KB"
+          },
+          {
+            "name": "query2.mjs",
+            "size": "2.8KB"
+          },
+          {
+            "name": "reference",
+            "children": [
+              {
+                "name": "crafthunt-llm-database-schema.md",
+                "size": "35.0KB"
+              },
+              {
+                "name": "fuzzy-match-analysis.md",
+                "size": "5.3KB"
+              },
+              {
+                "name": "knowledge-graph-schema-v2.md",
+                "size": "4.3KB"
+              },
+              {
+                "name": "knowledge-graph-schema.md",
+                "size": "2.1KB"
+              },
+              {
+                "name": "normalization-maps.json",
+                "size": "3.9KB"
+              },
+              {
+                "name": "plz-coordinates.json",
+                "size": "5.6KB"
+              }
+            ]
+          },
+          {
+            "name": "references",
+            "children": [
+              {
+                "name": "db-schema.md",
+                "size": "5.1KB"
+              },
+              {
+                "name": "db.env",
+                "size": "245B"
+              }
+            ]
+          },
+          {
+            "name": "reports",
+            "children": [
+              {
+                "name": "candidate-pipeline-analysis.md",
+                "size": "3.2KB"
+              },
+              {
+                "name": "company-intelligence.md",
+                "size": "2.8KB"
+              },
+              {
+                "name": "gehaltsreport-verification.md",
+                "size": "11.3KB"
+              },
+              {
+                "name": "supply-demand-analysis.md",
+                "size": "5.0KB"
+              },
+              {
+                "name": "trade-career-paths.md",
+                "size": "3.1KB"
+              }
+            ]
+          },
+          {
+            "name": "scripts",
+            "children": [
+              {
+                "name": "batch_extract.py",
+                "size": "3.1KB"
+              },
+              {
+                "name": "kg_apply_normalization.py",
+                "size": "5.5KB"
+              },
+              {
+                "name": "kg_cleanup_companies.py",
+                "size": "9.8KB"
+              },
+              {
+                "name": "kg_cleanup_step2.py",
+                "size": "4.2KB"
+              },
+              {
+                "name": "kg_fix_company_ids.py",
+                "size": "4.9KB"
+              },
+              {
+                "name": "kg_incremental_sync.py",
+                "size": "27.6KB"
+              },
+              {
+                "name": "kg_incremental_sync.py.bak",
+                "size": "26.0KB"
+              },
+              {
+                "name": "kg_ingest_structured.py",
+                "size": "15.5KB"
+              },
+              {
+                "name": "kg_migrate_phase2.py",
+                "size": "7.2KB"
+              },
+              {
+                "name": "kg_migrate_rels_to_aura.py",
+                "size": "5.6KB"
+              },
+              {
+                "name": "kg_migrate_to_aura.py",
+                "size": "7.8KB"
+              },
+              {
+                "name": "kg_phase2_1_complete.py",
+                "size": "4.3KB"
+              },
+              {
+                "name": "kg_phase3_extract_cvs.py",
+                "size": "5.0KB"
+              },
+              {
+                "name": "kg_phase3_llm_extract.py",
+                "size": "7.7KB"
+              },
+              {
+                "name": "kg_sync_postal_codes.py",
+                "size": "6.3KB"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
