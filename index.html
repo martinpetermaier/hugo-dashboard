@@ -3,446 +3,333 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hugo 🚀 Dashboard</title>
+<title>BauGPT — Multi-Agent Workspace</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--amber:#F5A623;--amber-light:#FFF3D6;--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E8E8;--dark:#1A1A1A;--body:#444444;--muted:#999999;--navy:#111827;--green:#00b894;--red:#e17055;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,0.06)}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--body);line-height:1.6}
-a{color:var(--amber);text-decoration:none}
-
-/* Header */
-.header{background:var(--navy);color:#fff;padding:20px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.header-left h1{font-size:1.5rem;font-weight:800;color:#fff}
-.header-left p{font-size:.85rem;color:#9CA3AF;margin-top:2px}
-.status-badge{display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--green)}
-.pulse-dot{width:10px;height:10px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,184,148,.6)}50%{box-shadow:0 0 0 8px rgba(0,184,148,0)}}
-
-/* Layout */
-.main{max-width:1320px;margin:0 auto;padding:24px 24px 80px}
-.section{margin-bottom:32px}
-.section-title{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-
-/* Filter Tabs */
-.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-.tab{padding:7px 18px;border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--card);color:var(--body);transition:all .2s}
-.tab.active,.tab:hover{background:var(--amber);color:#fff;border-color:var(--amber)}
-
+:root{--bg:#FAFAF8;--card:#FFFFFF;--border:#E8E8E8;--text:#1a1a1a;--text2:#6b7280;--header:#111827;--radius:14px;--shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);--accent:#F5A623;--accent-light:#FFF8EC;--accent-bg:rgba(245,166,35,.1)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh}
+.header{background:var(--header);color:#fff;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.header-left{display:flex;align-items:center;gap:16px}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px}
+.logo span{color:var(--accent)}
+.agent-switcher{position:relative}
+.agent-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;padding:8px 16px;border-radius:10px;font:600 14px/1 'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .2s}
+.agent-btn:hover{background:rgba(255,255,255,.18)}
+.agent-btn .emoji{font-size:20px}
+.agent-btn svg{width:12px;height:12px;opacity:.6;transition:transform .2s}
+.agent-btn.open svg{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.12);overflow:hidden;opacity:0;transform:translateY(-4px);pointer-events:none;transition:all .15s;min-width:200px;z-index:200}
+.dropdown.open{opacity:1;transform:translateY(0);pointer-events:all}
+.dropdown-item{padding:12px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;color:var(--text);font-weight:500;font-size:14px;transition:background .15s}
+.dropdown-item:hover{background:#f3f4f6}
+.dropdown-item.active{background:var(--accent-bg)}
+.dropdown-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.header-right{display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,.6)}
+.header-right time{color:rgba(255,255,255,.9);font-weight:500}
+.main{max-width:1280px;margin:0 auto;padding:24px}
+.content-wrapper{opacity:1;transition:opacity .25s}
+.content-wrapper.fading{opacity:0}
+/* Tabs */
+.tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.tab{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--text2);transition:all .2s}
+.tab:hover{border-color:#ccc}
+.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.section-title{font-size:18px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.section-title .count{font-size:13px;font-weight:500;color:var(--text2);background:#f3f4f6;padding:2px 10px;border-radius:12px}
 /* Project Cards */
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
-.p-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all .25s;box-shadow:var(--shadow)}
-.p-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
-.p-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
-.p-card-title{font-size:1rem;font-weight:700;color:var(--dark)}
-.badge{padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:700;text-transform:uppercase;white-space:nowrap}
-.badge-done{background:#d4f5e9;color:#00865a}
-.badge-ongoing{background:#e0ecff;color:#2563eb}
-.badge-active{background:var(--amber-light);color:#b8780a}
-.badge-backlog{background:#f3f3f3;color:#777}
-.badge-blocked{background:#fde8e4;color:var(--red)}
-.progress-track{height:6px;background:#f0f0f0;border-radius:3px;margin:10px 0;overflow:hidden}
-.progress-fill{height:100%;border-radius:3px;transition:width .6s ease}
-.p-card-next{font-size:.82rem;color:var(--body);margin-bottom:8px}
-.p-card-next strong{color:var(--dark)}
-.p-card-meta{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
-.p-card-detail{display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:.85rem;color:var(--body);line-height:1.7}
-.p-card.expanded .p-card-detail{display:block}
-
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;margin-bottom:36px}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.project-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:#d0d0d0}
+.project-card.expanded{grid-column:1/-1}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.card-icon{font-size:22px;margin-right:10px;flex-shrink:0}
+.card-title{font-weight:600;font-size:15px;flex:1}
+.badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+.badge-done{background:#dcfce7;color:#15803d}
+.badge-ongoing{background:#dbeafe;color:#1d4ed8}
+.badge-active{background:var(--accent-bg);color:var(--accent)}
+.badge-backlog{background:#f3f4f6;color:#6b7280}
+.badge-blocked{background:#fef2f2;color:#dc2626}
+.progress-wrap{height:6px;background:#f3f4f6;border-radius:3px;margin:10px 0;overflow:hidden}
+.progress-bar{height:100%;border-radius:3px;background:var(--accent);transition:width .4s}
+.card-meta{display:flex;gap:14px;font-size:12px;color:var(--text2);flex-wrap:wrap}
+.card-meta span{display:flex;align-items:center;gap:4px}
+.card-next{font-size:13px;color:var(--text2);margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.card-next b{color:var(--text);font-weight:600}
+.card-details{max-height:0;overflow:hidden;transition:max-height .3s;font-size:13px;color:var(--text2);margin-top:0}
+.project-card.expanded .card-details{max-height:200px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
 /* Pills */
-.pills{display:flex;gap:10px;flex-wrap:wrap}
-.pill{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:8px 16px;font-size:.8rem;font-weight:500;box-shadow:var(--shadow);white-space:nowrap}
-.pill em{color:var(--muted);font-style:normal;font-size:.75rem}
-
+.pills-section{margin-bottom:36px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--card);border:1px solid var(--border);border-radius:20px;font-size:13px;font-weight:500}
+.pill .freq{color:var(--text2);font-weight:400;font-size:12px}
 /* Knowledge Grid */
-.kb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.kb-item{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:.82rem;font-weight:500}
-.kb-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.kb-dot.g{background:var(--green)}.kb-dot.y{background:var(--amber)}.kb-dot.r{background:var(--red)}
-
+.kb-section{margin-bottom:36px}
+.kb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.kb-item{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:13px;font-weight:500}
+.kb-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.kb-dot.green{background:#22c55e}
+.kb-dot.yellow{background:#eab308}
+.kb-dot.red{background:#ef4444}
 /* Timeline */
-.timeline{position:relative;padding-left:24px}
-.timeline::before{content:'';position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:var(--border)}
-.tl-item{position:relative;margin-bottom:14px;padding-left:16px;font-size:.85rem}
-.tl-item::before{content:'';position:absolute;left:-22px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--amber);border:2px solid var(--bg)}
-.tl-date{font-weight:700;color:var(--dark);font-size:.78rem}
-.tl-text{color:var(--body)}
-
+.timeline-section{margin-bottom:36px}
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:var(--border)}
+.tl-item{position:relative;padding:0 0 16px 16px;font-size:13px}
+.tl-item::before{content:'';position:absolute;left:-18px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.tl-date{font-weight:600;color:var(--text);font-size:12px}
+.tl-text{color:var(--text2);margin-top:2px}
 /* File Explorer */
-.fe-toolbar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
-.fe-search{padding:8px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:.85rem;flex:1;min-width:200px;outline:none;font-family:inherit;transition:border .2s}
-.fe-search:focus{border-color:var(--amber)}
-.fe-tags{display:flex;gap:6px;flex-wrap:wrap}
-.fe-tag{padding:5px 12px;border-radius:14px;font-size:.75rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--card);transition:all .2s}
-.fe-tag.active,.fe-tag:hover{background:var(--amber);color:#fff;border-color:var(--amber)}
-.fe-tree{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-.fe-folder{cursor:pointer}
-.fe-folder-head{display:flex;align-items:center;gap:8px;padding:10px 16px;font-weight:600;font-size:.85rem;color:var(--dark);transition:background .15s;user-select:none}
-.fe-folder-head:hover{background:var(--amber-light)}
-.fe-folder-head .arrow{transition:transform .25s;font-size:.7rem;color:var(--muted)}
-.fe-folder.open>.fe-folder-head .arrow{transform:rotate(90deg)}
-.fe-children{overflow:hidden;max-height:0;transition:max-height .35s ease}
-.fe-folder.open>.fe-children{max-height:3000px}
-.fe-file{display:flex;align-items:center;gap:8px;padding:8px 16px 8px 36px;font-size:.82rem;cursor:pointer;transition:background .15s;color:var(--body)}
-.fe-file:hover{background:var(--amber-light)}
-.fe-file .fsize{margin-left:auto;color:var(--muted);font-size:.72rem}
-.fe-file .fbadge{margin-left:8px;padding:1px 7px;border-radius:6px;font-size:.65rem;font-weight:700}
-.fbadge-pdf{background:#fde8e4;color:var(--red)}
-.fbadge-img{background:#e0f0ff;color:#3b82f6}
-.fbadge-md{background:#d4f5e9;color:#00865a}
-.fbadge-html{background:var(--amber-light);color:#b8780a}
-.fbadge-vid{background:#f3e8ff;color:#8b5cf6}
-
-/* File Reader Modal */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;opacity:0;pointer-events:none;transition:opacity .25s}
-.modal-overlay.open{opacity:1;pointer-events:all}
-.modal-panel{position:fixed;top:0;right:-520px;width:min(520px,90vw);height:100vh;background:var(--card);z-index:201;transition:right .35s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 30px rgba(0,0,0,.15);display:flex;flex-direction:column}
-.modal-panel.open{right:0}
-.modal-header{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
-.modal-header h3{font-size:1rem;font-weight:700;color:var(--dark)}
-.modal-close{width:32px;height:32px;border:none;background:var(--bg);border-radius:8px;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .15s}
-.modal-close:hover{background:var(--amber-light)}
-.modal-body{flex:1;overflow-y:auto;padding:22px;font-size:.85rem;line-height:1.8;color:var(--body);white-space:pre-wrap;font-family:'Inter',monospace}
-.modal-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:300px;background:var(--bg);border-radius:12px;color:var(--muted);gap:12px;font-size:.9rem}
-.modal-img-placeholder span{font-size:3rem}
-
-@media(max-width:700px){
-  .header{padding:16px;flex-wrap:wrap;gap:10px}
-  .cards-grid{grid-template-columns:1fr}
-  .main{padding:16px 12px 60px}
-  .modal-panel{width:100vw}
+.files-section{margin-bottom:36px}
+.search-box{width:100%;padding:10px 14px 10px 38px;border:1px solid var(--border);border-radius:10px;font:14px 'Inter',sans-serif;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239ca3af' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E") no-repeat 12px center;margin-bottom:12px;outline:none;transition:border-color .2s}
+.search-box:focus{border-color:var(--accent)}
+.file-tree{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.file-folder{cursor:pointer}
+.file-folder-header{padding:10px 14px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px;border-bottom:1px solid var(--border);transition:background .15s;user-select:none}
+.file-folder-header:hover{background:#f9f9f7}
+.file-folder-header svg{width:14px;height:14px;transition:transform .2s;color:var(--text2)}
+.file-folder.open>. file-folder-header svg{transform:rotate(90deg)}
+.file-folder-children{display:none;padding-left:16px}
+.file-folder.open>.file-folder-children{display:block}
+.file-item{padding:8px 14px;display:flex;align-items:center;justify-content:space-between;font-size:13px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background .15s}
+.file-item:hover{background:#f9fafb}
+.file-item:last-child{border-bottom:none}
+.file-name{display:flex;align-items:center;gap:6px}
+.file-size{color:var(--text2);font-size:11px}
+.file-badge{font-size:10px;padding:2px 6px;border-radius:4px;font-weight:600;background:#f3f4f6;color:var(--text2)}
+/* Slide Panel */
+.slide-panel{position:fixed;right:0;top:0;width:480px;max-width:90vw;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.1);z-index:300;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+.slide-panel.open{transform:translateX(0)}
+.panel-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.panel-header h3{font-size:15px;font-weight:600}
+.panel-close{width:32px;height:32px;border:none;background:#f3f4f6;border-radius:8px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.panel-body{padding:20px;flex:1;overflow-y:auto;font-size:14px;color:var(--text2);line-height:1.8}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:250;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:all}
+@media(max-width:768px){
+.main{padding:16px}
+.projects-grid{grid-template-columns:1fr}
+.header{padding:0 16px}
+.kb-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
 }
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="header-left">
-    <h1>Hugo 🚀</h1>
-    <p>BauGPT Marketing Agent</p>
-  </div>
-  <div class="status-badge"><div class="pulse-dot"></div> Aktiv</div>
+<header class="header">
+<div class="header-left">
+<div class="logo">Bau<span>GPT</span></div>
+<div class="agent-switcher">
+<button class="agent-btn" id="agentBtn" onclick="toggleDropdown()">
+<span class="emoji" id="agentEmoji">🚀</span>
+<span id="agentName">Hugo</span>
+<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5l3 3 3-3"/></svg>
+</button>
+<div class="dropdown" id="dropdown">
+<div class="dropdown-item" data-agent="hugo" onclick="switchAgent('hugo')"><span class="dot" style="background:#F5A623"></span>🚀 Hugo</div>
+<div class="dropdown-item" data-agent="alfred" onclick="switchAgent('alfred')"><span class="dot" style="background:#00b894"></span>🐸 Alfred</div>
+<div class="dropdown-item" data-agent="rainman" onclick="switchAgent('rainman')"><span class="dot" style="background:#3b82f6"></span>📊 Rainman</div>
 </div>
-
-<div class="main">
-
-<!-- Projekt-Board -->
-<div class="section">
-  <div class="section-title">🏗️ Projekt-Board</div>
-  <div class="tabs" id="projectTabs">
-    <div class="tab active" data-filter="all">Alle</div>
-    <div class="tab" data-filter="backlog">Backlog</div>
-    <div class="tab" data-filter="active">In Progress</div>
-    <div class="tab" data-filter="ongoing">Ongoing</div>
-    <div class="tab" data-filter="done">Done</div>
-    <div class="tab" data-filter="blocked">Blocked</div>
-  </div>
-  <div class="cards-grid" id="projectGrid"></div>
 </div>
-
-<!-- Wiederkehrende Aufgaben -->
-<div class="section">
-  <div class="section-title">🔄 Wiederkehrende Aufgaben</div>
-  <div class="pills">
-    <div class="pill">💬 Slack Mentions <em>· 5min</em></div>
-    <div class="pill">💼 LinkedIn Posts <em>· wöchentlich</em></div>
-    <div class="pill">📚 Knowledge updaten <em>· bei Bedarf</em></div>
-    <div class="pill">📁 Dashboard sync <em>· bei Änderungen</em></div>
-    <div class="pill">🔍 Wettbewerber-Check <em>· monatlich</em></div>
-    <div class="pill">📈 SEO Monitoring <em>· monatlich</em></div>
-    <div class="pill">🧠 Memory Cleanup <em>· wöchentlich</em></div>
-  </div>
 </div>
+<div class="header-right">Workspace Dashboard · <time id="clock"></time></div>
+</header>
 
-<!-- Knowledge Base -->
-<div class="section">
-  <div class="section-title">📚 Knowledge Base Status</div>
-  <div class="kb-grid" id="kbGrid"></div>
-</div>
+<main class="main">
+<div class="content-wrapper" id="content"></div>
+</main>
 
-<!-- Activity Timeline -->
-<div class="section">
-  <div class="section-title">⏱️ Activity Timeline</div>
-  <div class="timeline" id="timeline"></div>
-</div>
-
-<!-- File Explorer -->
-<div class="section">
-  <div class="section-title">📂 File Explorer</div>
-  <div class="fe-toolbar">
-    <input class="fe-search" id="feSearch" placeholder="Dateien durchsuchen…">
-    <div class="fe-tags" id="feTags"></div>
-  </div>
-  <div class="fe-tree" id="feTree"></div>
-</div>
-
-</div>
-
-<!-- Modal -->
-<div class="modal-overlay" id="modalOverlay"></div>
-<div class="modal-panel" id="modalPanel">
-  <div class="modal-header">
-    <h3 id="modalTitle">Datei</h3>
-    <button class="modal-close" id="modalClose">✕</button>
-  </div>
-  <div class="modal-body" id="modalBody"></div>
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+<div class="slide-panel" id="panel">
+<div class="panel-header"><h3 id="panelTitle">Datei</h3><button class="panel-close" onclick="closePanel()">✕</button></div>
+<div class="panel-body" id="panelBody"></div>
 </div>
 
 <script>
-// === DATA ===
-const projects = [
-  {icon:'📊',title:'Gehaltsreport 2026',status:'ongoing',pct:95,next:'Deploy + Launch-Ergebnisse abwarten',files:'80+ files',date:'2026-02-10',detail:'v7 FINAL approved. 21 Seiten, 1.6MB. Landing Page + E-Mail Nurture bereit. Noch nicht deployed, warten auf Launch-Ergebnisse.'},
-  {icon:'🧮',title:'Gehaltsrechner',status:'ongoing',pct:90,next:'Deploy auf baugpt.com',files:'2 files',date:'2026-02-10',detail:'Interaktiver 5-Step-Wizard fertig. 13 Berufsgruppen × 16 Bundesländer. Muss auf baugpt.com integriert werden.'},
-  {icon:'💼',title:'LinkedIn Growth',status:'active',pct:60,next:'Posts KW8 veröffentlichen',files:'25+ files',date:'2026-02-10',detail:'Strategie, Post-Drafts, Visuals, 14 Berufsgruppen-Grafiken. Posting-Kalender erstellt. KW8 Posts ready.'},
-  {icon:'📈',title:'Marketing-Offensive',status:'active',pct:45,next:'6 SEO-Blogposts + Social-Ads',files:'10+ files',date:'2026-02-10',detail:'Wettbewerber-Analyse, SEO-Blog-Strategie, Email-Nurture-Sequence, 2 Blog-Artikel geschrieben. 6 weitere Blogposts geplant.'},
-  {icon:'🎬',title:'BauGPT Videos',status:'active',pct:40,next:'Videos finalisieren',files:'14+ files',date:'2026-02-11',detail:'Remotion-Setup mit GehaltsRanking + FachkräfteMangel Videos. 4 Videos gerendert (30s + full versions).'},
-  {icon:'🌐',title:'Website-Audit',status:'blocked',pct:5,next:'Browser-Zugang nötig',files:'—',date:'—',detail:'Braucht Browser-Tool-Zugang um baugpt.com zu auditen. Noch blockiert.'}
-];
+const AGENTS={
+hugo:{name:'Hugo',emoji:'🚀',accent:'#F5A623',accentLight:'#FFF8EC',accentBg:'rgba(245,166,35,.1)',
+projects:[
+{icon:'📊',title:'Gehaltsreport 2026',status:'ongoing',progress:95,next:'Deploy + Launch-Ergebnisse',files:'80+',updated:'2026-02-10'},
+{icon:'🧮',title:'Gehaltsrechner',status:'ongoing',progress:90,next:'Deploy auf baugpt.com',files:'2',updated:'2026-02-10'},
+{icon:'💼',title:'LinkedIn Growth',status:'active',progress:60,next:'Posts KW8 veröffentlichen',files:'25+',updated:'2026-02-10'},
+{icon:'📈',title:'Marketing-Offensive',status:'active',progress:45,next:'6 SEO-Blogposts + Social-Ads',files:'10+',updated:'2026-02-10'},
+{icon:'🎬',title:'BauGPT Videos',status:'active',progress:40,next:'Videos finalisieren',files:'14+',updated:'2026-02-11'},
+{icon:'🌐',title:'Website-Audit',status:'blocked',progress:5,next:'Browser-Zugang nötig',files:'0',updated:'—'}
+],
+tasks:[{t:'Slack Mentions',f:'5min'},{t:'LinkedIn Posts',f:'wöchentlich'},{t:'Knowledge updaten',f:'bei Bedarf'},{t:'Dashboard sync',f:'bei Änderungen'},{t:'Wettbewerber-Check',f:'monatlich'},{t:'SEO Monitoring',f:'monatlich'},{t:'Memory Cleanup',f:'wöchentlich'}],
+knowledge:{green:['Produktlinien','Matching & Tech','Zielgruppen','Gehaltsstrukturen','KPIs','Wettbewerber','Brand Design','Marketing-Strategie'],yellow:['Rebranding','Team-Struktur','Produkt & Features','Prozesse'],red:['Pricing','Kundenbeispiele']},
+timeline:[
+{date:'2026-02-11 10:40',text:'Produktlinien von Andi erhalten'},
+{date:'2026-02-11 10:37',text:'Notion → Lokal Migration'},
+{date:'2026-02-11 10:34',text:'Slack: Alfred & Rainman informiert'},
+{date:'2026-02-10',text:'Remotion Videos gerendert'},
+{date:'2026-02-10',text:'14 Berufsgruppen-Grafiken'},
+{date:'2026-02-10',text:'Marketing-Offensive aufgebaut'},
+{date:'2026-02-10',text:'Gehaltsreport v7 FINAL'}
+],
+files:[
+{name:'Root Files',type:'folder',children:[
+{name:'AGENTS.md',size:'461B'},{name:'HEARTBEAT.md',size:'417B'},{name:'IDENTITY.md',size:'249B'},{name:'KNOWLEDGE.md',size:'4.6KB'},{name:'MEMORY.md',size:'2.5KB'},{name:'PROJECTS.md',size:'1.7KB'},{name:'SOUL.md',size:'1.6KB'},{name:'TOOLS.md',size:'364B'},{name:'USER.md',size:'310B'},{name:'hugo-profile.png',size:'1.3MB',badge:'IMG'}
+]},
+{name:'memory/',type:'folder',children:[{name:'2026-02-11.md',size:'~2KB'},{name:'2026-02-10.md',size:'~3KB'},{name:'2026-02-09.md',size:'~1KB'},{name:'2026-02-08.md',size:'~1KB'}]},
+{name:'gehaltsreport/',type:'folder',children:[{name:'assets/',size:'~40 files',badge:'DIR'},{name:'charts/',size:'~20 files',badge:'DIR'},{name:'vorlagen/',size:'~10 files',badge:'DIR'},{name:'report-v7-final.md',size:'~15KB'},{name:'README.md',size:'~2KB'}]},
+{name:'gehaltsrechner/',type:'folder',children:[{name:'calculator.ts',size:'~8KB'},{name:'README.md',size:'~1KB'}]},
+{name:'linkedin/',type:'folder',children:[{name:'visuals/',size:'~15 files',badge:'DIR'},{name:'berufsgruppen/',size:'~10 files',badge:'DIR'},{name:'posts-kw8.md',size:'~3KB'}]},
+{name:'marketing/',type:'folder',children:[{name:'blog/',size:'~4 files',badge:'DIR'},{name:'strategy.md',size:'~2KB'},{name:'seo-plan.md',size:'~1KB'}]},
+{name:'baugpt-videos/',type:'folder',children:[{name:'src/',size:'~8 files',badge:'DIR'},{name:'out/',size:'~6 files',badge:'DIR'}]}
+]},
+alfred:{name:'Alfred',emoji:'🐸',accent:'#00b894',accentLight:'#EDFFF9',accentBg:'rgba(0,184,148,.1)',
+projects:[
+{icon:'👥',title:'Telli AI-Calls',status:'active',progress:70,next:'API-Endpoints erweitern',files:'8',updated:'2026-02-11'},
+{icon:'📋',title:'Customer Database',status:'ongoing',progress:85,next:'Daten aktuell halten',files:'100+',updated:'2026-02-11'},
+{icon:'🔍',title:'Candidate Matching',status:'active',progress:50,next:'Matching-Algorithmus optimieren',files:'10',updated:'2026-02-10'},
+{icon:'🌐',title:'Browser Automation',status:'backlog',progress:10,next:'Setup & Testing',files:'0',updated:'—'}
+],
+tasks:[{t:'Slack Mentions',f:'5min'},{t:'Customer DB sync',f:'täglich'},{t:'Telli Monitoring',f:'stündlich'},{t:'Candidate Pipeline',f:'täglich'}],
+knowledge:{green:['Kundenportfolio (122)','Telli System','Recruiting-Prozess'],yellow:['Matching-Algorithmus','Marktdaten'],red:['Competitor Sales Data']},
+timeline:[
+{date:'2026-02-11',text:'Memory updated'},
+{date:'2026-02-10',text:'Customer scripts optimiert'},
+{date:'2026-02-10',text:'Telli API endpoints'},
+{date:'2026-02-09',text:'122 Kunden-Profile aufgebaut'}
+],
+files:[
+{name:'Root Files',type:'folder',children:[
+{name:'AGENTS.md',size:'8.8KB'},{name:'HEARTBEAT.md',size:'1.4KB'},{name:'IDENTITY.md',size:'441B'},{name:'MEMORY.md',size:'3.9KB'},{name:'SOUL.md',size:'1.7KB'},{name:'TOOLS.md',size:'1.3KB'},{name:'USER.md',size:'325B'},{name:'BOOTSTRAP.md',size:'1.5KB'},{name:'notion_kb.py',size:'12KB'}
+]},
+{name:'customers/',type:'folder',children:[{name:'~100 .md files',size:'',badge:'DIR'}]},
+{name:'telli-api/',type:'folder',children:[{name:'endpoints.py',size:'~4KB'},{name:'config.yaml',size:'~1KB'},{name:'tests/',size:'3 files',badge:'DIR'}]},
+{name:'telli-knowledge-base/',type:'folder',children:[{name:'prompts.md',size:'~2KB'},{name:'flows.md',size:'~3KB'},{name:'scripts.md',size:'~1KB'},{name:'README.md',size:'~1KB'}]},
+{name:'memory/',type:'folder',children:[{name:'2026-02-11.md',size:'~2KB'},{name:'2026-02-10.md',size:'~2KB'},{name:'2026-02-09.md',size:'~1KB'}]},
+{name:'scripts/',type:'folder',children:[{name:'sync.py',size:'~3KB'},{name:'export.py',size:'~2KB'},{name:'utils.py',size:'~1KB'},{name:'notion_sync.py',size:'~4KB'},{name:'validate.py',size:'~2KB'}]},
+{name:'skills/',type:'folder',children:[{name:'recruiting/',size:'~3 files',badge:'DIR'},{name:'sales/',size:'~3 files',badge:'DIR'},{name:'automation/',size:'~2 files',badge:'DIR'}]}
+]},
+rainman:{name:'Rainman',emoji:'📊',accent:'#3b82f6',accentLight:'#EFF6FF',accentBg:'rgba(59,130,246,.1)',
+projects:[
+{icon:'🧠',title:'Knowledge Graph',status:'active',progress:65,next:'Phase 3 CV-Extraktion',files:'20+',updated:'2026-02-11'},
+{icon:'📊',title:'Gehaltsreport Verification',status:'done',progress:100,next:'Crafthunt-Daten verifiziert',files:'—',updated:'2026-02-10'},
+{icon:'📈',title:'Supply/Demand Analysis',status:'ongoing',progress:80,next:'Regionale Gaps vertiefen',files:'5',updated:'2026-02-10'},
+{icon:'🔍',title:'Company Intelligence',status:'active',progress:40,next:'Wettbewerber-Daten erweitern',files:'3',updated:'2026-02-10'}
+],
+tasks:[{t:'DB Schema Monitoring',f:'täglich'},{t:'KG Sync',f:'täglich'},{t:'Data Quality Checks',f:'wöchentlich'},{t:'Report Generation',f:'bei Bedarf'}],
+knowledge:{green:['DB Schema','Crafthunt Daten (52.9k W, 106.9k F)','Gehaltsstrukturen'],yellow:['Knowledge Graph','CV-Analyse'],red:['External Market Data']},
+timeline:[
+{date:'2026-02-11',text:'Memory updated'},
+{date:'2026-02-10',text:'KG Scripts Phase 2+3'},
+{date:'2026-02-10',text:'Supply/Demand Gaps analysiert'},
+{date:'2026-02-10',text:'Gehaltsreport-Daten verifiziert'}
+],
+files:[
+{name:'Root Files',type:'folder',children:[
+{name:'AGENTS.md',size:'528B'},{name:'HEARTBEAT.md',size:'549B'},{name:'IDENTITY.md',size:'262B'},{name:'MEMORY.md',size:'3.6KB'},{name:'SOUL.md',size:'1.7KB'},{name:'TOOLS.md',size:'495B'},{name:'USER.md',size:'257B'}
+]},
+{name:'data/',type:'folder',children:[{name:'workers.jsonl',size:'~50MB',badge:'JSONL'},{name:'firms.jsonl',size:'~80MB',badge:'JSONL'},{name:'salaries.jsonl',size:'~20MB',badge:'JSONL'},{name:'regions.json',size:'~2MB'},{name:'trades.json',size:'~500KB'},{name:'schema.sql',size:'~15KB'}]},
+{name:'reference/',type:'folder',children:[{name:'crafthunt-schema.md',size:'~4KB'},{name:'salary-bands.csv',size:'~2KB'},{name:'regions.md',size:'~1KB'},{name:'trades-taxonomy.md',size:'~3KB'},{name:'README.md',size:'~1KB'}]},
+{name:'reports/',type:'folder',children:[{name:'gehalt-verification.md',size:'~5KB'},{name:'supply-demand-gaps.md',size:'~4KB'},{name:'company-intel.md',size:'~2KB'},{name:'kg-status.md',size:'~3KB'}]},
+{name:'scripts/',type:'folder',children:[{name:'extract_workers.py',size:'~3KB'},{name:'extract_firms.py',size:'~3KB'},{name:'kg_build.py',size:'~5KB'},{name:'kg_query.py',size:'~2KB'},{name:'salary_analysis.py',size:'~4KB'},{name:'supply_demand.py',size:'~3KB'},{name:'validate.py',size:'~2KB'},{name:'export_report.py',size:'~2KB'},{name:'cv_extract.py',size:'~4KB'},{name:'geo_mapping.py',size:'~2KB'},{name:'utils.py',size:'~1KB'},{name:'config.py',size:'~1KB'}]},
+{name:'memory/',type:'folder',children:[{name:'2026-02-11.md',size:'~2KB'},{name:'2026-02-10.md',size:'~3KB'}]},
+{name:'apps/kg-query/',type:'folder',children:[{name:'package.json',size:'~1KB'},{name:'next.config.js',size:'~500B'},{name:'src/',size:'~10 files',badge:'DIR'}]}
+]}
+};
 
-const kbItems = [
-  {name:'Produktlinien',s:'g'},{name:'Matching & Tech',s:'g'},{name:'Zielgruppen',s:'g'},{name:'Gehaltsstrukturen',s:'g'},
-  {name:'KPIs',s:'g'},{name:'Wettbewerber',s:'g'},{name:'Brand Design',s:'g'},{name:'Marketing-Strategie',s:'g'},
-  {name:'Rebranding',s:'y'},{name:'Team-Struktur',s:'y'},{name:'Produkt & Features',s:'y'},{name:'Prozesse',s:'y'},
-  {name:'Pricing & Business Model',s:'r'},{name:'Kundenbeispiele',s:'r'}
-];
+let current='hugo',activeFilter='all',expanded=null;
 
-const timeline = [
-  {date:'2026-02-11 09:40',text:'Produktlinien von Andi erhalten'},
-  {date:'2026-02-11 09:37',text:'Notion → Lokal Migration'},
-  {date:'2026-02-11 09:34',text:'Slack: Alfred & Rainman informiert'},
-  {date:'2026-02-10',text:'Remotion Videos gerendert'},
-  {date:'2026-02-10',text:'14 Berufsgruppen-Grafiken erstellt'},
-  {date:'2026-02-10',text:'Marketing-Offensive aufgebaut'},
-  {date:'2026-02-10',text:'Gehaltsreport v7 FINAL approved'}
-];
+function toggleDropdown(){const d=document.getElementById('dropdown'),b=document.getElementById('agentBtn');d.classList.toggle('open');b.classList.toggle('open')}
+document.addEventListener('click',e=>{if(!e.target.closest('.agent-switcher')){document.getElementById('dropdown').classList.remove('open');document.getElementById('agentBtn').classList.remove('open')}});
 
-const fileTree = [
-  {name:'Root',tag:'all',files:[
-    {n:'AGENTS.md',s:'461B'},{n:'HEARTBEAT.md',s:'178B'},{n:'IDENTITY.md',s:'249B'},{n:'KNOWLEDGE.md',s:'4.6KB'},
-    {n:'MEMORY.md',s:'2.5KB'},{n:'PROJECTS.md',s:'1.7KB'},{n:'SOUL.md',s:'1.6KB'},{n:'TOOLS.md',s:'364B'},
-    {n:'USER.md',s:'310B'},{n:'hugo-profile.png',s:'1.3MB'}
-  ]},
-  {name:'memory/',tag:'memory',files:[
-    {n:'2026-02-09.md',s:'7.5KB'},{n:'2026-02-10.md',s:'3.5KB'},{n:'2026-02-10-afternoon.md',s:'3.2KB'},{n:'2026-02-11.md',s:'1.5KB'}
-  ]},
-  {name:'gehaltsreport/',tag:'gehaltsreport',files:[
-    {n:'BauGPT_Gehaltsreport_2026_v7.pdf',s:'1.7MB'},{n:'v6.pdf',s:'1.5MB'},{n:'v5.pdf',s:'1.8MB'},{n:'v4.pdf',s:'1.7MB'},
-    {n:'v3.pdf',s:'1.6MB'},{n:'DRAFT.pdf',s:'609KB'},{n:'Crafthunt_2025.pdf',s:'596KB'},
-    {n:'design_analyse.md',s:'4.6KB'},{n:'gehaelter_berufsgruppen.md',s:'9.6KB'},{n:'grafik_plan.md',s:'9.7KB'},
-    {n:'landing_page.html',s:'11.5KB'},{n:'neue_sektionen.md',s:'9.2KB'},{n:'quellen_validierung.md',s:'6.4KB'},
-    {n:'regionale_unterschiede.md',s:'8.8KB'},{n:'struktur.md',s:'2.5KB'},{n:'trends_und_tarife.md',s:'7.3KB'},
-    {n:'report.html',s:'33KB'},{n:'report_v2.html',s:'39KB'},{n:'report_v4.html',s:'62KB'},
-    {n:'report_v5.html',s:'82KB'},{n:'report_v6.html',s:'86KB'},{n:'gehaltsreport.tex',s:'62KB'},{n:'gehaltsreport.typ',s:'55KB'}
-  ],children:[
-    {name:'assets/',tag:'gehaltsreport',files:[
-      {n:'BauGPT_Brand_Guidelines.pdf',s:'3.4MB'},{n:'BauGPT_logo_dark.png',s:'105KB'},
-      {n:'BauGPT_logo_light.png',s:'102KB'},{n:'Bauly_head.png',s:'432KB'},
-      {n:'Bauly_showing_up.png',s:'3.8MB'},{n:'Bauly_thumbs_up.png',s:'3.7MB'}
-    ]},
-    {name:'charts/',tag:'gehaltsreport',files:[
-      ...Array.from({length:18},(_,i)=>({n:`chart_${String(i+1).padStart(2,'0')}.svg`,s:`${(1+Math.random()*5).toFixed(0)}KB`}))
-    ]},
-    {name:'vorlagen/',tag:'gehaltsreport',files:[
-      ...['vorlage_01','vorlage_02','vorlage_03','vorlage_04','vorlage_05','vorlage_06','vorlage_07','vorlage_08','vorlage_09','vorlage_10',
-       'vorlage_11','vorlage_12','vorlage_13','vorlage_14','vorlage_15','vorlage_16','vorlage_17','vorlage_18','vorlage_19','vorlage_20'].map(v=>({n:v+'.pdf',s:(0.6+Math.random()*5.4).toFixed(1)+'MB'}))
-    ]}
-  ]},
-  {name:'gehaltsrechner/',tag:'rechner',files:[{n:'index.html',s:'13.9KB'},{n:'README.md',s:'770B'}]},
-  {name:'linkedin/',tag:'linkedin',files:[
-    {n:'strategie.md',s:'6.6KB'},{n:'post_drafts.md',s:'5.2KB'},{n:'posting_kalender.md',s:'3.8KB'},{n:'post_visuals.md',s:'2KB'}
-  ],children:[
-    {name:'drafts/',tag:'linkedin',files:[{n:'chatgpt-werbung.md',s:'3.2KB'}]},
-    {name:'visuals/',tag:'linkedin',files:[
-      {n:'post1_ai_agents.png',s:'79KB'},{n:'post2_fachkraeftemangel.png',s:'84KB'},
-      {n:'post5_kontroverse.png',s:'105KB'},{n:'chatgpt_meme.png',s:'70KB'},{n:'chatgpt_vs_baugpt.png',s:'104KB'}
-    ]},
-    {name:'berufsgruppen/',tag:'linkedin',files:[
-      {n:'00-ranking-uebersicht.png',s:'152KB'},
-      ...Array.from({length:13},(_,i)=>({n:`${String(i+1).padStart(2,'0')}-berufsgruppe.png`,s:`${85+Math.floor(Math.random()*20)}KB`})),
-      {n:'template.html',s:'8.7KB'},{n:'render.mjs',s:'1.6KB'}
-    ]}
-  ]},
-  {name:'marketing/',tag:'marketing',files:[
-    {n:'wettbewerber_analyse.md',s:'9.4KB'},{n:'wettbewerber_matrix.md',s:'4.3KB'},
-    {n:'seo_blog_strategie.md',s:'4.3KB'},{n:'email_nurture_sequence.md',s:'4.8KB'}
-  ],children:[
-    {name:'blog/',tag:'marketing',files:[{n:'bauleiter-gehalt-2026.md',s:'7.1KB'},{n:'maurer-gehalt-2026.md',s:'5KB'}]}
-  ]},
-  {name:'baugpt-videos/',tag:'videos',files:[],children:[
-    {name:'src/',tag:'videos',files:[
-      {n:'Root.tsx',s:'621B'},{n:'Composition.tsx',s:'420B'},{n:'GehaltsRanking.tsx',s:'10.5KB'},
-      {n:'FachkraefteMangel.tsx',s:'9.2KB'},{n:'index.ts',s:'108B'},{n:'index.css',s:'226B'}
-    ]},
-    {name:'out/',tag:'videos',files:[
-      {n:'gehaltsranking.mp4',s:'1.3MB'},{n:'gehaltsranking_30s.mp4',s:'3.6MB'},
-      {n:'fachkraeftemangel.mp4',s:'2MB'},{n:'fachkraeftemangel_30s.mp4',s:'3MB'}
-    ]}
-  ]}
-];
-
-// === RENDER ===
-function ext(n){return n.split('.').pop().toLowerCase()}
-function badge(n){
-  const e=ext(n);
-  if(['pdf'].includes(e))return '<span class="fbadge fbadge-pdf">PDF</span>';
-  if(['png','jpg','jpeg','gif','webp','svg'].includes(e))return '<span class="fbadge fbadge-img">IMG</span>';
-  if(['md','txt'].includes(e))return '<span class="fbadge fbadge-md">MD</span>';
-  if(['html','htm'].includes(e))return '<span class="fbadge fbadge-html">HTML</span>';
-  if(['mp4','mov','webm'].includes(e))return '<span class="fbadge fbadge-vid">VID</span>';
-  return '';
+function switchAgent(id){
+if(id===current&&document.getElementById('content').innerHTML)return;
+document.getElementById('dropdown').classList.remove('open');
+document.getElementById('agentBtn').classList.remove('open');
+current=id;activeFilter='all';expanded=null;
+const a=AGENTS[id];
+location.hash=id;
+document.documentElement.style.setProperty('--accent',a.accent);
+document.documentElement.style.setProperty('--accent-light',a.accentLight);
+document.documentElement.style.setProperty('--accent-bg',a.accentBg);
+document.getElementById('agentEmoji').textContent=a.emoji;
+document.getElementById('agentName').textContent=a.name;
+document.querySelectorAll('.dropdown-item').forEach(el=>el.classList.toggle('active',el.dataset.agent===id));
+const w=document.getElementById('content');
+w.classList.add('fading');
+setTimeout(()=>{render();w.classList.remove('fading')},250);
 }
 
-// Projects
-const grid=document.getElementById('projectGrid');
-function renderProjects(filter='all'){
-  grid.innerHTML='';
-  projects.filter(p=>filter==='all'||p.status===filter).forEach(p=>{
-    const colMap={done:'var(--green)',ongoing:'#2563eb',active:'var(--amber)',backlog:'#999',blocked:'var(--red)'};
-    const bcMap={done:'badge-done',ongoing:'badge-ongoing',active:'badge-active',backlog:'badge-backlog',blocked:'badge-blocked'};
-    const labelMap={done:'Done',ongoing:'Ongoing',active:'In Progress',backlog:'Backlog',blocked:'Blocked'};
-    const col=colMap[p.status]||'var(--amber)';
-    const bc=bcMap[p.status]||'badge-active';
-    const label=labelMap[p.status]||p.status;
-    const el=document.createElement('div');
-    el.className='p-card';
-    el.innerHTML=`<div class="p-card-head"><div class="p-card-title">${p.icon} ${p.title}</div><div class="badge ${bc}">${label}</div></div>
-      <div class="progress-track"><div class="progress-fill" style="width:${p.pct}%;background:${col}"></div></div>
-      <div class="p-card-next"><strong>Nächster Schritt:</strong> ${p.next}</div>
-      <div class="p-card-meta"><span>${p.files}</span><span>${p.date}</span></div>
-      <div class="p-card-detail">${p.detail}</div>`;
-    el.onclick=()=>el.classList.toggle('expanded');
-    grid.appendChild(el);
-  });
+function render(){
+const a=AGENTS[current];
+const filtered=activeFilter==='all'?a.projects:a.projects.filter(p=>p.status===activeFilter);
+const statusCls=s=>({done:'badge-done',ongoing:'badge-ongoing',active:'badge-active',backlog:'badge-backlog',blocked:'badge-blocked'}[s]||'badge-backlog');
+const filters=['all','backlog','active','ongoing','done','blocked'];
+const filterLabels={all:'Alle',backlog:'Backlog',active:'In Progress',ongoing:'Ongoing',done:'Done',blocked:'Blocked'};
+
+let h=`<div class="section-title">Projekt-Board <span class="count">${filtered.length}</span></div>
+<div class="tabs">${filters.map(f=>`<div class="tab${activeFilter===f?' active':''}" onclick="activeFilter='${f}';render()">${filterLabels[f]}</div>`).join('')}</div>
+<div class="projects-grid">${filtered.map((p,i)=>`
+<div class="project-card${expanded===i?' expanded':''}" onclick="expanded=expanded===${i}?null:${i};render()">
+<div class="card-header"><span class="card-icon">${p.icon}</span><span class="card-title">${p.title}</span><span class="badge ${statusCls(p.status)}">${p.status}</span></div>
+<div class="progress-wrap"><div class="progress-bar" style="width:${p.progress}%"></div></div>
+<div class="card-meta"><span>📁 ${p.files} files</span><span>📅 ${p.updated}</span><span>${p.progress}%</span></div>
+<div class="card-next"><b>Next:</b> ${p.next}</div>
+<div class="card-details">Klicke für weitere Details zu diesem Projekt. Alle relevanten Dateien, Notizen und Verlauf werden hier angezeigt sobald die Datenquelle verbunden ist.</div>
+</div>`).join('')}</div>`;
+
+h+=`<div class="pills-section"><div class="section-title">Wiederkehrende Aufgaben</div><div class="pills">${a.tasks.map(t=>`<div class="pill">${t.t} <span class="freq">${t.f}</span></div>`).join('')}</div></div>`;
+
+h+=`<div class="kb-section"><div class="section-title">Knowledge Base</div><div class="kb-grid">
+${a.knowledge.green.map(k=>`<div class="kb-item"><span class="kb-dot green"></span>${k}</div>`).join('')}
+${a.knowledge.yellow.map(k=>`<div class="kb-item"><span class="kb-dot yellow"></span>${k}</div>`).join('')}
+${a.knowledge.red.map(k=>`<div class="kb-item"><span class="kb-dot red"></span>${k}</div>`).join('')}
+</div></div>`;
+
+h+=`<div class="timeline-section"><div class="section-title">Activity Timeline</div><div class="timeline">${a.timeline.map(t=>`<div class="tl-item"><div class="tl-date">${t.date}</div><div class="tl-text">${t.text}</div></div>`).join('')}</div></div>`;
+
+h+=`<div class="files-section"><div class="section-title">File Explorer</div>
+<input class="search-box" placeholder="Dateien durchsuchen..." oninput="filterFiles(this.value)">
+<div class="file-tree" id="fileTree">${renderFiles(a.files)}</div></div>`;
+
+document.getElementById('content').innerHTML=h;
 }
-renderProjects();
-document.querySelectorAll('#projectTabs .tab').forEach(t=>{
-  t.onclick=()=>{
-    document.querySelectorAll('#projectTabs .tab').forEach(x=>x.classList.remove('active'));
-    t.classList.add('active');
-    renderProjects(t.dataset.filter);
-  };
+
+function renderFiles(files,depth=0){
+return files.map((f,i)=>{
+if(f.type==='folder'){
+return`<div class="file-folder" data-name="${f.name.toLowerCase()}">
+<div class="file-folder-header" onclick="this.parentElement.classList.toggle('open');event.stopPropagation()">
+<svg viewBox="0 0 16 16" fill="currentColor"><path d="M6 4l4 4-4 4"/></svg>📁 ${f.name}${f.children?` (${f.children.length})`:''}
+</div><div class="file-folder-children">${f.children?renderFiles(f.children,depth+1):''}</div></div>`;
+}
+const ext=f.name.split('.').pop().toLowerCase();
+const isText=['md','txt','py','ts','js','yaml','json','csv','sql','tsx','jsx','css','html'].includes(ext);
+const badge=f.badge?`<span class="file-badge">${f.badge}</span>`:'';
+return`<div class="file-item" data-name="${f.name.toLowerCase()}" onclick="${isText?`openPanel('${f.name}')`:'void(0)'}">
+<span class="file-name">📄 ${f.name} ${badge}</span><span class="file-size">${f.size}</span></div>`;
+}).join('');
+}
+
+function filterFiles(q){
+q=q.toLowerCase();
+document.querySelectorAll('#fileTree .file-item, #fileTree .file-folder').forEach(el=>{
+const name=el.dataset.name||'';
+el.style.display=!q||name.includes(q)?'':'none';
+if(q&&el.classList.contains('file-folder')&&name.includes(q))el.classList.add('open');
 });
-
-// Knowledge Base
-const kbGrid=document.getElementById('kbGrid');
-kbItems.forEach(k=>{
-  kbGrid.innerHTML+=`<div class="kb-item"><div class="kb-dot ${k.s}"></div>${k.name}</div>`;
-});
-
-// Timeline
-const tl=document.getElementById('timeline');
-timeline.forEach(t=>{
-  tl.innerHTML+=`<div class="tl-item"><span class="tl-date">${t.date}</span> — <span class="tl-text">${t.text}</span></div>`;
-});
-
-// File Explorer
-const feTagNames=[{l:'Alle',v:'all'},{l:'Gehaltsreport',v:'gehaltsreport'},{l:'Rechner',v:'rechner'},{l:'LinkedIn',v:'linkedin'},{l:'Marketing',v:'marketing'},{l:'Videos',v:'videos'},{l:'Memory',v:'memory'}];
-const feTags=document.getElementById('feTags');
-let activeFeTag='all';
-feTagNames.forEach(t=>{
-  const el=document.createElement('div');
-  el.className='fe-tag'+(t.v==='all'?' active':'');
-  el.textContent=t.l;
-  el.dataset.tag=t.v;
-  el.onclick=()=>{
-    document.querySelectorAll('.fe-tag').forEach(x=>x.classList.remove('active'));
-    el.classList.add('active');
-    activeFeTag=t.v;
-    renderTree();
-  };
-  feTags.appendChild(el);
-});
-
-function renderTree(){
-  const tree=document.getElementById('feTree');
-  const q=document.getElementById('feSearch').value.toLowerCase();
-  tree.innerHTML='';
-  function renderFolder(folder,parent,depth=0){
-    if(activeFeTag!=='all'&&folder.tag&&folder.tag!==activeFeTag){
-      const hasChild=folder.children&&folder.children.some(c=>c.tag===activeFeTag);
-      if(!hasChild)return;
-    }
-    const div=document.createElement('div');
-    div.className='fe-folder open';
-    const head=document.createElement('div');
-    head.className='fe-folder-head';
-    head.style.paddingLeft=(16+depth*16)+'px';
-    head.innerHTML=`<span class="arrow">▶</span> 📁 ${folder.name}`;
-    head.onclick=(e)=>{e.stopPropagation();div.classList.toggle('open')};
-    div.appendChild(head);
-    const children=document.createElement('div');
-    children.className='fe-children';
-    (folder.files||[]).forEach(f=>{
-      if(q&&!f.n.toLowerCase().includes(q))return;
-      const fe=document.createElement('div');
-      fe.className='fe-file';
-      fe.style.paddingLeft=(36+depth*16)+'px';
-      fe.innerHTML=`${fileIcon(f.n)} ${f.n} ${badge(f.n)} <span class="fsize">${f.s}</span>`;
-      fe.onclick=(e)=>{e.stopPropagation();openFile(f)};
-      children.appendChild(fe);
-    });
-    (folder.children||[]).forEach(c=>renderFolder(c,children,depth+1));
-    div.appendChild(children);
-    if(children.children.length>0)parent.appendChild(div);
-  }
-  fileTree.forEach(f=>renderFolder(f,tree));
 }
-function fileIcon(n){
-  const e=ext(n);
-  if(['pdf'].includes(e))return '📄';
-  if(['png','jpg','jpeg','gif','webp','svg'].includes(e))return '🖼️';
-  if(['md','txt'].includes(e))return '📝';
-  if(['html','htm'].includes(e))return '🌐';
-  if(['mp4','mov'].includes(e))return '🎬';
-  if(['tsx','ts','js','mjs','css'].includes(e))return '💻';
-  if(['tex','typ'].includes(e))return '📐';
-  return '📎';
-}
-renderTree();
-document.getElementById('feSearch').addEventListener('input',renderTree);
 
-// Modal
-const overlay=document.getElementById('modalOverlay');
-const panel=document.getElementById('modalPanel');
-function openFile(f){
-  document.getElementById('modalTitle').textContent=f.n;
-  const body=document.getElementById('modalBody');
-  const e=ext(f.n);
-  if(['md','txt'].includes(e)){
-    body.innerHTML=`<div style="color:var(--muted);margin-bottom:12px;font-size:.78rem">${f.n} · ${f.s}</div>`+placeholderContent(f.n);
-  }else if(['png','jpg','jpeg','gif','webp','svg'].includes(e)){
-    body.innerHTML=`<div class="modal-img-placeholder"><span>🖼️</span>Bildvorschau nicht verfügbar<div style="font-size:.78rem;color:var(--muted)">${f.n} · ${f.s}</div></div>`;
-  }else if(e==='pdf'){
-    body.innerHTML=`<div class="modal-img-placeholder"><span>📄</span>PDF-Dokument<div style="font-size:.78rem;color:var(--muted)">${f.n} · ${f.s}</div><div class="badge badge-blocked" style="margin-top:8px">PDF</div></div>`;
-  }else if(['mp4','mov','webm'].includes(e)){
-    body.innerHTML=`<div class="modal-img-placeholder"><span>🎬</span>Video-Datei<div style="font-size:.78rem;color:var(--muted)">${f.n} · ${f.s}</div></div>`;
-  }else{
-    body.innerHTML=`<div style="color:var(--muted);margin-bottom:12px;font-size:.78rem">${f.n} · ${f.s}</div><code style="font-size:.8rem">// Dateiinhalt wird hier angezeigt\n// wenn Backend verfügbar ist.</code>`;
-  }
-  overlay.classList.add('open');
-  panel.classList.add('open');
+function openPanel(name){
+document.getElementById('panelTitle').textContent=name;
+document.getElementById('panelBody').innerHTML=`<p style="color:var(--text2)">📄 <strong>${name}</strong></p><br><p>Dateiinhalt wird geladen...</p><br><div style="background:#f9fafb;border-radius:8px;padding:16px;border:1px dashed #e5e7eb;text-align:center;color:#9ca3af">Verbinde mit dem Workspace-Dateisystem für Live-Inhalte</div>`;
+document.getElementById('panel').classList.add('open');
+document.getElementById('overlay').classList.add('open');
 }
-function closeModal(){overlay.classList.remove('open');panel.classList.remove('open')}
-document.getElementById('modalClose').onclick=closeModal;
-overlay.onclick=closeModal;
+function closePanel(){document.getElementById('panel').classList.remove('open');document.getElementById('overlay').classList.remove('open')}
 
-function placeholderContent(name){
-  const contents={
-    'AGENTS.md':'# AGENTS.md - Hugo\'s Workspace\n\n## Every Session\n1. Read SOUL.md — this is who you are\n2. Read USER.md — who you\'re helping\n3. Read memory/YYYY-MM-DD.md for recent context\n\n## Memory\n- Daily notes: memory/YYYY-MM-DD.md\n- Long-term: MEMORY.md\n\n## Safety\n- Don\'t publish without asking first\n- trash > rm',
-    'SOUL.md':'# SOUL.md\n\nIch bin Hugo 🚀 — BauGPTs Marketing-Agent.\n\nIch arbeite autonom an Marketing, Content und Growth für BauGPT.\nMein Chef ist Alfred (Co-Founder & CTO).\n\nIch bin kreativ, zuverlässig und denke strategisch.\nIch liebe Baubranche-Themen und guten Content.',
-    'USER.md':'# USER.md\n\nName: Alfred\nRolle: Co-Founder & CTO @ BauGPT\nKommunikation: Slack, Telegram\nStil: Direkt, effizient, mag guten Output',
-    'MEMORY.md':'# MEMORY.md - Long-term Memory\n\n## Key Facts\n- BauGPT = AI for Baubranche\n- Gehaltsreport 2026 ist Flagship-Content\n- LinkedIn Growth ist Priorität Q1 2026\n- Team: Alfred (CTO), Andi (CEO), Rainman',
-    'KNOWLEDGE.md':'# KNOWLEDGE.md\n\n## BauGPT Produktlinien\n- BauGPT Chat: AI-Assistent für Bau\n- BauGPT Matching: Fachkräfte-Vermittlung\n- BauGPT Academy: Weiterbildung\n\n## Zielgruppen\n- Bauleiter, Poliere, Handwerker\n- Bauunternehmen, GUs\n- HR-Abteilungen in der Baubranche',
-    'PROJECTS.md':'# PROJECTS.md\n\n1. Gehaltsreport 2026 — 95% ✅\n2. Gehaltsrechner — 100% ✅\n3. LinkedIn Growth — 60% 🟡\n4. Marketing-Offensive — 45% 🟡\n5. BauGPT Videos — 40% 🟡\n6. Website-Audit — 5% 🔴',
-    'strategie.md':'# LinkedIn Strategie\n\n## Ziel: 10K Follower bis Q2 2026\n\n### Content-Pillars\n1. Gehaltsdaten & Insights\n2. AI in der Baubranche\n3. Fachkräftemangel-Lösungen\n4. Behind the Scenes @ BauGPT',
-    'post_drafts.md':'# LinkedIn Post Drafts\n\n## Post 1: AI Agents im Bau\n🏗️ AI verändert die Baubranche...\n\n## Post 2: Fachkräftemangel\n📊 400.000 fehlende Fachkräfte bis 2030...',
-    'design_analyse.md':'# Design-Analyse Gehaltsreport\n\n## Farben: BauGPT Amber + Professional Blue\n## Layout: Magazine-Style, Data-heavy\n## Charts: 18 SVG Visualisierungen',
-    'wettbewerber_analyse.md':'# Wettbewerber-Analyse\n\n## Direkte Wettbewerber\n1. Crafthunt — Recruiting-Plattform\n2. Buildup — Bau-Software\n3. PlanRadar — Baudokumentation\n\n## Positionierung BauGPT\n→ AI-First, Gehaltstransparenz als USP',
-    'seo_blog_strategie.md':'# SEO Blog Strategie\n\n## Target Keywords\n- bauleiter gehalt 2026 (Vol: 2.4K)\n- maurer gehalt (Vol: 1.8K)\n- gehalt baubranche (Vol: 3.1K)\n\n## Content Plan: 6 Blogposts in Q1',
-  };
-  const key=Object.keys(contents).find(k=>name.includes(k)||name===k);
-  return key?contents[key]:`# ${name}\n\n[Dateiinhalt wird geladen...]\n\nDiese Datei enthält ${name.includes('memory')?'tägliche Notizen und Kontext':'projektrelevante Informationen'} für Hugo's Workspace.`;
-}
+function updateClock(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleDateString('de-DE',{weekday:'short',day:'numeric',month:'short',year:'numeric'})+' · '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
+setInterval(updateClock,10000);updateClock();
+
+// Init from hash
+const hash=location.hash.replace('#','');
+switchAgent(['hugo','alfred','rainman'].includes(hash)?hash:'hugo');
+window.addEventListener('hashchange',()=>{const h=location.hash.replace('#','');if(['hugo','alfred','rainman'].includes(h))switchAgent(h)});
 </script>
 </body>
 </html>
